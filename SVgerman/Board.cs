@@ -557,24 +557,25 @@
                 P2boardHidden[target[0], target[1]] = 1;    //Wenn ja, dann wird beim Board des Gegners das Schiff als zerstört geändert und bei dem eigenen wird ein Schiff angezeigt
                 P2board[target[0], target[1]] = 2;
             }
-            else                                            //
+            else                                            //Ansonsten wird bei beiden Boards ein Miss markiert
             {
                 P2boardHidden[target[0], target[1]] = 24;
                 P2board[target[0], target[1]] = 24;
             }
         }
 
-        int[] target = new int[2];
+        int[] target = new int[2];                  //Speichert die Koordinaten des Ziels als int[]
 
+        //Eine Funktion, die die Koordinaten des Ziels vom User abgreift
         public int[] P1shootget()
         {
-            temp = Console.ReadLine();
-            sub = temp.Split(",");
+            temp = Console.ReadLine();          //Liest den Input vom User
+            sub = temp.Split(",");              //und splittet diese nach dem Zeichen ","
             switch (sub[0])
             {
                 case "A":
                     target[0] = 1;
-                    target[1] = P1sg2(sub[1]);
+                    target[1] = P1sg2(sub[1]);  //Die Zweite Zahl wird in der anderen Funktion gegriffen
                     break;
                 case "B":
                     target[0] = 2;
@@ -612,7 +613,7 @@
                     target[0] = 10;
                     target[1] = P1sg2(sub[1]);
                     break;
-                default:
+                default:                        //Sollte der Input nicht im Spielfeld liegen, wird diese Funktion rekursiv aufgerufen
                     Console.WriteLine("Dies liegt leider nicht im Spielfeld. Bitte wähle eine andere Position");
                     target = P1shootget();                
                     break;
@@ -620,9 +621,10 @@
             return target;
         }
 
+        //Eine Funktion, die die zweite Zahl der Zielkoordinate returnt. Benötigt den String, welcher transkripiert werden soll (i)
         public int P1sg2(string i)
         {
-            int temp;
+            int temp;               //eine Temporäre Zahl, die am Ende returnt wird
             switch (i)
             {
                 case "1":
@@ -655,24 +657,27 @@
                 case "10":
                     temp = 10;
                     break;
-                default:
+                default:        //Wenn die Zahl nicht im Spielfeld liegt, wird nach einer neuen gefragt und diese Funktion rekursiv aufgerufen
                     Console.WriteLine("Dies liegt leider nicht im Spielfeld. Bitte wähle eine andere Zahl");
                     temp = P1sg2(Console.ReadLine());
                     break;
             }
-            return temp;
+            return temp;        //Die Zahl wird returnt
         }
 
+        //Diese Funktion ist ist eine public get() Funktion für das Board von Spieler 1, welches Spieler 2 sieht
         public int[,] P1hget()
         {
             return P1boardHidden;
         }
 
+        //Eine WIP Funktion für den Multiplayermodus
         public void PlaceP2()
         {
 
         }
 
+        //Diese Funktion returnt ein false, wenn im Board von Spieler 2 keine Schiffe mehr zu finden sind
         public bool CheckWinP1()
         {
             bool temp = true;
@@ -689,6 +694,7 @@
             return temp;
         }
 
+        //Diese Funktion returnt ein false, wenn im Board von Spieler 1 keine Schiffe mehr zu finden sind
         public bool CheckWinP2()
         {
             bool temp = true;
@@ -705,6 +711,7 @@
             return temp;
         }
 
+        //Eine Funktion welche die Schiffe der AI platziert
         public void PlaceP2AI(int[] positions)
         {
             switch (positions[2])
@@ -871,6 +878,8 @@
             }
         }
 
+
+        //Eine Funktion, die für die AI schießt
         public void P2shootAI(int[] target)
         {
             if (P1board[target[0], target[1]] == 1)
