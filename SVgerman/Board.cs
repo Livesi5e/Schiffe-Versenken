@@ -257,7 +257,7 @@
         public void Player2outhP1out()
         {
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Gegnerisches Feld:\t\tDein Feld Feld:");
+            Console.WriteLine("Gegnerisches Feld:\t\tDein Feld:");
             Console.ResetColor();
             for (int i = 0; i < 11; i++)                                    //Hier wird durch die y-Koordinate beider Boards geloopt
             {
@@ -324,6 +324,76 @@
             }
         }
 
+        public void Player1outhP2out()
+        {
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("Gegnerisches Feld:\t\tDein Feld:");
+            Console.ResetColor();
+            for (int i = 0; i < 11; i++)                                    //Hier wird durch die y-Koordinate beider Boards geloopt
+            {
+                for (int o = 0; o < 11; o++)                                //Hier werden die ID's für die Punkte [x|y] des Boards von Spieler 2 geloopt
+                {
+                    switch (OwnBoard[P1boardHidden[i, o]].Item2)
+                    {
+                        case 0:
+                            Console.ForegroundColor = ConsoleColor.Blue;
+                            break;
+                        case 1:
+                            Console.ForegroundColor = ConsoleColor.White;
+                            break;
+                        case 2:
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            break;
+                        case 3:
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            break;
+                        case 4:
+                            Console.ForegroundColor = ConsoleColor.DarkBlue;
+                            break;
+                        case 5:
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            break;
+                        default:
+                            break;
+                    }
+                    Console.Write(OwnBoard[P1boardHidden[i, o]].Item1);
+                    Console.Write(" ");
+                    Console.ResetColor();
+                }
+                Console.Write("\t\t");                                          //Der Abstand zwischen den beiden Boards wird erstellt
+                for (int o = 0; o < 11; o++)                                    //Hier werden die ID's für die Punkte [x|y] des Boards von Spieler 1 geloopt
+                {
+                    switch (OwnBoard[P2board[i, o]].Item2)
+                    {
+                        case 0:
+                            Console.ForegroundColor = ConsoleColor.Blue;
+                            break;
+                        case 1:
+                            Console.ForegroundColor = ConsoleColor.White;
+                            break;
+                        case 2:
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            break;
+                        case 3:
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            break;
+                        case 4:
+                            Console.ForegroundColor = ConsoleColor.DarkBlue;
+                            break;
+                        case 5:
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            break;
+                        default:
+                            break;
+                    }
+                    Console.Write(OwnBoard[P2board[i, o]].Item1);
+                    Console.Write(" ");
+                    Console.ResetColor();
+                }
+                Console.Write("\n");
+            }
+        }
+
         public string[] sub;                                            //Der Array an User-Inputs [0] = y-Koordinate, [1] = x-Koordinate, [2] = Orientierung
         
         //Hier ist das Platzieren der Schiffe des ersten Spielers. Übergeben wird die Länge des Schiffes
@@ -331,7 +401,7 @@
         {
             bool input = true;                                          //Speichert ob ein Input vom User kam. false bedeutet, dass es einen Input gab
             int[] position = get();                                     //Hier wird die Position des Schiffes mithilfe der Funktion get() vom User abgegriffen
-            position = P1check(position, l, sub[2]);                    //Hier wird gecheckt ob die Position des Schiffes innerhalb des Feldes ist
+            position = check(position, l, sub[2]);                    //Hier wird gecheckt ob die Position des Schiffes innerhalb des Feldes ist
             position = P1checkO(position, l, sub[2]);                   //Hier wird gecheckt ob das Schiff mit anderen Schiffen kollidiert
             while (input)
             {
@@ -368,7 +438,7 @@
                     default:                                            //Falls keine Richtung angegeben wurde oder eine nicht existierende Richtung angegeben wurde, wird eine neue Richtung abgefragt und noch mal gecheckt
                         Console.WriteLine("Bitte gib eine existierende Richtung an");
                         sub[2] = Console.ReadLine();
-                        position = P1check(position, l, sub[2]);
+                        position = check(position, l, sub[2]);
                         position = P1checkO(position, l, sub[2]);
                         break;
                 }
@@ -452,7 +522,7 @@
         }
 
         //Checkt, ob die angegebene Position innerhalb des Boards liegt, sollte das Schiff dort gesetzt werden. Benötigt die Position (p), Länge des Schiffs (l) und die Orientierung (d)
-        int[] P1check(int[] p, int l, string d)
+        int[] check(int[] p, int l, string d)
         {
             switch (d)                      //Nach der Orientierung wird unterschiedlich gecheckt
             {
@@ -461,7 +531,7 @@
                     {
                         Console.WriteLine("Das passt leider nicht :/ Gib bitte ne Position an, wo der passt");
                         p = get();                      //Sollte dieser nicht passen, wird nach einem neuen Punkt gefragt
-                        p = P1check(p, l, sub[2]);      //Dieser wird rekursiv wieder mit dieser Funktion gecheckt
+                        p = check(p, l, sub[2]);      //Dieser wird rekursiv wieder mit dieser Funktion gecheckt
                     }
                     break;
                 case "down":
@@ -469,7 +539,7 @@
                     {
                         Console.WriteLine("Das passt leider nicht :/ Gib bitte ne Position an, wo der passt");
                         p = get();
-                        p = P1check(p, l, sub[2]);
+                        p = check(p, l, sub[2]);
                     }
                     break;
                 case "left":
@@ -477,7 +547,7 @@
                     {
                         Console.WriteLine("Das passt leider nicht :/ Gib bitte ne Position an, wo der passt");
                         p = get();
-                        p = P1check(p, l, sub[2]);
+                        p = check(p, l, sub[2]);
                     }
                     break;
                 case "right":
@@ -485,7 +555,7 @@
                     {
                         Console.WriteLine("Das passt leider nicht :/ Gib bitte ne Position an, wo der passt");
                         p = get();
-                        p = P1check(p, l, sub[2]);
+                        p = check(p, l, sub[2]);
                     }
                     break;
                 default:
@@ -506,7 +576,7 @@
                         {
                             Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();                      //Wenn dies der Fall ist, wird ein neuer Punkt angefragt
-                            p = P1check(p, l, sub[2]);      //Dieser auf Out of Bounds geprüft
+                            p = check(p, l, sub[2]);      //Dieser auf Out of Bounds geprüft
                             p = P1checkO(p, l, sub[2]);     //und rekursiv in dieser Funktion geprüft, bis die Koordinaten passen
                         }
                         break;
@@ -515,7 +585,7 @@
                         {
                             Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();
-                            p = P1check(p, l, sub[2]);
+                            p = check(p, l, sub[2]);
                             p = P1checkO(p, l, sub[2]);
                         }
                         break;
@@ -524,7 +594,7 @@
                         {
                             Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();
-                            p = P1check(p, l, sub[2]);
+                            p = check(p, l, sub[2]);
                             p = P1checkO(p, l, sub[2]);
                         }
                         break;
@@ -533,7 +603,7 @@
                         {
                             Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();
-                            p = P1check(p, l, sub[2]);
+                            p = check(p, l, sub[2]);
                             p = P1checkO(p, l, sub[2]);
                         }
                         break;
@@ -546,11 +616,11 @@
         //Diese Funktion macht den Schuss für Spieler 1
         public void P1shoot()
         {
-            int[] target = P1shootget();                    //Die Position, wohin der Spieler schießen möchte wird abgegriffen
+            int[] target = Shootget();                    //Die Position, wohin der Spieler schießen möchte wird abgegriffen
             while(P2boardHidden[target[0],target[1]] == 1 || P2boardHidden[target[0],target[1]] == 2)       //Es wird auf dem Board des Spielers 2, welches Spieler 1 sieht gecheckt, ob die Koordinate entweder die ID für einen Treffer oder ein Miss beinhaltet
             {
                 Console.WriteLine("Hier hast du schon hingeschossen. Wähle lieber ne Position wo du noch nicht geschossen hast");
-                target = P1shootget();                      //Sollte dies der Fall sein, wird eine neue Koordinate abgefragt
+                target = Shootget();                      //Sollte dies der Fall sein, wird eine neue Koordinate abgefragt
             }
             if(P2board[target[0],target[1]] == 1)           //Sobald der Punkt an einer Stelle ist, welche valide ist, wird gechekt, ob ein Schiff an der Stelle ist
             {
@@ -567,7 +637,7 @@
         int[] target = new int[2];                  //Speichert die Koordinaten des Ziels als int[]
 
         //Eine Funktion, die die Koordinaten des Ziels vom User abgreift
-        public int[] P1shootget()
+        public int[] Shootget()
         {
             temp = Console.ReadLine();          //Liest den Input vom User
             sub = temp.Split(",");              //und splittet diese nach dem Zeichen ","
@@ -615,7 +685,7 @@
                     break;
                 default:                        //Sollte der Input nicht im Spielfeld liegen, wird diese Funktion rekursiv aufgerufen
                     Console.WriteLine("Dies liegt leider nicht im Spielfeld. Bitte wähle eine andere Position");
-                    target = P1shootget();                
+                    target = Shootget();                
                     break;
             }
             return target;
@@ -672,12 +742,122 @@
         }
 
         //Eine WIP Funktion für den Multiplayermodus
-        public void PlaceP2()
+        public void PlaceP2(int l)
         {
-
+            bool input = true;
+            int[] position = get();
+            position = check(position, l, sub[2]);
+            position = P2checkO(position, l, sub[2]);
+            while (input)
+            {
+                switch (sub[2])                                         //Anhand der Länge und Orientierung wird das Schiff plaziert
+                {
+                    case "up":                                          //Um das Schiff nach "oben" zu platzieren wird die y-Koordinate um 1 subtrahiert.
+                        for (int i = 0; i < l; i++)
+                        {
+                            P2board[position[0] - i, position[1]] = 1;
+                        }
+                        input = false;
+                        break;
+                    case "down":                                        //Um das Schiff nach "unten" zu platzieren wird die y-Koordinate um 1 addiert
+                        for (int i = 0; i < l; i++)
+                        {
+                            P2board[position[0] + i, position[1]] = 1;
+                        }
+                        input = false;
+                        break;
+                    case "left":                                        //Um das Schiff nach "links" zu platzieren wird die x-Koordinate um 1 subtrahiert
+                        for (int i = 0; i < l; i++)
+                        {
+                            P2board[position[0], position[1] - i] = 1;
+                        }
+                        input = false;
+                        break;
+                    case "right":                                       //Um das Schiff nach "rechts" zu platzieren wird die x-Koordinate um 1 addiert
+                        for (int i = 0; i < l; i++)
+                        {
+                            P2board[position[0], position[1] + i] = 1;
+                        }
+                        input = false;
+                        break;
+                    default:                                            //Falls keine Richtung angegeben wurde oder eine nicht existierende Richtung angegeben wurde, wird eine neue Richtung abgefragt und noch mal gecheckt
+                        Console.WriteLine("Bitte gib eine existierende Richtung an");
+                        sub[2] = Console.ReadLine();
+                        position = check(position, l, sub[2]);
+                        position = P2checkO(position, l, sub[2]);
+                        break;
+                }
+            }
         }
 
-        //Diese Funktion returnt ein false, wenn im Board von Spieler 2 keine Schiffe mehr zu finden sind
+        int[] P2checkO(int[] p, int l, string d)
+        {
+            for (int i = 0; i < l; i++)                     //Loopt durch jeden Punkt, der erstellt werden würde, um zu gucken, ob da schon einer ist
+            {
+                switch (d)                                  //Basierend auf der Orientierung wird in eine andere Richtung geguckt
+                {
+                    case "up":
+                        if (P2board[p[0] - i, p[1]] == 1)    //Die Koordinate wird um die Loopanzahl versetzt und geguck, ob die ID dort einem anderem Schiff entspricht
+                        {
+                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            p = get();                      //Wenn dies der Fall ist, wird ein neuer Punkt angefragt
+                            p = check(p, l, sub[2]);      //Dieser auf Out of Bounds geprüft
+                            p = P2checkO(p, l, sub[2]);     //und rekursiv in dieser Funktion geprüft, bis die Koordinaten passen
+                        }
+                        break;
+                    case "down":
+                        if (P2board[p[0] + i, p[1]] == 1)
+                        {
+                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            p = get();
+                            p = check(p, l, sub[2]);
+                            p = P2checkO(p, l, sub[2]);
+                        }
+                        break;
+                    case "left":
+                        if (P2board[p[0], p[1] - i] == 1)
+                        {
+                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            p = get();
+                            p = check(p, l, sub[2]);
+                            p = P2checkO(p, l, sub[2]);
+                        }
+                        break;
+                    case "right":
+                        if (P2board[p[0], p[1] + i] == 1)
+                        {
+                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            p = get();
+                            p = check(p, l, sub[2]);
+                            p = P2checkO(p, l, sub[2]);
+                        }
+                        break;
+                }
+            }
+            return p;           //Sollte der Punkt diese Tests bestanden haben, werden die Koordinaten hier returnt
+        }
+
+        public void P2shoot()
+        {
+            int[] target = Shootget();                      //Die Position, wohin der Spieler schießen möchte wird abgegriffen
+            while (P1boardHidden[target[0], target[1]] == 1 || P1boardHidden[target[0], target[1]] == 2)       //Es wird auf dem Board des Spielers 2, welches Spieler 1 sieht gecheckt, ob die Koordinate entweder die ID für einen Treffer oder ein Miss beinhaltet
+            {
+                Console.WriteLine("Hier hast du schon hingeschossen. Wähle lieber ne Position wo du noch nicht geschossen hast");
+                target = Shootget();                        //Sollte dies der Fall sein, wird eine neue Koordinate abgefragt
+            }
+            if (P1board[target[0], target[1]] == 1)         //Sobald der Punkt an einer Stelle ist, welche valide ist, wird gechekt, ob ein Schiff an der Stelle ist
+            {
+                P1boardHidden[target[0], target[1]] = 1;    //Wenn ja, dann wird beim Board des Gegners das Schiff als zerstört geändert und bei dem eigenen wird ein Schiff angezeigt
+                P1board[target[0], target[1]] = 2;
+            }
+            else                                            //Ansonsten wird bei beiden Boards ein Miss markiert
+            {
+                P1boardHidden[target[0], target[1]] = 24;
+                P1board[target[0], target[1]] = 24;
+            }
+        }
+
+        //Diese Funktion returnt ein true, wenn im Board von Spieler 2 keine Schiffe mehr zu finden sind
         public bool CheckWinP1()
         {
             bool temp = true;
@@ -694,7 +874,7 @@
             return temp;
         }
 
-        //Diese Funktion returnt ein false, wenn im Board von Spieler 1 keine Schiffe mehr zu finden sind
+        //Diese Funktion returnt ein true, wenn im Board von Spieler 1 keine Schiffe mehr zu finden sind
         public bool CheckWinP2()
         {
             bool temp = true;

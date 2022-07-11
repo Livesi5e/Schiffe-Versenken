@@ -5,7 +5,7 @@ namespace SVAI7
 {
     public class AIEasy
     {
-        int[,] board = new int[,] {                     //Board für die AI. An sich das, was Spieler 1 auch sieht
+        int[,] board = new int[,] {                     //Board für die AI. An sich das, was Spieler 2 auch sieht
         { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13},
         { 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         { 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},

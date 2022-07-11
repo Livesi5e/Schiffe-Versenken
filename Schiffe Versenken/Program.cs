@@ -3,8 +3,7 @@ using SVAI7;
 
 class UI
 {
-    static string end = "n";                //Beinhaltet, ob das Spiel beendet wurde
-    static AIEasy enemy = new AIEasy();     //Initialisiert eine Einfache AI
+    static string end = "n";                                                                //Beinhaltet, ob das Spiel beendet wurde
     static void Main(string[] args)
     {
         Console.WriteLine("Schiffe Versenken Console Edition");
@@ -24,6 +23,7 @@ class UI
             Console.Clear();                                                                //Momentan funktioniert nur 1 Spieler
             if (temp == "1 Spieler")
             {
+                AIEasy enemy = new AIEasy();                                                //Initialisiert eine Einfache AI
                 bool gameEnd = false;                                                       //Beinhaltet, ob die momentane Runde beendet wurde
                 bool won = false;                                                           //Beinhaltet, wer gewonnen hat. true = Spieler 1, false = Spieler 2
                 Gamestate.Player1out();                                                     //Printed das Board von Spieler 1
@@ -82,7 +82,112 @@ class UI
             }
             else if(temp == "2 Spieler")                                                    //WIP für Mehrspieler Modus
             {
-                
+                bool gameEnd = false;
+                bool won = false;
+                Console.WriteLine("Spieler 1 darf nun die Schiffe platzieren.\nBitte drück \"Enter\", sobald Spieler 2 den Bildschirm nicht mehr sehen kann");
+                Console.ReadLine();
+                Console.Clear();
+                Gamestate.Player1out();                                                     //Printed das Board von Spieler 1
+                Console.WriteLine("\nZuerst plaziere die 2 XX-Schiffe, danach die 2 XXX-Schiffe, dann das XXXX-Schiff und das XXXXX-Schiff");
+                Console.WriteLine("Gebe ein, wo das Schiff plaziert werden soll und wie das orientiert sein soll. Die Syntax dafür ist \"A,2,right\". Möglich sind \"up\",\"down\",\"left\",\"right\"");
+                Console.WriteLine("Zuerst wird das erste XX-Schiff plaziert\n");
+                Gamestate.PlaceP1(2);                                                       //Platziert ein Schiff der Länge 2
+                Console.Clear();
+                Gamestate.Player1out();
+                Console.WriteLine("\nGebe nun die Position des zweiten XX-Schiff ein");
+                Gamestate.PlaceP1(2);                                                       //Platziert ein Schiff der Länge 2
+                Console.Clear();
+                Gamestate.Player1out();
+                Console.WriteLine("\nGebe nun die Position des ersten XXX-Schiff ein");
+                Gamestate.PlaceP1(3);                                                       //Platziert ein Schiff der Länge 3
+                Console.Clear();
+                Gamestate.Player1out();
+                Console.WriteLine("\nGebe nun die Position des zweiten XXX-Schiff ein");
+                Gamestate.PlaceP1(3);                                                       //Platziert ein Schiff der Länge 3
+                Console.Clear();
+                Gamestate.Player1out();
+                Console.WriteLine("\nGebe nun die Position des XXXX-Schiffs ein");
+                Gamestate.PlaceP1(4);                                                       //Platziert ein Schiff der Länge 4
+                Console.Clear();
+                Gamestate.Player1out();
+                Console.WriteLine("\nGebe nun die Position des XXXXX-Schiffs ein");
+                Gamestate.PlaceP1(5);                                                       //Platziert ein Schiff der Länge 5
+                Console.Clear();
+                Gamestate.Player1out();
+                Console.WriteLine("\nDies sind die Schiffe. Drücke \"Enter\" um fortzufahren");
+                Console.ReadLine();
+                Console.Clear();
+                Console.WriteLine("Spieler 2 darf nun die Schiffe platzieren.\nDrücke \"Enter\" sobald Spieler 1 den Bildschirm nicht mehr sieht");
+                Console.ReadLine();
+                Console.Clear();
+                Gamestate.Player2out();                                                     //Printed das Board von Spieler 1
+                Console.WriteLine("\nZuerst plaziere die 2 XX-Schiffe, danach die 2 XXX-Schiffe, dann das XXXX-Schiff und das XXXXX-Schiff");
+                Console.WriteLine("Gebe ein, wo das Schiff plaziert werden soll und wie das orientiert sein soll. Die Syntax dafür ist \"A,2,right\". Möglich sind \"up\",\"down\",\"left\",\"right\"");
+                Console.WriteLine("Zuerst wird das erste XX-Schiff plaziert\n");
+                Gamestate.PlaceP2(2);                                                       //Platziert ein Schiff der Länge 2
+                Console.Clear();
+                Gamestate.Player2out();
+                Console.WriteLine("\nGebe nun die Position des zweiten XX-Schiff ein");
+                Gamestate.PlaceP2(2);                                                       //Platziert ein Schiff der Länge 2
+                Console.Clear();
+                Gamestate.Player2out();
+                Console.WriteLine("\nGebe nun die Position des ersten XXX-Schiff ein");
+                Gamestate.PlaceP2(3);                                                       //Platziert ein Schiff der Länge 3
+                Console.Clear();
+                Gamestate.Player2out();
+                Console.WriteLine("\nGebe nun die Position des zweiten XXX-Schiff ein");
+                Gamestate.PlaceP2(3);                                                       //Platziert ein Schiff der Länge 3
+                Console.Clear();
+                Gamestate.Player2out();
+                Console.WriteLine("\nGebe nun die Position des XXXX-Schiffs ein");
+                Gamestate.PlaceP2(4);                                                       //Platziert ein Schiff der Länge 4
+                Console.Clear();
+                Gamestate.Player2out();
+                Console.WriteLine("\nGebe nun die Position des XXXXX-Schiffs ein");
+                Gamestate.PlaceP2(5);
+                Console.Clear();
+                Gamestate.Player2out();
+                Console.WriteLine("\nDies sind die Schiffe. Drücke \"Enter\" um fortzufahren");
+                Console.ReadLine();
+                Console.Clear();
+                while(gameEnd == false)
+                {
+                    Console.WriteLine("Spieler 1 darf nun schießen.\nDrücke \"Enter\" sobald Spieler 2 den Bildschirm nicht mehr sieht");
+                    Console.ReadLine();
+                    Console.Clear();
+                    Gamestate.Player2outhP1out();
+                    Console.WriteLine("\nBitte gebe die Position an, wo du schießen möchtest. Die Syntax ist \"A,1\"\n");
+                    Gamestate.P1shoot();
+                    if (Gamestate.CheckWinP1()) { won = true; break; }
+                    Console.Clear();
+                    Gamestate.Player2outhP1out();
+                    Console.WriteLine("\nUm fortzufahren, drücke \"Enter\"");
+                    Console.ReadLine();
+                    Console.Clear();
+                    Console.WriteLine("Spieler 2 darf nun schießen.\nDrücke \"Enter\" sobald Spieler 1 den Bildschirm nicht mehr sieht");
+                    Console.ReadLine();
+                    Console.Clear();
+                    Gamestate.Player1outhP2out();
+                    Console.WriteLine("\nBitte gebe die Position an, wo du schießen möchtest. Die Syntax ist \"A,1\"\n");
+                    Gamestate.P2shoot();
+                    if (Gamestate.CheckWinP2()) break;
+                    Console.Clear();
+                    Gamestate.Player1outhP2out();
+                    Console.WriteLine("\nUm fortzufahren, drücke \"Enter\"");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+                Console.Clear();
+                if (won)
+                {
+                    Console.WriteLine("Herzlichen Glückwunsch Spieler 1! Du hast gewonnen!");
+                }
+                else
+                {
+                    Console.WriteLine("Herzlichen Glückwunsch Spieler 2! Du hast gewonnen!");
+                }
+                Console.WriteLine("\nZum fortfahren, drücke \"Enter\"");
+                Console.ReadLine();
             }
         }
     }
