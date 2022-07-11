@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32414.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schiffe Versenken", "Schiffe Versenken\Schiffe Versenken.csproj", "{62A0D028-5DB7-418D-A937-A273B0A51D73}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SVgerman", "SVgerman\SVgerman.csproj", "{7A7B0508-9AAD-4E18-9242-8F5BDFBF90C4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SVAI7", "SVAI7\SVAI7.csproj", "{4EB1AA1B-068A-4B19-81FA-533357407D54}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		SV|Any CPU = SV|Any CPU
+		SV|x64 = SV|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62A0D028-5DB7-418D-A937-A273B0A51D73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62A0D028-5DB7-418D-A937-A273B0A51D73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62A0D028-5DB7-418D-A937-A273B0A51D73}.Debug|x64.ActiveCfg = Debug|x64
+		{62A0D028-5DB7-418D-A937-A273B0A51D73}.Debug|x64.Build.0 = Debug|x64
+		{62A0D028-5DB7-418D-A937-A273B0A51D73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62A0D028-5DB7-418D-A937-A273B0A51D73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62A0D028-5DB7-418D-A937-A273B0A51D73}.Release|x64.ActiveCfg = Release|x64
+		{62A0D028-5DB7-418D-A937-A273B0A51D73}.Release|x64.Build.0 = Release|x64
+		{62A0D028-5DB7-418D-A937-A273B0A51D73}.SV|Any CPU.ActiveCfg = SV|Any CPU
+		{62A0D028-5DB7-418D-A937-A273B0A51D73}.SV|Any CPU.Build.0 = SV|Any CPU
+		{62A0D028-5DB7-418D-A937-A273B0A51D73}.SV|x64.ActiveCfg = SV|x64
+		{62A0D028-5DB7-418D-A937-A273B0A51D73}.SV|x64.Build.0 = SV|x64
+		{7A7B0508-9AAD-4E18-9242-8F5BDFBF90C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A7B0508-9AAD-4E18-9242-8F5BDFBF90C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A7B0508-9AAD-4E18-9242-8F5BDFBF90C4}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7A7B0508-9AAD-4E18-9242-8F5BDFBF90C4}.Debug|x64.Build.0 = Debug|Any CPU
+		{7A7B0508-9AAD-4E18-9242-8F5BDFBF90C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A7B0508-9AAD-4E18-9242-8F5BDFBF90C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A7B0508-9AAD-4E18-9242-8F5BDFBF90C4}.Release|x64.ActiveCfg = Release|x64
+		{7A7B0508-9AAD-4E18-9242-8F5BDFBF90C4}.Release|x64.Build.0 = Release|x64
+		{7A7B0508-9AAD-4E18-9242-8F5BDFBF90C4}.SV|Any CPU.ActiveCfg = SV|Any CPU
+		{7A7B0508-9AAD-4E18-9242-8F5BDFBF90C4}.SV|Any CPU.Build.0 = SV|Any CPU
+		{7A7B0508-9AAD-4E18-9242-8F5BDFBF90C4}.SV|x64.ActiveCfg = SV|x64
+		{7A7B0508-9AAD-4E18-9242-8F5BDFBF90C4}.SV|x64.Build.0 = SV|x64
+		{4EB1AA1B-068A-4B19-81FA-533357407D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EB1AA1B-068A-4B19-81FA-533357407D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EB1AA1B-068A-4B19-81FA-533357407D54}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4EB1AA1B-068A-4B19-81FA-533357407D54}.Debug|x64.Build.0 = Debug|Any CPU
+		{4EB1AA1B-068A-4B19-81FA-533357407D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EB1AA1B-068A-4B19-81FA-533357407D54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EB1AA1B-068A-4B19-81FA-533357407D54}.Release|x64.ActiveCfg = Release|x64
+		{4EB1AA1B-068A-4B19-81FA-533357407D54}.Release|x64.Build.0 = Release|x64
+		{4EB1AA1B-068A-4B19-81FA-533357407D54}.SV|Any CPU.ActiveCfg = SV|Any CPU
+		{4EB1AA1B-068A-4B19-81FA-533357407D54}.SV|Any CPU.Build.0 = SV|Any CPU
+		{4EB1AA1B-068A-4B19-81FA-533357407D54}.SV|x64.ActiveCfg = SV|x64
+		{4EB1AA1B-068A-4B19-81FA-533357407D54}.SV|x64.Build.0 = SV|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02D26259-08CA-4110-BA8D-4D86B52C1A5C}
+	EndGlobalSection
+EndGlobal
