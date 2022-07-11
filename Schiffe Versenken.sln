@@ -11,6 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SVAI7", "SVAI7\SVAI7.csproj
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SV-Setup-v1.2", "SV-Setup-v1.2\SV-Setup-v1.2.vdproj", "{79F54A00-E1A0-4177-9EED-72DDE3F7D5C9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AF05D7DE-559D-4D0C-8009-1639B7DA2E0B}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\..\schemes\en\package.xml = ..\..\..\..\..\..\schemes\en\package.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
