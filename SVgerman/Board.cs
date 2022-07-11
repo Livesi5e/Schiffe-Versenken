@@ -576,7 +576,7 @@
                         {
                             Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();                      //Wenn dies der Fall ist, wird ein neuer Punkt angefragt
-                            p = check(p, l, sub[2]);      //Dieser auf Out of Bounds geprüft
+                            p = check(p, l, sub[2]);        //Dieser auf Out of Bounds geprüft
                             p = P1checkO(p, l, sub[2]);     //und rekursiv in dieser Funktion geprüft, bis die Koordinaten passen
                         }
                         break;
@@ -616,11 +616,11 @@
         //Diese Funktion macht den Schuss für Spieler 1
         public void P1shoot()
         {
-            int[] target = Shootget();                    //Die Position, wohin der Spieler schießen möchte wird abgegriffen
+            int[] target = Shootget();                      //Die Position, wohin der Spieler schießen möchte wird abgegriffen
             while(P2boardHidden[target[0],target[1]] == 1 || P2boardHidden[target[0],target[1]] == 2)       //Es wird auf dem Board des Spielers 2, welches Spieler 1 sieht gecheckt, ob die Koordinate entweder die ID für einen Treffer oder ein Miss beinhaltet
             {
                 Console.WriteLine("Hier hast du schon hingeschossen. Wähle lieber ne Position wo du noch nicht geschossen hast");
-                target = Shootget();                      //Sollte dies der Fall sein, wird eine neue Koordinate abgefragt
+                target = Shootget();                        //Sollte dies der Fall sein, wird eine neue Koordinate abgefragt
             }
             if(P2board[target[0],target[1]] == 1)           //Sobald der Punkt an einer Stelle ist, welche valide ist, wird gechekt, ob ein Schiff an der Stelle ist
             {
@@ -634,7 +634,7 @@
             }
         }
 
-        int[] target = new int[2];                  //Speichert die Koordinaten des Ziels als int[]
+        int[] target = new int[2];                          //Speichert die Koordinaten des Ziels als int[]
 
         //Eine Funktion, die die Koordinaten des Ziels vom User abgreift
         public int[] Shootget()
@@ -797,11 +797,11 @@
                 switch (d)                                  //Basierend auf der Orientierung wird in eine andere Richtung geguckt
                 {
                     case "up":
-                        if (P2board[p[0] - i, p[1]] == 1)    //Die Koordinate wird um die Loopanzahl versetzt und geguck, ob die ID dort einem anderem Schiff entspricht
+                        if (P2board[p[0] - i, p[1]] == 1)   //Die Koordinate wird um die Loopanzahl versetzt und geguck, ob die ID dort einem anderem Schiff entspricht
                         {
                             Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();                      //Wenn dies der Fall ist, wird ein neuer Punkt angefragt
-                            p = check(p, l, sub[2]);      //Dieser auf Out of Bounds geprüft
+                            p = check(p, l, sub[2]);        //Dieser auf Out of Bounds geprüft
                             p = P2checkO(p, l, sub[2]);     //und rekursiv in dieser Funktion geprüft, bis die Koordinaten passen
                         }
                         break;
