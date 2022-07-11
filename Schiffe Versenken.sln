@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SVgerman", "SVgerman\SVgerm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SVAI7", "SVAI7\SVAI7.csproj", "{4EB1AA1B-068A-4B19-81FA-533357407D54}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{AA9D040D-8546-431C-9E17-10AD1A6155C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,12 @@ Global
 		{4EB1AA1B-068A-4B19-81FA-533357407D54}.SV|Any CPU.Build.0 = SV|Any CPU
 		{4EB1AA1B-068A-4B19-81FA-533357407D54}.SV|x64.ActiveCfg = SV|x64
 		{4EB1AA1B-068A-4B19-81FA-533357407D54}.SV|x64.Build.0 = SV|x64
+		{AA9D040D-8546-431C-9E17-10AD1A6155C7}.Debug|Any CPU.ActiveCfg = Debug
+		{AA9D040D-8546-431C-9E17-10AD1A6155C7}.Debug|x64.ActiveCfg = Debug
+		{AA9D040D-8546-431C-9E17-10AD1A6155C7}.Release|Any CPU.ActiveCfg = Release
+		{AA9D040D-8546-431C-9E17-10AD1A6155C7}.Release|x64.ActiveCfg = Release
+		{AA9D040D-8546-431C-9E17-10AD1A6155C7}.SV|Any CPU.ActiveCfg = Debug
+		{AA9D040D-8546-431C-9E17-10AD1A6155C7}.SV|x64.ActiveCfg = Debug
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
