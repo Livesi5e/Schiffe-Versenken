@@ -5,7 +5,7 @@ namespace SVAI7
 {
     public class AIEasy
     {
-        int[,] board = new int[,] {
+        int[,] board = new int[,] {                     //Board für die AI. An sich das, was Spieler 1 auch sieht
         { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13},
         { 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         { 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -18,20 +18,22 @@ namespace SVAI7
         { 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         { 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         };
-        int[] pos = new int[18];
-        Random rnd = new Random();
+        int[] pos = new int[18];                        //Array was die Positionen der Schiffe der AI speichert
+        Random rnd = new Random();                      //Initialisierung des Random Zahlengenerator
+
+        //Generiert die Positionen der Schiffe. Benötigt ein Board (b)
         public void Place(Board b)
         {
-            pos[0] = rnd.Next(10) + 1;
-            pos[1] = rnd.Next(10) + 1;
-            pos[2] = rnd.Next(4);
-            check(1, 2);
-            setC(2, 1);
+            pos[0] = rnd.Next(10) + 1;              //Generiert eine zufällige x-Koordinate
+            pos[1] = rnd.Next(10) + 1;              //Generiert eine zufällige y-Koordinate
+            pos[2] = rnd.Next(4);                   //Generiert eine zufällige Orientierung
+            check(1, 2);                            //Checkt ob die Position in Bounds ist und übergibt die Positionen im Array und die Länge des Schiffes
+            setC(2, 1);                             //Übergibt die Länge des Schiffs und die Positionen im Array
             pos[3] = rnd.Next(10) + 1;
             pos[4] = rnd.Next(10) + 1;
             pos[5] = rnd.Next(4);
             check(2, 2);
-            checkO(1);
+            checkO(1);                              //Check ob das Schiff mit einem anderem kollidiert und übergibt die Positionen im Array
             setC(2, 2);
             pos[6] = rnd.Next(10) + 1;
             pos[7] = rnd.Next(10) + 1;
@@ -57,23 +59,24 @@ namespace SVAI7
             check(6, 5);
             checkO(5);
             setC(5, 6);
-            b.PlaceP2AI(pos);
+            b.PlaceP2AI(pos);                       //Übergibt das Array dem Board und platziert die Schiffe
         }
 
+        //Checkt ob das Schiff Out of Bounds ist. Benötigt die Positionen im Array (r) und die Länge des Schiffs (l)
         void check(int r, int l)
         {
-            switch (r)
+            switch (r)                                      //Basierend auf der Zahl werden andere Positionen benutzt
             {
                 case 1:
-                    switch (pos[2])
+                    switch (pos[2])                         //Basierend auf der Zahl wird eine andere Richtung benutzt
                     {
                         case 0:
-                            if (pos[0] - (l - 1) < 1)
+                            if (pos[0] - (l - 1) < 1)       //Checkt ob der weit entfernteste Punkt des Schiffs Out of Bounds liegt
                             {
-                                pos[0] = rnd.Next(10) + 1;
+                                pos[0] = rnd.Next(10) + 1;  //Generiert neue Punkte falls die alten Invalide sind
                                 pos[1] = rnd.Next(10) + 1;
                                 pos[2] = rnd.Next(4);
-                                check(r, l);
+                                check(r, l);                //Ruft diese Funktion rekursiv auf
                             }
                             break;
                         case 1:
@@ -313,6 +316,7 @@ namespace SVAI7
             }
         }
 
+        //Platziert das Schiff im eigenen Board. Benötigt die Länge des Schiffs (l) und die Positionen im Array (r)
         void setC(int l, int r)
         {
             switch (r)
@@ -494,6 +498,7 @@ namespace SVAI7
             }
         }
 
+        //Checkt ob das Aktuelle Schiff mit anderen Schiffen kollidiert
         void checkO(int r)
         {
             switch (r)
@@ -806,21 +811,23 @@ namespace SVAI7
             }
         }
 
+        //Lässt die AI schießen. Benotigt das Board (b)
         public void Shoot(Board b)
         {
-            int[] target = new int[2];
-            board = b.P1hget();
-            target[0] = rnd.Next(10) + 1;
-            target[1] = rnd.Next(10) + 1;
-            while (board[target[0], target[1]] != 0)
+            int[] target = new int[2];                  //Speicher das Ziel der AI
+            board = b.P1hget();                         //Speichert das aktuelle Board des Spielers 1, welches Spieler 2 sieht
+            target[0] = rnd.Next(10) + 1;               //Generiert eine zufällige x-Koordinate
+            target[1] = rnd.Next(10) + 1;               //Generiert eine zufällige y-Koordinate
+            while (board[target[0], target[1]] != 0)    //Generiert einen neuen Schuss, sollte die AI da schon hingeschossen hat
             {
                 target[0] = rnd.Next(10) + 1;
                 target[1] = rnd.Next(10) + 1;
             }
-            b.P2shootAI(target);
+            b.P2shootAI(target);                        //Übergibt die Koordinaten dem Board um zu schießen
         }
     }
 
+    //WIP für unterschiedliche Schwierigkeitsgrade
     public class AIHard
     {
 
