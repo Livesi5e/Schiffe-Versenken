@@ -60,342 +60,352 @@
         { 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         { 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         };
-        
-        Dictionary<int, Tuple<string, Nullable<int>>> OwnBoard = new Dictionary<int, Tuple<string, Nullable<int>>>()    //Ein Dictionary, die für jede ID einen Buchstaben und eine Farb-ID beinhaltet
+
+        Dictionary[] OwnBoard = new Dictionary[25];
+
+        public void SetDictionary()
         {
-            {0, new Tuple<string, Nullable<int>>("O", 0)},                                          //Die ID "0" hat den Buchstaben "O" und die Farbe Blau
-            {1, new Tuple<string, Nullable<int>>("X", 1)},                                          //Die ID "1" hat den Buchstaben "X" und die Farbe Weiß
-            {2, new Tuple<string, Nullable<int>>("K", 2)},                                          //Die ID "2" hat den Buchstaben "K" und die Farbe Rot
-            {3, new Tuple<string, Nullable<int>>(" ", null)},                                       //Die ID "3" ist ein Leerzeichen und hat keine Farbe
-            {4, new Tuple<string, Nullable<int>>("1", 3)},                                          //Die ID "4" hat den Buchstaben "1" und die Farbe Grün
-            {5, new Tuple<string, Nullable<int>>("2", 4)},                                          //Die ID "5" hat den Buchstaben "2" und die Farbe Dunkelblau
-            {6, new Tuple<string, Nullable<int>>("3", 3)},                                          //Die ID "6" hat den Buchstaben "3" und die Farbe Grün
-            {7, new Tuple<string, Nullable<int>>("4", 4)},                                          //Die ID "7" hat den Buchstaben "4" und die Farbe Dunkelblau
-            {8, new Tuple<string, Nullable<int>>("5", 3)},                                          //Die ID "8" hat den Buchstaben "5" und die Farbe Grün
-            {9, new Tuple<string, Nullable<int>>("6", 4)},                                          //Die ID "9" hat den Buchstaben "6" und die Farbe Dunkelblau
-            {10, new Tuple<string, Nullable<int>>("7", 3)},                                         //Die ID "10" hat den Buchstaben "7" und die Farbe Grün
-            {11, new Tuple<string, Nullable<int>>("8", 4)},                                         //Die ID "11" hat den Buchstaben "8" und die Farbe Dunkelblau
-            {12, new Tuple<string, Nullable<int>>("9", 3)},                                         //Die ID "12" hat den Buchstaben "9" und die Farbe Grün
-            {13, new Tuple<string, Nullable<int>>("10", 4)},                                        //Die ID "13" hat den Buchstaben "10" und die Farbe Dunkelblau
-            {14, new Tuple<string, Nullable<int>>("A", 3)},                                         //Die ID "14" hat den Buchstaben "A" und die Farbe Grün
-            {15, new Tuple<string, Nullable<int>>("B", 4)},                                         //Die ID "15" hat den Buchstaben "B" und die Farbe Dunkelblau
-            {16, new Tuple<string, Nullable<int>>("C", 3)},                                         //Die ID "16" hat den Buchstaben "C" und die Farbe Grün
-            {17, new Tuple<string, Nullable<int>>("D", 4)},                                         //Die ID "17" hat den Buchstaben "D" und die Farbe Dunkelblau
-            {18, new Tuple<string, Nullable<int>>("E", 3)},                                         //Die ID "18" hat den Buchstaben "E" und die Farbe Grün
-            {19, new Tuple<string, Nullable<int>>("F", 4)},                                         //Die ID "19" hat den Buchstaben "F" und die Farbe Dunkelblau
-            {20, new Tuple<string, Nullable<int>>("G", 3)},                                         //Die ID "20" hat den Buchstaben "G" und die Farbe Grün
-            {21, new Tuple<string, Nullable<int>>("H", 4)},                                         //Die ID "21" hat den Buchstaben "H" und die Farbe Dunkelblau
-            {22, new Tuple<string, Nullable<int>>("I", 3)},                                         //Die ID "22" hat den Buchstaben "I" und die Farbe Grün
-            {23, new Tuple<string, Nullable<int>>("J", 4)},                                         //Die ID "23" hat den Buchstaben "J" und die Farbe Dunkelblau
-            {24, new Tuple<string, Nullable<int>>("M", 5)}                                          //Die ID "24" hat den Buchstaben "M" und die Farbe Dunkelgrün
-        };
+            OwnBoard[0] = new Dictionary(); OwnBoard[0].letter = 'O'; OwnBoard[0].color = 0;
+            OwnBoard[1] = new Dictionary(); OwnBoard[1].letter = 'X'; OwnBoard[1].color = 1;
+            OwnBoard[2] = new Dictionary(); OwnBoard[2].letter = 'K'; OwnBoard[2].color = 2;
+            OwnBoard[3] = new Dictionary(); OwnBoard[3].letter = ' '; OwnBoard[3].color = null;
+            OwnBoard[4] = new Dictionary(); OwnBoard[4].letter = '1'; OwnBoard[4].color = 3;
+            OwnBoard[5] = new Dictionary(); OwnBoard[5].letter = '2'; OwnBoard[5].color = 4;
+            OwnBoard[6] = new Dictionary(); OwnBoard[6].letter = '3'; OwnBoard[6].color = 3;
+            OwnBoard[7] = new Dictionary(); OwnBoard[7].letter = '4'; OwnBoard[7].color = 4;
+            OwnBoard[8] = new Dictionary(); OwnBoard[8].letter = '5'; OwnBoard[8].color = 3;
+            OwnBoard[9] = new Dictionary(); OwnBoard[9].letter = '6'; OwnBoard[9].color = 4;
+            OwnBoard[10] = new Dictionary(); OwnBoard[10].letter = '7'; OwnBoard[10].color = 3;
+            OwnBoard[11] = new Dictionary(); OwnBoard[11].letter = '8'; OwnBoard[11].color = 4;
+            OwnBoard[12] = new Dictionary(); OwnBoard[12].letter = '9'; OwnBoard[12].color = 3;
+            OwnBoard[13] = new Dictionary(); OwnBoard[13].letter = '1'; OwnBoard[13].letter2 = '0'; OwnBoard[13].color = 4;
+            OwnBoard[14] = new Dictionary(); OwnBoard[14].letter = 'A'; OwnBoard[14].color = 3;
+            OwnBoard[15] = new Dictionary(); OwnBoard[15].letter = 'B'; OwnBoard[15].color = 4;
+            OwnBoard[16] = new Dictionary(); OwnBoard[16].letter = 'C'; OwnBoard[16].color = 3;
+            OwnBoard[17] = new Dictionary(); OwnBoard[17].letter = 'D'; OwnBoard[17].color = 4;
+            OwnBoard[18] = new Dictionary(); OwnBoard[18].letter = 'E'; OwnBoard[18].color = 3;
+            OwnBoard[19] = new Dictionary(); OwnBoard[19].letter = 'F'; OwnBoard[19].color = 4;
+            OwnBoard[20] = new Dictionary(); OwnBoard[20].letter = 'G'; OwnBoard[20].color = 3;
+            OwnBoard[21] = new Dictionary(); OwnBoard[21].letter = 'H'; OwnBoard[21].color = 4;
+            OwnBoard[22] = new Dictionary(); OwnBoard[22].letter = 'I'; OwnBoard[22].color = 3;
+            OwnBoard[23] = new Dictionary(); OwnBoard[23].letter = 'J'; OwnBoard[23].color = 4;
+            OwnBoard[24] = new Dictionary(); OwnBoard[24].letter = 'M'; OwnBoard[24].color = 5;
+        }
 
         //Dies printed das Board von Spieler 1 in die Konsole
         public void Player1out()
         {
-            Console.ForegroundColor = ConsoleColor.Gray;                        //Konsolenfarbe wird auf Grau umgestellt
-            Console.WriteLine("Dein Feld:\n");
-            Console.ResetColor();                                               //Farbe wird geresettet für weiters umfärben
+            System.Console.ForegroundColor = System.ConsoleColor.Gray;                        //Konsolenfarbe wird auf Grau umgestellt
+            System.Console.WriteLine("Dein Feld:\n");
+            System.Console.ResetColor();                                               //Farbe wird geresettet für weiters umfärben
             for (int i = 0; i < 11; i++)                                        //Hier wird durch die y-Koordinate geloopt
             {
                 for (int o = 0; o < 11; o++)                                    //Hier wird durch die x-Koordinate geloopt
                 {
-                    switch (OwnBoard[P1board[i, o]].Item2)                      //Hier wird nach der ID an der Stelle [x|y] die zugehörige Farb-ID aufgerufen
+                    switch (OwnBoard[P1board[i, o]].color)                      //Hier wird nach der ID an der Stelle [x|y] die zugehörige Farb-ID aufgerufen
                     {
                         case 0:
-                            Console.ForegroundColor = ConsoleColor.Blue;        //0 = Blau
+                            System.Console.ForegroundColor = System.ConsoleColor.Blue;        //0 = Blau
                             break;
                         case 1:
-                            Console.ForegroundColor = ConsoleColor.White;       //1 = Weiß
+                            System.Console.ForegroundColor = System.ConsoleColor.White;       //1 = Weiß
                             break;
                         case 2:
-                            Console.ForegroundColor = ConsoleColor.Red;         //2 = Rot
+                            System.Console.ForegroundColor = System.ConsoleColor.Red;         //2 = Rot
                             break;
                         case 3:
-                            Console.ForegroundColor = ConsoleColor.Green;       //3 = Grün
+                            System.Console.ForegroundColor = System.ConsoleColor.Green;       //3 = Grün
                             break;
                         case 4:
-                            Console.ForegroundColor = ConsoleColor.DarkBlue;    //4 = Dunkelblau
+                            System.Console.ForegroundColor = System.ConsoleColor.DarkBlue;    //4 = Dunkelblau
                             break;
                         case 5:
-                            Console.ForegroundColor = ConsoleColor.DarkGreen;   //5 = Dunkelgrün
+                            System.Console.ForegroundColor = System.ConsoleColor.DarkGreen;   //5 = Dunkelgrün
                             break;
                         default:
                             break;
                     }
-                    Console.Write(OwnBoard[P1board[i, o]].Item1);               //Hier wird nach der ID an der Stelle [x|y] der zugehörige Buchstabe geprinted
-                    Console.Write(" ");                                         //Aus Schönheitsgründen wird ein Leerzeichen zwischen den Buchstaben platziert
-                    Console.ResetColor();                                       //Farbe wird geresettet für den nächsten Loop
+                    System.Console.Write(OwnBoard[P1board[i, o]].letter);               //Hier wird nach der ID an der Stelle [x|y] der zugehörige Buchstabe geprinted
+                    if (P1board[i, o] == 13) System.Console.Write(OwnBoard[P1board[i, o]].letter2);
+                    System.Console.Write(" ");                                         //Aus Schönheitsgründen wird ein Leerzeichen zwischen den Buchstaben platziert
+                    System.Console.ResetColor();                                       //Farbe wird geresettet für den nächsten Loop
                 }
-                Console.Write("\n");                                            //Nächste Zeile wird gestartet für den nächsten x-Koordinatenloop
+                System.Console.Write("\n");                                            //Nächste Zeile wird gestartet für den nächsten x-Koordinatenloop
             }
         }
 
         //Dies printed das Board von Spieler 2 in die Konsole
         public void Player2out()
         {
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Dein Feld:\n");
-            Console.ResetColor();
+            System.Console.ForegroundColor = System.ConsoleColor.Gray;
+            System.Console.WriteLine("Dein Feld:\n");
+            System.Console.ResetColor();
             for (int i = 0; i < 11; i++)
             {
                 for (int o = 0; o < 11; o++)
                 {
-                    switch (OwnBoard[P2board[i, o]].Item2)
+                    switch (OwnBoard[P2board[i, o]].color)
                     {
                         case 0:
-                            Console.ForegroundColor = ConsoleColor.Blue;
+                            System.Console.ForegroundColor = System.ConsoleColor.Blue;
                             break;
                         case 1:
-                            Console.ForegroundColor = ConsoleColor.White;
+                            System.Console.ForegroundColor = System.ConsoleColor.White;
                             break;
                         case 2:
-                            Console.ForegroundColor = ConsoleColor.Red;
+                            System.Console.ForegroundColor = System.ConsoleColor.Red;
                             break;
                         case 3:
-                            Console.ForegroundColor = ConsoleColor.Green;
+                            System.Console.ForegroundColor = System.ConsoleColor.Green;
                             break;
                         case 4:
-                            Console.ForegroundColor = ConsoleColor.DarkBlue;
+                            System.Console.ForegroundColor = System.ConsoleColor.DarkBlue;
                             break;
                         case 5:
-                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            System.Console.ForegroundColor = System.ConsoleColor.DarkGreen;
                             break;
                         default:
                             break;
                     }
-                    Console.Write(OwnBoard[P2board[i, o]].Item1);
-                    Console.Write(" ");
-                    Console.ResetColor();
+                    System.Console.Write(OwnBoard[P2board[i, o]].letter);
+                    if (P2board[i, o] == 13) System.Console.Write(OwnBoard[P2board[i, o]].letter2);
+                    System.Console.Write(" ");
+                    System.Console.ResetColor();
                 }
-                Console.Write("\n");
+                System.Console.Write("\n");
             }
         }
 
         //Dies printed die Sicht von Spieler 2 auf das Board von Spieler 1 in die Konsole
         public void Player1outh()
         {
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Gegnerisches Feld:");
+            System.Console.ForegroundColor = System.ConsoleColor.Gray;
+            System.Console.WriteLine("Gegnerisches Feld:");
             for (int i = 0; i < 11; i++)
             {
                 for (int o = 0; o < 11; o++)
                 {
-                    switch (OwnBoard[P1boardHidden[i, o]].Item2)
+                    switch (OwnBoard[P1boardHidden[i, o]].color)
                     {
                         case 0:
-                            Console.ForegroundColor = ConsoleColor.Blue;
+                            System.Console.ForegroundColor = System.ConsoleColor.Blue;
                             break;
                         case 1:
-                            Console.ForegroundColor = ConsoleColor.White;
+                            System.Console.ForegroundColor = System.ConsoleColor.White;
                             break;
                         case 2:
-                            Console.ForegroundColor = ConsoleColor.Red;
+                            System.Console.ForegroundColor = System.ConsoleColor.Red;
                             break;
                         case 3:
-                            Console.ForegroundColor = ConsoleColor.Green;
+                            System.Console.ForegroundColor = System.ConsoleColor.Green;
                             break;
                         case 4:
-                            Console.ForegroundColor = ConsoleColor.DarkBlue;
+                            System.Console.ForegroundColor = System.ConsoleColor.DarkBlue;
                             break;
                         case 5:
-                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            System.Console.ForegroundColor = System.ConsoleColor.DarkGreen;
                             break;
                         default:
                             break;
                     }
-                    Console.Write(OwnBoard[P1boardHidden[i, o]].Item1);
-                    Console.Write(" ");
-                    Console.ResetColor();
+                    System.Console.Write(OwnBoard[P1boardHidden[i, o]].letter);
+                    if (P1boardHidden[i, o] == 13) System.Console.Write(OwnBoard[P1boardHidden[i, o]].letter2);
+                    System.Console.Write(" ");
+                    System.Console.ResetColor();
                 }
-                Console.Write("\n");
+                System.Console.Write("\n");
             }
         }
 
         //Dies printed die Sicht von Spieler 1 auf das Board von Spieler 2 in die Konsole
         public void Player2outh()
         {
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Gegnerisches Feld");
-            Console.ResetColor();
+            System.Console.ForegroundColor = System.ConsoleColor.Gray;
+            System.Console.WriteLine("Gegnerisches Feld");
+            System.Console.ResetColor();
             for (int i = 0; i < 11; i++)
             {
                 for (int o = 0; o < 11; o++)
                 {
-                    switch (OwnBoard[P2boardHidden[i, o]].Item2)
+                    switch (OwnBoard[P2boardHidden[i, o]].color)
                     {
                         case 0:
-                            Console.ForegroundColor = ConsoleColor.Blue;
+                            System.Console.ForegroundColor = System.ConsoleColor.Blue;
                             break;
                         case 1:
-                            Console.ForegroundColor = ConsoleColor.White;
+                            System.Console.ForegroundColor = System.ConsoleColor.White;
                             break;
                         case 2:
-                            Console.ForegroundColor = ConsoleColor.Red;
+                            System.Console.ForegroundColor = System.ConsoleColor.Red;
                             break;
                         case 3:
-                            Console.ForegroundColor = ConsoleColor.Green;
+                            System.Console.ForegroundColor = System.ConsoleColor.Green;
                             break;
                         case 4:
-                            Console.ForegroundColor = ConsoleColor.DarkBlue;
+                            System.Console.ForegroundColor = System.ConsoleColor.DarkBlue;
                             break;
                         case 5:
-                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            System.Console.ForegroundColor = System.ConsoleColor.DarkGreen;
                             break;
                         default:
                             break;
                     }
-                    Console.Write(OwnBoard[P2boardHidden[i, o]].Item1);
-                    Console.Write(" ");
-                    Console.ResetColor();
+                    System.Console.Write(OwnBoard[P2boardHidden[i, o]].letter);
+                    if (P2boardHidden[i, o] == 13) System.Console.Write(OwnBoard[P2boardHidden[i, o]].letter2);
+                    System.Console.Write(" ");
+                    System.Console.ResetColor();
                 }
-                Console.Write("\n");
+                System.Console.Write("\n");
             }
         }
 
         //Dies printed beide Boards die Spieler 1 sehen kann nebeneinander aus. Zuerst das von Spieler 2 und dann sein eigenes
         public void Player2outhP1out()
         {
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Gegnerisches Feld:\t\tDein Feld:");
-            Console.ResetColor();
+            System.Console.ForegroundColor = System.ConsoleColor.Gray;
+            System.Console.WriteLine("Gegnerisches Feld:\t\tDein Feld:");
+            System.Console.ResetColor();
             for (int i = 0; i < 11; i++)                                    //Hier wird durch die y-Koordinate beider Boards geloopt
             {
                 for (int o = 0; o < 11; o++)                                //Hier werden die ID's für die Punkte [x|y] des Boards von Spieler 2 geloopt
                 {
-                    switch (OwnBoard[P2boardHidden[i, o]].Item2)
+                    switch (OwnBoard[P2boardHidden[i, o]].color)
                     {
                         case 0:
-                            Console.ForegroundColor = ConsoleColor.Blue;
+                            System.Console.ForegroundColor = System.ConsoleColor.Blue;
                             break;
                         case 1:
-                            Console.ForegroundColor = ConsoleColor.White;
+                            System.Console.ForegroundColor = System.ConsoleColor.White;
                             break;
                         case 2:
-                            Console.ForegroundColor = ConsoleColor.Red;
+                            System.Console.ForegroundColor = System.ConsoleColor.Red;
                             break;
                         case 3:
-                            Console.ForegroundColor = ConsoleColor.Green;
+                            System.Console.ForegroundColor = System.ConsoleColor.Green;
                             break;
                         case 4:
-                            Console.ForegroundColor = ConsoleColor.DarkBlue;
+                            System.Console.ForegroundColor = System.ConsoleColor.DarkBlue;
                             break;
                         case 5:
-                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            System.Console.ForegroundColor = System.ConsoleColor.DarkGreen;
                             break;
                         default:
                             break;
                     }
-                    Console.Write(OwnBoard[P2boardHidden[i, o]].Item1);
-                    Console.Write(" ");
-                    Console.ResetColor();
+                    System.Console.Write(OwnBoard[P2boardHidden[i, o]].letter);
+                    if (P2boardHidden[i, o] == 13) System.Console.Write(OwnBoard[P2boardHidden[i, o]].letter2);
+                    System.Console.Write(" ");
+                    System.Console.ResetColor();
                 }
-                Console.Write("\t\t");                                          //Der Abstand zwischen den beiden Boards wird erstellt
+                System.Console.Write("\t\t");                                          //Der Abstand zwischen den beiden Boards wird erstellt
                 for (int o = 0; o < 11; o++)                                    //Hier werden die ID's für die Punkte [x|y] des Boards von Spieler 1 geloopt
                 {
-                    switch (OwnBoard[P1board[i, o]].Item2)
+                    switch (OwnBoard[P1board[i, o]].color)
                     {
                         case 0:
-                            Console.ForegroundColor = ConsoleColor.Blue;
+                            System.Console.ForegroundColor = System.ConsoleColor.Blue;
                             break;
                         case 1:
-                            Console.ForegroundColor = ConsoleColor.White;
+                            System.Console.ForegroundColor = System.ConsoleColor.White;
                             break;
                         case 2:
-                            Console.ForegroundColor = ConsoleColor.Red;
+                            System.Console.ForegroundColor = System.ConsoleColor.Red;
                             break;
                         case 3:
-                            Console.ForegroundColor = ConsoleColor.Green;
+                            System.Console.ForegroundColor = System.ConsoleColor.Green;
                             break;
                         case 4:
-                            Console.ForegroundColor = ConsoleColor.DarkBlue;
+                            System.Console.ForegroundColor = System.ConsoleColor.DarkBlue;
                             break;
                         case 5:
-                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            System.Console.ForegroundColor = System.ConsoleColor.DarkGreen;
                             break;
                         default:
                             break;
                     }
-                    Console.Write(OwnBoard[P1board[i, o]].Item1);
-                    Console.Write(" ");
-                    Console.ResetColor();
+                    System.Console.Write(OwnBoard[P1board[i, o]].letter);
+                    if (P1board[i, o] == 13) System.Console.Write(OwnBoard[P1board[i, o]].letter2);
+                    System.Console.Write(" ");
+                    System.Console.ResetColor();
                 }
-                Console.Write("\n");
+                System.Console.Write("\n");
             }
         }
 
         public void Player1outhP2out()
         {
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Gegnerisches Feld:\t\tDein Feld:");
-            Console.ResetColor();
+            System.Console.ForegroundColor = System.ConsoleColor.Gray;
+            System.Console.WriteLine("Gegnerisches Feld:\t\tDein Feld:");
+            System.Console.ResetColor();
             for (int i = 0; i < 11; i++)                                    //Hier wird durch die y-Koordinate beider Boards geloopt
             {
                 for (int o = 0; o < 11; o++)                                //Hier werden die ID's für die Punkte [x|y] des Boards von Spieler 2 geloopt
                 {
-                    switch (OwnBoard[P1boardHidden[i, o]].Item2)
+                    switch (OwnBoard[P1boardHidden[i, o]].color)
                     {
                         case 0:
-                            Console.ForegroundColor = ConsoleColor.Blue;
+                            System.Console.ForegroundColor = System.ConsoleColor.Blue;
                             break;
                         case 1:
-                            Console.ForegroundColor = ConsoleColor.White;
+                            System.Console.ForegroundColor = System.ConsoleColor.White;
                             break;
                         case 2:
-                            Console.ForegroundColor = ConsoleColor.Red;
+                            System.Console.ForegroundColor = System.ConsoleColor.Red;
                             break;
                         case 3:
-                            Console.ForegroundColor = ConsoleColor.Green;
+                            System.Console.ForegroundColor = System.ConsoleColor.Green;
                             break;
                         case 4:
-                            Console.ForegroundColor = ConsoleColor.DarkBlue;
+                            System.Console.ForegroundColor = System.ConsoleColor.DarkBlue;
                             break;
                         case 5:
-                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            System.Console.ForegroundColor = System.ConsoleColor.DarkGreen;
                             break;
                         default:
                             break;
                     }
-                    Console.Write(OwnBoard[P1boardHidden[i, o]].Item1);
-                    Console.Write(" ");
-                    Console.ResetColor();
+                    System.Console.Write(OwnBoard[P1boardHidden[i, o]].letter);
+                    if (P1boardHidden[i, o] == 13) System.Console.Write(OwnBoard[P1boardHidden[i, o]].letter2);
+                    System.Console.Write(" ");
+                    System.Console.ResetColor();
                 }
-                Console.Write("\t\t");                                          //Der Abstand zwischen den beiden Boards wird erstellt
+                System.Console.Write("\t\t");                                          //Der Abstand zwischen den beiden Boards wird erstellt
                 for (int o = 0; o < 11; o++)                                    //Hier werden die ID's für die Punkte [x|y] des Boards von Spieler 1 geloopt
                 {
-                    switch (OwnBoard[P2board[i, o]].Item2)
+                    switch (OwnBoard[P2board[i, o]].color)
                     {
                         case 0:
-                            Console.ForegroundColor = ConsoleColor.Blue;
+                            System.Console.ForegroundColor = System.ConsoleColor.Blue;
                             break;
                         case 1:
-                            Console.ForegroundColor = ConsoleColor.White;
+                            System.Console.ForegroundColor = System.ConsoleColor.White;
                             break;
                         case 2:
-                            Console.ForegroundColor = ConsoleColor.Red;
+                            System.Console.ForegroundColor = System.ConsoleColor.Red;
                             break;
                         case 3:
-                            Console.ForegroundColor = ConsoleColor.Green;
+                            System.Console.ForegroundColor = System.ConsoleColor.Green;
                             break;
                         case 4:
-                            Console.ForegroundColor = ConsoleColor.DarkBlue;
+                            System.Console.ForegroundColor = System.ConsoleColor.DarkBlue;
                             break;
                         case 5:
-                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            System.Console.ForegroundColor = System.ConsoleColor.DarkGreen;
                             break;
                         default:
                             break;
                     }
-                    Console.Write(OwnBoard[P2board[i, o]].Item1);
-                    Console.Write(" ");
-                    Console.ResetColor();
+                    System.Console.Write(OwnBoard[P2board[i, o]].letter);
+                    if (P2board[i, o] == 13) System.Console.Write(OwnBoard[P2board[i, o]].letter2);
+                    System.Console.Write(" ");
+                    System.Console.ResetColor();
                 }
-                Console.Write("\n");
+                System.Console.Write("\n");
             }
         }
 
         public string[] sub;                                            //Der Array an User-Inputs [0] = y-Koordinate, [1] = x-Koordinate, [2] = Orientierung
-        
+
         //Hier ist das Platzieren der Schiffe des ersten Spielers. Übergeben wird die Länge des Schiffes
         public void PlaceP1(int l)
         {
@@ -436,20 +446,20 @@
                         input = false;
                         break;
                     default:                                            //Falls keine Richtung angegeben wurde oder eine nicht existierende Richtung angegeben wurde, wird eine neue Richtung abgefragt und noch mal gecheckt
-                        Console.WriteLine("Bitte gib eine existierende Richtung an");
-                        sub[2] = Console.ReadLine();
+                        System.Console.WriteLine("Bitte gib eine existierende Richtung an");
+                        sub[2] = System.Console.ReadLine();
                         position = check(position, l, sub[2]);
                         position = P1checkO(position, l, sub[2]);
                         break;
                 }
             }
-            
+
         }
 
         //Eine Funtion, die einen int[] returnt, welche die Koordinaten für das zu platzierende Schiff beinhaltet
         int[] get()
         {
-            temp = Console.ReadLine();      //User input wird gelesen
+            temp = System.Console.ReadLine();      //User input wird gelesen
             sub = temp.Split(",");          //User input wird nach dem Zeichen "," getrennt
             int[] position = new int[3];
             switch (sub[0])                 //Die erste Stelle des Arrays wird in eine Zahl transferiert
@@ -527,9 +537,9 @@
             switch (d)                      //Nach der Orientierung wird unterschiedlich gecheckt
             {
                 case "up":
-                    if(p[0] - (l-1) < 1)    //Es wird der entfernteste Punkt berechnet, welcher vom Schiff aus existiert und geguckt, ob dieser Out of Bounds liegt
+                    if (p[0] - (l - 1) < 1)    //Es wird der entfernteste Punkt berechnet, welcher vom Schiff aus existiert und geguckt, ob dieser Out of Bounds liegt
                     {
-                        Console.WriteLine("Das passt leider nicht :/ Gib bitte ne Position an, wo der passt");
+                        System.Console.WriteLine("Das passt leider nicht :/ Gib bitte ne Position an, wo der passt");
                         p = get();                      //Sollte dieser nicht passen, wird nach einem neuen Punkt gefragt
                         p = check(p, l, sub[2]);      //Dieser wird rekursiv wieder mit dieser Funktion gecheckt
                     }
@@ -537,23 +547,23 @@
                 case "down":
                     if (p[0] + (l - 1) > 10)
                     {
-                        Console.WriteLine("Das passt leider nicht :/ Gib bitte ne Position an, wo der passt");
+                        System.Console.WriteLine("Das passt leider nicht :/ Gib bitte ne Position an, wo der passt");
                         p = get();
                         p = check(p, l, sub[2]);
                     }
                     break;
                 case "left":
-                    if(p[1] - (l-1) < 1)
+                    if (p[1] - (l - 1) < 1)
                     {
-                        Console.WriteLine("Das passt leider nicht :/ Gib bitte ne Position an, wo der passt");
+                        System.Console.WriteLine("Das passt leider nicht :/ Gib bitte ne Position an, wo der passt");
                         p = get();
                         p = check(p, l, sub[2]);
                     }
                     break;
                 case "right":
-                    if(p[1] + (l-1) > 10)
+                    if (p[1] + (l - 1) > 10)
                     {
-                        Console.WriteLine("Das passt leider nicht :/ Gib bitte ne Position an, wo der passt");
+                        System.Console.WriteLine("Das passt leider nicht :/ Gib bitte ne Position an, wo der passt");
                         p = get();
                         p = check(p, l, sub[2]);
                     }
@@ -572,9 +582,9 @@
                 switch (d)                                  //Basierend auf der Orientierung wird in eine andere Richtung geguckt
                 {
                     case "up":
-                        if(P1board[p[0] - i, p[1]] == 1)    //Die Koordinate wird um die Loopanzahl versetzt und geguck, ob die ID dort einem anderem Schiff entspricht
+                        if (P1board[p[0] - i, p[1]] == 1)    //Die Koordinate wird um die Loopanzahl versetzt und geguck, ob die ID dort einem anderem Schiff entspricht
                         {
-                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            System.Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();                      //Wenn dies der Fall ist, wird ein neuer Punkt angefragt
                             p = check(p, l, sub[2]);        //Dieser auf Out of Bounds geprüft
                             p = P1checkO(p, l, sub[2]);     //und rekursiv in dieser Funktion geprüft, bis die Koordinaten passen
@@ -583,7 +593,7 @@
                     case "down":
                         if (P1board[p[0] + i, p[1]] == 1)
                         {
-                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            System.Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();
                             p = check(p, l, sub[2]);
                             p = P1checkO(p, l, sub[2]);
@@ -592,7 +602,7 @@
                     case "left":
                         if (P1board[p[0], p[1] - i] == 1)
                         {
-                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            System.Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();
                             p = check(p, l, sub[2]);
                             p = P1checkO(p, l, sub[2]);
@@ -601,7 +611,7 @@
                     case "right":
                         if (P1board[p[0], p[1] + i] == 1)
                         {
-                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            System.Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();
                             p = check(p, l, sub[2]);
                             p = P1checkO(p, l, sub[2]);
@@ -617,12 +627,12 @@
         public void P1shoot()
         {
             int[] target = Shootget();                      //Die Position, wohin der Spieler schießen möchte wird abgegriffen
-            while(P2boardHidden[target[0],target[1]] == 1 || P2boardHidden[target[0],target[1]] == 2)       //Es wird auf dem Board des Spielers 2, welches Spieler 1 sieht gecheckt, ob die Koordinate entweder die ID für einen Treffer oder ein Miss beinhaltet
+            while (P2boardHidden[target[0], target[1]] == 1 || P2boardHidden[target[0], target[1]] == 2)       //Es wird auf dem Board des Spielers 2, welches Spieler 1 sieht gecheckt, ob die Koordinate entweder die ID für einen Treffer oder ein Miss beinhaltet
             {
-                Console.WriteLine("Hier hast du schon hingeschossen. Wähle lieber ne Position wo du noch nicht geschossen hast");
+                System.Console.WriteLine("Hier hast du schon hingeschossen. Wähle lieber ne Position wo du noch nicht geschossen hast");
                 target = Shootget();                        //Sollte dies der Fall sein, wird eine neue Koordinate abgefragt
             }
-            if(P2board[target[0],target[1]] == 1)           //Sobald der Punkt an einer Stelle ist, welche valide ist, wird gechekt, ob ein Schiff an der Stelle ist
+            if (P2board[target[0], target[1]] == 1)           //Sobald der Punkt an einer Stelle ist, welche valide ist, wird gechekt, ob ein Schiff an der Stelle ist
             {
                 P2boardHidden[target[0], target[1]] = 1;    //Wenn ja, dann wird beim Board des Gegners das Schiff als zerstört geändert und bei dem eigenen wird ein Schiff angezeigt
                 P2board[target[0], target[1]] = 2;
@@ -639,7 +649,7 @@
         //Eine Funktion, die die Koordinaten des Ziels vom User abgreift
         public int[] Shootget()
         {
-            temp = Console.ReadLine();          //Liest den Input vom User
+            temp = System.Console.ReadLine();          //Liest den Input vom User
             sub = temp.Split(",");              //und splittet diese nach dem Zeichen ","
             switch (sub[0])
             {
@@ -684,8 +694,8 @@
                     target[1] = P1sg2(sub[1]);
                     break;
                 default:                        //Sollte der Input nicht im Spielfeld liegen, wird diese Funktion rekursiv aufgerufen
-                    Console.WriteLine("Dies liegt leider nicht im Spielfeld. Bitte wähle eine andere Position");
-                    target = Shootget();                
+                    System.Console.WriteLine("Dies liegt leider nicht im Spielfeld. Bitte wähle eine andere Position");
+                    target = Shootget();
                     break;
             }
             return target;
@@ -728,8 +738,8 @@
                     temp = 10;
                     break;
                 default:        //Wenn die Zahl nicht im Spielfeld liegt, wird nach einer neuen gefragt und diese Funktion rekursiv aufgerufen
-                    Console.WriteLine("Dies liegt leider nicht im Spielfeld. Bitte wähle eine andere Zahl");
-                    temp = P1sg2(Console.ReadLine());
+                    System.Console.WriteLine("Dies liegt leider nicht im Spielfeld. Bitte wähle eine andere Zahl");
+                    temp = P1sg2(System.Console.ReadLine());
                     break;
             }
             return temp;        //Die Zahl wird returnt
@@ -781,8 +791,8 @@
                         input = false;
                         break;
                     default:                                            //Falls keine Richtung angegeben wurde oder eine nicht existierende Richtung angegeben wurde, wird eine neue Richtung abgefragt und noch mal gecheckt
-                        Console.WriteLine("Bitte gib eine existierende Richtung an");
-                        sub[2] = Console.ReadLine();
+                        System.Console.WriteLine("Bitte gib eine existierende Richtung an");
+                        sub[2] = System.Console.ReadLine();
                         position = check(position, l, sub[2]);
                         position = P2checkO(position, l, sub[2]);
                         break;
@@ -799,7 +809,7 @@
                     case "up":
                         if (P2board[p[0] - i, p[1]] == 1)   //Die Koordinate wird um die Loopanzahl versetzt und geguck, ob die ID dort einem anderem Schiff entspricht
                         {
-                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            System.Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();                      //Wenn dies der Fall ist, wird ein neuer Punkt angefragt
                             p = check(p, l, sub[2]);        //Dieser auf Out of Bounds geprüft
                             p = P2checkO(p, l, sub[2]);     //und rekursiv in dieser Funktion geprüft, bis die Koordinaten passen
@@ -808,7 +818,7 @@
                     case "down":
                         if (P2board[p[0] + i, p[1]] == 1)
                         {
-                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            System.Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();
                             p = check(p, l, sub[2]);
                             p = P2checkO(p, l, sub[2]);
@@ -817,7 +827,7 @@
                     case "left":
                         if (P2board[p[0], p[1] - i] == 1)
                         {
-                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            System.Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();
                             p = check(p, l, sub[2]);
                             p = P2checkO(p, l, sub[2]);
@@ -826,7 +836,7 @@
                     case "right":
                         if (P2board[p[0], p[1] + i] == 1)
                         {
-                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            System.Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();
                             p = check(p, l, sub[2]);
                             p = P2checkO(p, l, sub[2]);
@@ -842,7 +852,7 @@
             int[] target = Shootget();                      //Die Position, wohin der Spieler schießen möchte wird abgegriffen
             while (P1boardHidden[target[0], target[1]] == 1 || P1boardHidden[target[0], target[1]] == 2)       //Es wird auf dem Board des Spielers 2, welches Spieler 1 sieht gecheckt, ob die Koordinate entweder die ID für einen Treffer oder ein Miss beinhaltet
             {
-                Console.WriteLine("Hier hast du schon hingeschossen. Wähle lieber ne Position wo du noch nicht geschossen hast");
+                System.Console.WriteLine("Hier hast du schon hingeschossen. Wähle lieber ne Position wo du noch nicht geschossen hast");
                 target = Shootget();                        //Sollte dies der Fall sein, wird eine neue Koordinate abgefragt
             }
             if (P1board[target[0], target[1]] == 1)         //Sobald der Punkt an einer Stelle ist, welche valide ist, wird gechekt, ob ein Schiff an der Stelle ist
@@ -865,7 +875,7 @@
             {
                 for (int o = 0; o < 11; o++)
                 {
-                    if(P2board[i,o] == 1)
+                    if (P2board[i, o] == 1)
                     {
                         temp = false;
                     }
@@ -882,7 +892,7 @@
             {
                 for (int o = 0; o < 11; o++)
                 {
-                    if(P1board[i,o] == 1)
+                    if (P1board[i, o] == 1)
                     {
                         temp = false;
                     }
@@ -1073,5 +1083,12 @@
                 P1board[target[0], target[1]] = 24;
             }
         }
+    }
+
+    class Dictionary
+    {
+        public char letter { get; set; }
+        public char letter2 { get; set; }
+        public int? color { get; set; }
     }
 }

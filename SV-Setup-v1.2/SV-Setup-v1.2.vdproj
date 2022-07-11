@@ -41,7 +41,7 @@
             {
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
-            "PrerequisitesLocation" = "2:1"
+            "PrerequisitesLocation" = "2:2"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
                 "Items"
@@ -55,6 +55,11 @@
                     {
                     "Name" = "8:.NET Core Runtime 3.1.26 (x64)"
                     "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.3.1.x64"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.CoreRuntime.3.1.x86"
+                    {
+                    "Name" = "8:.NET Core Runtime 3.1.26 (x86)"
+                    "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.3.1.x86"
                     }
                 }
             }
@@ -188,7 +193,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SV-Setup-v1.2"
         "ProductCode" = "8:{22633685-21BF-42E6-A298-5953A8D821F8}"
-        "PackageCode" = "8:{330743AD-8FAF-47C3-A84C-98520EDDF05A}"
+        "PackageCode" = "8:{0A3FC883-6711-4E8E-A9B4-8AF793CA700B}"
         "UpgradeCode" = "8:{E0181CAA-B2CB-4048-8EBC-9EEBBD477042}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -751,7 +756,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_81E4189A5A3D42D9A27CBF6D78D5D868"
             {
-            "SourcePath" = "8:"
+            "SourcePath" = "8:..\\Schiffe Versenken\\obj\\x64\\Debug\\netcoreapp3.1\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9A0DC09DCF8B40578B1C4F80E0288C29"
