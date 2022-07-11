@@ -15,7 +15,7 @@ class UI
             Console.WriteLine("Um das Programm zu beenden drücke \"Enter\"");
             end = Console.ReadLine();                                                       //Hier entscheidet der User, ob das Spiel beendet wird
             Console.WriteLine();
-            if(end != "n") break;                                                           //Wenn der User was anderes als "n" eingegeben hat, wird das Spiel beendet
+            if(end != "n") break;
             Console.Clear();
             Console.WriteLine("Du kannst gegen eine AI spielen, oder gegen einen anderen Spieler");
             Console.WriteLine("1 Spieler                2 Spieler");
@@ -189,6 +189,33 @@ class UI
                 Console.WriteLine("\nZum fortfahren, drücke \"Enter\"");
                 Console.ReadLine();
             }
+        }
+        if(end == "changelog")
+        {
+            Console.Clear();
+            Console.WriteLine
+            (
+                "Changelog:\n" +
+                "----------------\n" +
+                "v1.1:\n" +
+                "\t- Added the Changelog\n" +
+                "\t- Added multiplayer\n" +
+                "\t- Changed some of the comments in the code\n" +
+                "\t- Fixed the Bug where printing out both boards resulted in printing \"Dein Feld Feld:\"\n" + 
+                "\t  Now only prints \"Dein Feld:\"\n" + 
+                "----------------\n" +
+                "v1.0:\n" +
+                "\tFirst working release of the game\n" +
+                "\tOnly works on Win 10 or Win 11. Still figuring out how publishing works in VS 2022.\n" +
+                "\tSo if the Game isn't running on your system please provide a comment with your OS\n" +
+                "\n\tNote:\n" +
+                "\tOnly Singleplayer works in this version and the AI has only one difficulty setting\n" +
+                "\tDocks for WIP are already implemented but are not working right now"
+            );
+            Console.ReadLine();
+            Console.Clear();
+            end = "n";
+            Main(args);
         }
     }
 }
