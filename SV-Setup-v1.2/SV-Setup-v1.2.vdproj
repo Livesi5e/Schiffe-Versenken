@@ -15,13 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_25F714DF07DB45138AA9707AB6CF63C3"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_81E4189A5A3D42D9A27CBF6D78D5D868"
+        "MsmKey" = "8:_D7CCC43C9FBF4B8187C4135066F093E9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -47,24 +41,24 @@
             {
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
-            "PrerequisitesLocation" = "2:2"
+            "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
                 "Items"
                 {
                     "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
                     {
-                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 und x64)"
                     "ProductCode" = "8:.NETFramework,Version=v4.7.2"
                     }
                     "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.CoreRuntime.3.1.x64"
                     {
-                    "Name" = "8:.NET Core Runtime 3.1.26 (x64)"
+                    "Name" = "8:.NET Core Runtime 3.1.24 (x64)"
                     "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.3.1.x64"
                     }
                     "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.CoreRuntime.3.1.x86"
                     {
-                    "Name" = "8:.NET Core Runtime 3.1.26 (x86)"
+                    "Name" = "8:.NET Core-Runtime 3.1.24 (x86)"
                     "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.3.1.x86"
                     }
                 }
@@ -89,24 +83,24 @@
             {
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
-            "PrerequisitesLocation" = "2:2"
+            "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
                 "Items"
                 {
                     "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
                     {
-                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 und x64)"
                     "ProductCode" = "8:.NETFramework,Version=v4.7.2"
                     }
                     "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.CoreRuntime.3.1.x64"
                     {
-                    "Name" = "8:.NET Core Runtime 3.1.26 (x64)"
+                    "Name" = "8:.NET Core Runtime 3.1.24 (x64)"
                     "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.3.1.x64"
                     }
                     "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.CoreRuntime.3.1.x86"
                     {
-                    "Name" = "8:.NET Core Runtime 3.1.26 (x86)"
+                    "Name" = "8:.NET Core-Runtime 3.1.24 (x86)"
                     "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.3.1.x86"
                     }
                 }
@@ -142,26 +136,6 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_25F714DF07DB45138AA9707AB6CF63C3"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\..\\Downloads\\ndp472-kb4054530-x86-x64-allos-enu.exe"
-            "TargetName" = "8:ndp472-kb4054530-x86-x64-allos-enu.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_9A0DC09DCF8B40578B1C4F80E0288C29"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -339,20 +313,6 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_76CF91E07B8740A8B0ADE19762A17993"
-            {
-            "Name" = "8:Schiffe Versenken"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_81E4189A5A3D42D9A27CBF6D78D5D868"
-            "Folder" = "8:_B2BAE856224641CB97BEAA4258031A98"
-            "WorkingFolder" = "8:_9A0DC09DCF8B40578B1C4F80E0288C29"
-            "Icon" = "8:"
-            "Feature" = "8:"
-            }
         }
         "UserInterface"
         {
@@ -366,7 +326,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_1DA9DA48D3604051A6DAF9EAC77360FD"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Finished"
+                    "DisplayName" = "8:Fertig"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdFinishedDlg.wid"
@@ -410,7 +370,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_39AA60602EFC42809B15A793F273A560"
                     {
                     "Sequence" = "3:200"
-                    "DisplayName" = "8:Installation Folder"
+                    "DisplayName" = "8:Installationsordner"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdFolderDlg.wid"
@@ -445,7 +405,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_991DD7E6D48B4431B627C2922D2A287B"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Welcome"
+                    "DisplayName" = "8:Willkommen"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdWelcomeDlg.wid"
@@ -493,7 +453,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_D6253D432146437594321F3544028F7D"
                     {
                     "Sequence" = "3:300"
-                    "DisplayName" = "8:Confirm Installation"
+                    "DisplayName" = "8:Installation bestätigen"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdConfirmDlg.wid"
@@ -530,7 +490,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_4093E925DEBD46A88D3ED1F65662FC06"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Progress"
+                    "DisplayName" = "8:Status"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdAdminProgressDlg.wid"
@@ -574,7 +534,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_753AC48B63584E87925B861EBFD2AB1A"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Progress"
+                    "DisplayName" = "8:Status"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdProgressDlg.wid"
@@ -618,7 +578,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_116A2C32E3C74A019545982C8DB2E2D9"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Finished"
+                    "DisplayName" = "8:Fertig"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdAdminFinishedDlg.wid"
@@ -655,7 +615,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_7FE716EB77D04CAE8D299A1A01380588"
                     {
                     "Sequence" = "3:200"
-                    "DisplayName" = "8:Installation Folder"
+                    "DisplayName" = "8:Installationsordner"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdAdminFolderDlg.wid"
@@ -677,7 +637,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_82EBD80AA93742CDA8F8C4AF8C15ECDA"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Welcome"
+                    "DisplayName" = "8:Willkommen"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdAdminWelcomeDlg.wid"
@@ -725,7 +685,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_F9822B9157684FA6AE12CDBEF8D78DA3"
                     {
                     "Sequence" = "3:300"
-                    "DisplayName" = "8:Confirm Installation"
+                    "DisplayName" = "8:Installation bestätigen"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdAdminConfirmDlg.wid"
@@ -752,7 +712,35 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7568FC67653A492E976A03008BA62054"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_131ADD4AC78E4CF58810115AC17D3527"
+            {
+            "SourcePath" = "8:"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9A0DC09DCF8B40578B1C4F80E0288C29"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:PublishItems"
+            "OutputProjectGuid" = "8:{4EB1AA1B-068A-4B19-81FA-533357407D54}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_85E895368E0C4295B6BC3A468F943D4B"
             {
             "SourcePath" = "8:"
             "TargetName" = "8:"
@@ -780,9 +768,9 @@
                 {
                 }
             }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_81E4189A5A3D42D9A27CBF6D78D5D868"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D7CCC43C9FBF4B8187C4135066F093E9"
             {
-            "SourcePath" = "8:..\\Schiffe Versenken\\obj\\x64\\Debug\\netcoreapp3.1\\apphost.exe"
+            "SourcePath" = "8:..\\Schiffe Versenken\\obj\\Release\\netcoreapp3.1\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9A0DC09DCF8B40578B1C4F80E0288C29"
@@ -803,34 +791,6 @@
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:PublishItems"
             "OutputProjectGuid" = "8:{62A0D028-5DB7-418D-A937-A273B0A51D73}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                }
-            }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B467938F75F14E4EB6B98610AEC0771B"
-            {
-            "SourcePath" = "8:"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_9A0DC09DCF8B40578B1C4F80E0288C29"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:PublishItems"
-            "OutputProjectGuid" = "8:{4EB1AA1B-068A-4B19-81FA-533357407D54}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {
