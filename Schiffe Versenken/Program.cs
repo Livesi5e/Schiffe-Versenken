@@ -197,6 +197,10 @@ class UI
             (
                 "Changelog:\n" +
                 "----------------\n" +
+                "v.1.2:\n" +
+                "\t- Added a build which runs on all Windows versions\n" +
+                "\t- Compressed the files down to a single .exe\n" +
+                "----------------\n" +
                 "v1.1:\n" +
                 "\t- Added the Changelog\n" +
                 "\t- Added multiplayer\n" +
