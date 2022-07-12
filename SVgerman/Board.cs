@@ -63,7 +63,7 @@ namespace SVgerman
         { 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         };
 
-        Dictionary[] OwnBoard = new Dictionary[25];
+        Dictionary[] OwnBoard = new Dictionary[26];
 
         public void SetDictionary()
         {
@@ -92,6 +92,7 @@ namespace SVgerman
             OwnBoard[22] = new Dictionary(); OwnBoard[22].letter = 'I'; OwnBoard[22].color = 3;
             OwnBoard[23] = new Dictionary(); OwnBoard[23].letter = 'J'; OwnBoard[23].color = 4;
             OwnBoard[24] = new Dictionary(); OwnBoard[24].letter = 'M'; OwnBoard[24].color = 5;
+            OwnBoard[25] = new Dictionary(); OwnBoard[25].letter = 'O'; OwnBoard[25].color = 5;
         }
 
         //Dies printed das Board von Spieler 1 in die Konsole
@@ -420,23 +421,64 @@ namespace SVgerman
                 switch (sub[2])                                         //Anhand der Länge und Orientierung wird das Schiff plaziert
                 {
                     case "up":                                          //Um das Schiff nach "oben" zu platzieren wird die y-Koordinate um 1 subtrahiert.
+                        if (position[0] + 1 < 11) 
+                        { 
+                            P1board[position[0] + 1, position[1]] = 25;
+                            if (position[0] + 1 < 11 && position[1] + 1 < 11) P1board[position[0] + 1, position[1] + 1] = 25;
+                            if (position[0] + 1 < 11 && position[1] - 1 > 0) P1board[position[0] + 1, position[1] - 1] = 25;
+                        }
                         for (int i = 0; i < l; i++)
                         {
                             P1board[position[0] - i, position[1]] = 1;
+                            if(position[1] + 1 < 11) P1board[position[0] - i, position[1] + 1] = 25;
+                            if (position[1] - 1 > 0) P1board[position[0] - i, position[1] - 1] = 25;
+                            if(i == l - 1)
+                            {
+                                if (position[0] - (i + 1) > 0) P1board[position[0] - (i + 1), position[1]] = 25;
+                                if (position[0] - (i + 1) > 0 && position[1] - 1 > 0) P1board[position[0] - (i + 1), position[1] - 1] = 25;
+                                if (position[0] - (i + 1) > 0 && position[1] + 1 < 11) P1board[position[0] - (i + 1), position[1] + 1] = 25;
+                            }
                         }
                         input = false;
                         break;
                     case "down":                                        //Um das Schiff nach "unten" zu platzieren wird die y-Koordinate um 1 addiert
+                        if(position[0] - 1 > 0)
+                        {
+                            P1board[position[0] - 1, position[1]] = 25;
+                            if (position[1] - 1 > 0) P1board[position[0] - 1, position[1] - 1] = 25;
+                            if (position[1] + 1 < 11) P1board[position[0] - 1, position[1] + 1] = 25;
+                        }
                         for (int i = 0; i < l; i++)
                         {
                             P1board[position[0] + i, position[1]] = 1;
+                            if (position[1] + 1 < 11) P1board[position[0] - i, position[1] + 1] = 25;
+                            if (position[1] - 1 > 0) P1board[position[0] - i, position[1] - 1] = 25;
+                            if(i == l - 1)
+                            {
+                                if (position[0] + l < 11) P1board[position[0] + l, position[1]] = 25;
+                                if (position[0] + l < 11 && position[1] - 1 > 0) P1board[position[0] + l, position[1] - 1] = 25;
+                                if (position[0] + l < 11 && position[1] + 1 > 0) P1board[position[0] + l, position[1] + 1] = 25;
+                            }
                         }
                         input = false;
                         break;
                     case "left":                                        //Um das Schiff nach "links" zu platzieren wird die x-Koordinate um 1 subtrahiert
+                        if(position[1] + 1 < 11)
+                        {
+                            P1board[position[0], position[1] + 1] = 25;
+                            if (position[0] - 1 > 0) P1board[position[0] - 1, position[1] + 1] = 25;
+                            if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] + 1] = 25;
+                        }
                         for (int i = 0; i < l; i++)
                         {
                             P1board[position[0], position[1] - i] = 1;
+                            if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] - i] = 25;
+                            if (position[0] - 1 > 0) P1board[position[0] - 1, position[1] - i] = 25;
+                            if(i == l - 1)
+                            {
+                                if (position[1] - l > 0) P1board[position[0], position[1] + l] = 25;
+                                if(position[1] - l < 11 && position[0] - 1)
+                            }
                         }
                         input = false;
                         break;
@@ -584,7 +626,7 @@ namespace SVgerman
                 switch (d)                                  //Basierend auf der Orientierung wird in eine andere Richtung geguckt
                 {
                     case "up":
-                        if (P1board[p[0] - i, p[1]] == 1)    //Die Koordinate wird um die Loopanzahl versetzt und geguck, ob die ID dort einem anderem Schiff entspricht
+                        if (P1board[p[0] - i, p[1]] == 1 || P1board[p[0] - i, p[1]] == 25)    //Die Koordinate wird um die Loopanzahl versetzt und geguck, ob die ID dort einem anderem Schiff entspricht
                         {
                             Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();                      //Wenn dies der Fall ist, wird ein neuer Punkt angefragt
@@ -593,7 +635,7 @@ namespace SVgerman
                         }
                         break;
                     case "down":
-                        if (P1board[p[0] + i, p[1]] == 1)
+                        if (P1board[p[0] + i, p[1]] == 1 || P1board[p[0] + i, p[1]] == 25)
                         {
                             Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();
@@ -602,7 +644,7 @@ namespace SVgerman
                         }
                         break;
                     case "left":
-                        if (P1board[p[0], p[1] - i] == 1)
+                        if (P1board[p[0], p[1] - i] == 1 || P1board[p[0], p[1] - i] == 25)
                         {
                             Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();
@@ -611,7 +653,7 @@ namespace SVgerman
                         }
                         break;
                     case "right":
-                        if (P1board[p[0], p[1] + i] == 1)
+                        if (P1board[p[0], p[1] + i] == 1 || P1board[p[0], p[1] + i] == 25)
                         {
                             Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
                             p = get();
