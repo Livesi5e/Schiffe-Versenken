@@ -18,7 +18,7 @@ namespace SVAI7
         { 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         { 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         };
-        int[] pos = new int[18];                        //Array was die Positionen der Schiffe der AI speichert
+        int[] pos = new int[];                        //Array was die Positionen der Schiffe der AI speichert
         Random rnd = new Random();                      //Initialisierung des Random Zahlengenerator
 
         //Generiert die Positionen der Schiffe. Benötigt ein Board (b)
@@ -27,297 +27,62 @@ namespace SVAI7
             pos[0] = rnd.Next(10) + 1;              //Generiert eine zufällige x-Koordinate
             pos[1] = rnd.Next(10) + 1;              //Generiert eine zufällige y-Koordinate
             pos[2] = rnd.Next(4);                   //Generiert eine zufällige Orientierung
-            check(1, 2);                            //Checkt ob die Position in Bounds ist und übergibt die Positionen im Array und die Länge des Schiffes
-            setC(2, 1);                             //Übergibt die Länge des Schiffs und die Positionen im Array
+            check(0, 1);                            //Checkt ob die Position in Bounds ist und übergibt die Positionen im Array und die Länge des Schiffes
+            setC(0, 1);                             //Übergibt die Länge des Schiffs und die Positionen im Array
             pos[3] = rnd.Next(10) + 1;
             pos[4] = rnd.Next(10) + 1;
             pos[5] = rnd.Next(4);
-            check(2, 2);
-            checkO(1);                              //Check ob das Schiff mit einem anderem kollidiert und übergibt die Positionen im Array
-            setC(2, 2);
-            pos[6] = rnd.Next(10) + 1;
-            pos[7] = rnd.Next(10) + 1;
-            pos[8] = rnd.Next(4);
-            check(3, 3);
-            checkO(2);
-            setC(3, 3);
-            pos[9] = rnd.Next(10) + 1;
-            pos[10] = rnd.Next(10) + 1;
-            pos[11] = rnd.Next(4);
-            check(4, 3);
-            checkO(3);
-            setC(3, 4);
-            pos[12] = rnd.Next(10) + 1;
-            pos[13] = rnd.Next(10) + 1;
-            pos[14] = rnd.Next(4);
-            check(5, 4);
-            checkO(4);
-            setC(4, 5);
-            pos[15] = rnd.Next(10) + 1;
-            pos[16] = rnd.Next(10) + 1;
-            pos[17] = rnd.Next(4);
-            check(6, 5);
-            checkO(5);
-            setC(5, 6);
+            check(3, 1);
+            setC(3, 1);
             b.PlaceP2AI(pos);                       //Übergibt das Array dem Board und platziert die Schiffe
         }
 
         //Checkt ob das Schiff Out of Bounds ist. Benötigt die Positionen im Array (r) und die Länge des Schiffs (l)
         void check(int r, int l)
         {
-            switch (r)                                      //Basierend auf der Zahl werden andere Positionen benutzt
+            switch (pos[r + 2])
             {
-                case 1:
-                    switch (pos[2])                         //Basierend auf der Zahl wird eine andere Richtung benutzt
+                case 0:
+                    if (pos[r] - (l - 1) < 1)
                     {
-                        case 0:
-                            if (pos[0] - (l - 1) < 1)       //Checkt ob der weit entfernteste Punkt des Schiffs Out of Bounds liegt
-                            {
-                                pos[0] = rnd.Next(10) + 1;  //Generiert neue Punkte falls die alten Invalide sind
-                                pos[1] = rnd.Next(10) + 1;
-                                pos[2] = rnd.Next(4);
-                                check(r, l);                //Ruft diese Funktion rekursiv auf
-                            }
-                            break;
-                        case 1:
-                            if (pos[0] + (l - 1) > 10)
-                            {
-                                pos[0] = rnd.Next(10) + 1;
-                                pos[1] = rnd.Next(10) + 1;
-                                pos[2] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                        case 2:
-                            if (pos[1] - (l - 1) < 1)
-                            {
-                                pos[0] = rnd.Next(10) + 1;
-                                pos[1] = rnd.Next(10) + 1;
-                                pos[2] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                        case 3:
-                            if (pos[1] + (l - 1) > 10)
-                            {
-                                pos[0] = rnd.Next(10) + 1;
-                                pos[1] = rnd.Next(10) + 1;
-                                pos[2] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
+                        pos[r] = rnd.Next(10) + 1;
+                        pos[r + 1] = rnd.Next(10) + 1;
+                        pos[r + 2] = rnd.Next(4);
+                        check(r, l);
+                    }
+                    break;
+                case 1:
+                    if (pos[r] + (l - 1) > 10)
+                    {
+                        pos[r] = rnd.Next(10) + 1;
+                        pos[r + 1] = rnd.Next(10) + 1;
+                        pos[r + 2] = rnd.Next(4);
+                        check(r, l);
                     }
                     break;
                 case 2:
-                    switch (pos[5])
+                    if (pos[r + 1] - (l - 1) < 1)
                     {
-                        case 0:
-                            if (pos[3] - (l - 1) < 1)
-                            {
-                                pos[3] = rnd.Next(10) + 1;
-                                pos[4] = rnd.Next(10) + 1;
-                                pos[5] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                        case 1:
-                            if (pos[3] + (l - 1) > 10)
-                            {
-                                pos[3] = rnd.Next(10) + 1;
-                                pos[4] = rnd.Next(10) + 1;
-                                pos[5] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                        case 2:
-                            if (pos[4] - (l - 1) < 1)
-                            {
-                                pos[3] = rnd.Next(10) + 1;
-                                pos[4] = rnd.Next(10) + 1;
-                                pos[5] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                        case 3:
-                            if (pos[4] + (l - 1) > 10)
-                            {
-                                pos[3] = rnd.Next(10) + 1;
-                                pos[4] = rnd.Next(10) + 1;
-                                pos[5] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
+                        pos[r] = rnd.Next(10) + 1;
+                        pos[r + 1] = rnd.Next(10) + 1;
+                        pos[r + 2] = rnd.Next(4);
+                        check(r, l);
                     }
                     break;
                 case 3:
-                    switch (pos[8])
+                    if (pos[r + 1] + (l - 1) > 10)
                     {
-                        case 0:
-                            if (pos[6] - (l - 1) < 1)
-                            {
-                                pos[6] = rnd.Next(10) + 1;
-                                pos[7] = rnd.Next(10) + 1;
-                                pos[8] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                        case 1:
-                            if (pos[6] + (l - 1) > 10)
-                            {
-                                pos[6] = rnd.Next(10) + 1;
-                                pos[7] = rnd.Next(10) + 1;
-                                pos[8] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                        case 2:
-                            if (pos[7] - (l - 1) < 1)
-                            {
-                                pos[6] = rnd.Next(10) + 1;
-                                pos[7] = rnd.Next(10) + 1;
-                                pos[8] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                        case 3:
-                            if (pos[7] + (l - 1) > 10)
-                            {
-                                pos[6] = rnd.Next(10) + 1;
-                                pos[7] = rnd.Next(10) + 1;
-                                pos[8] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                    }
-                    break;
-                case 4:
-                    switch (pos[11])
-                    {
-                        case 0:
-                            if (pos[9] - (l - 1) < 1)
-                            {
-                                pos[9] = rnd.Next(10) + 1;
-                                pos[10] = rnd.Next(10) + 1;
-                                pos[11] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                        case 1:
-                            if (pos[9] + (l - 1) > 10)
-                            {
-                                pos[9] = rnd.Next(10) + 1;
-                                pos[10] = rnd.Next(10) + 1;
-                                pos[11] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                        case 2:
-                            if (pos[10] - (l - 1) < 1)
-                            {
-                                pos[9] = rnd.Next(10) + 1;
-                                pos[10] = rnd.Next(10) + 1;
-                                pos[11] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                        case 3:
-                            if (pos[10] + (l - 1) > 10)
-                            {
-                                pos[9] = rnd.Next(10) + 1;
-                                pos[10] = rnd.Next(10) + 1;
-                                pos[11] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                    }
-                    break;
-                case 5:
-                    switch (pos[14])
-                    {
-                        case 0:
-                            if (pos[12] - (l - 1) < 1)
-                            {
-                                pos[12] = rnd.Next(10) + 1;
-                                pos[13] = rnd.Next(10) + 1;
-                                pos[14] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                        case 1:
-                            if (pos[12] + (l - 1) > 10)
-                            {
-                                pos[12] = rnd.Next(10) + 1;
-                                pos[13] = rnd.Next(10) + 1;
-                                pos[14] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                        case 2:
-                            if (pos[13] - (l - 1) < 1)
-                            {
-                                pos[12] = rnd.Next(10) + 1;
-                                pos[13] = rnd.Next(10) + 1;
-                                pos[14] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                        case 3:
-                            if (pos[13] + (l - 1) > 10)
-                            {
-                                pos[12] = rnd.Next(10) + 1;
-                                pos[13] = rnd.Next(10) + 1;
-                                pos[14] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                    }
-                    break;
-                case 6:
-                    switch (pos[17])
-                    {
-                        case 0:
-                            if (pos[15] - (l - 1) < 1)
-                            {
-                                pos[15] = rnd.Next(10) + 1;
-                                pos[16] = rnd.Next(10) + 1;
-                                pos[17] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                        case 1:
-                            if (pos[15] + (l - 1) > 10)
-                            {
-                                pos[15] = rnd.Next(10) + 1;
-                                pos[16] = rnd.Next(10) + 1;
-                                pos[17] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                        case 2:
-                            if (pos[16] - (l - 1) < 1)
-                            {
-                                pos[15] = rnd.Next(10) + 1;
-                                pos[16] = rnd.Next(10) + 1;
-                                pos[17] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
-                        case 3:
-                            if (pos[16] + (l - 1) > 10)
-                            {
-                                pos[15] = rnd.Next(10) + 1;
-                                pos[16] = rnd.Next(10) + 1;
-                                pos[17] = rnd.Next(4);
-                                check(r, l);
-                            }
-                            break;
+                        pos[r] = rnd.Next(10) + 1;
+                        pos[r + 1] = rnd.Next(10) + 1;
+                        pos[r + 2] = rnd.Next(4);
+                        check(r, l);
                     }
                     break;
             }
         }
 
         //Platziert das Schiff im eigenen Board. Benötigt die Länge des Schiffs (l) und die Positionen im Array (r)
-        void setC(int l, int r)
+        void setC(int r, int l)
         {
             switch (r)
             {
@@ -496,6 +261,21 @@ namespace SVAI7
                     }
                     break;
             }
+            switch(pos[r + 2])
+            {
+                case 0:
+                    if (pos[r] + 1 < 11)
+                    {
+                        board[pos[r] + 1, pos[r + 1]] = 25;
+                        if (pos[r + 1] + 1 < 11) board[pos[r] + 1, pos[r + 1] + 1] = 25;
+                        if (pos[r + 1] - 1 > 0) board[pos[r] + 1, pos[r + 1] - 1] = 25;
+                    }
+                    for (int i = 0; i < l; i++)
+                    {
+                        board[pos[r] - i, pos[r + 1]] = 1;
+                    }
+                    break;
+            }
         }
 
         //Checkt ob das Aktuelle Schiff mit anderen Schiffen kollidiert
@@ -509,7 +289,7 @@ namespace SVAI7
                         case 0:
                             for (int i = 0; i < 2; i++)
                             {
-                                if (board[pos[3] - i, pos[4]] == 1)
+                                if (board[pos[3] - i, pos[4]] == 1 || board[pos[3] - i, pos[4]] == 25)
                                 {
                                     pos[3] = rnd.Next(10) + 1;
                                     pos[4] = rnd.Next(10) + 1;
@@ -523,7 +303,7 @@ namespace SVAI7
                         case 1:
                             for (int i = 0; i < 2; i++)
                             {
-                                if (board[pos[3] + i, pos[4]] == 1)
+                                if (board[pos[3] + i, pos[4]] == 1 || board[pos[3] + i,pos[4]] == 25)
                                 {
                                     pos[3] = rnd.Next(10) + 1;
                                     pos[4] = rnd.Next(10) + 1;
@@ -537,7 +317,7 @@ namespace SVAI7
                         case 2:
                             for (int i = 0; i < 2; i++)
                             {
-                                if (board[pos[3], pos[4] - i] == 1)
+                                if (board[pos[3], pos[4] - i] == 1 || board[pos[3], pos[4] - i] == 25)
                                 {
                                     pos[3] = rnd.Next(10) + 1;
                                     pos[4] = rnd.Next(10) + 1;
@@ -551,7 +331,7 @@ namespace SVAI7
                         case 3:
                             for (int i = 0; i < 2; i++)
                             {
-                                if (board[pos[3], pos[4] + i] == 1)
+                                if (board[pos[3], pos[4] + i] == 1 || board[pos[3], pos[4] + i] == 25)
                                 {
                                     pos[3] = rnd.Next(10) + 1;
                                     pos[4] = rnd.Next(10) + 1;
@@ -570,7 +350,7 @@ namespace SVAI7
                         case 0:
                             for (int i = 0; i < 3; i++)
                             {
-                                if (board[pos[6] - i, pos[7]] == 1)
+                                if (board[pos[6] - i, pos[7]] == 1 || board[pos[6] - i, pos[7]] == 25)
                                 {
                                     pos[6] = rnd.Next(10) + 1;
                                     pos[7] = rnd.Next(10) + 1;
@@ -584,7 +364,7 @@ namespace SVAI7
                         case 1:
                             for (int i = 0; i < 3; i++)
                             {
-                                if (board[pos[6] + i, pos[7]] == 1)
+                                if (board[pos[6] + i, pos[7]] == 1 || board[pos[6] + i, pos[7]] == 25)
                                 {
                                     pos[6] = rnd.Next(10) + 1;
                                     pos[7] = rnd.Next(10) + 1;
@@ -598,7 +378,7 @@ namespace SVAI7
                         case 2:
                             for (int i = 0; i < 3; i++)
                             {
-                                if (board[pos[6], pos[7] - i] == 1)
+                                if (board[pos[6], pos[7] - i] == 1 || board[pos[6], pos[7] - i] == 25)
                                 {
                                     pos[6] = rnd.Next(10) + 1;
                                     pos[7] = rnd.Next(10) + 1;
@@ -612,7 +392,7 @@ namespace SVAI7
                         case 3:
                             for (int i = 0; i < 3; i++)
                             {
-                                if (board[pos[6], pos[7] + i] == 1)
+                                if (board[pos[6], pos[7] + i] == 1 || board[pos[6], pos[7] + i] == 25)
                                 {
                                     pos[6] = rnd.Next(10) + 1;
                                     pos[7] = rnd.Next(10) + 1;
@@ -631,7 +411,7 @@ namespace SVAI7
                         case 0:
                             for (int i = 0; i < 3; i++)
                             {
-                                if (board[pos[9] - i, pos[10]] == 1)
+                                if (board[pos[9] - i, pos[10]] == 1 || board[pos[9] - i, pos[10]] == 25)
                                 {
                                     pos[9] = rnd.Next(10) + 1;
                                     pos[10] = rnd.Next(10) + 1;
@@ -645,7 +425,7 @@ namespace SVAI7
                         case 1:
                             for (int i = 0; i < 3; i++)
                             {
-                                if (board[pos[9] + i, pos[10]] == 1)
+                                if (board[pos[9] + i, pos[10]] == 1 || board[pos[9] + i, pos[10]] == 25)
                                 {
                                     pos[9] = rnd.Next(10) + 1;
                                     pos[10] = rnd.Next(10) + 1;
@@ -659,7 +439,7 @@ namespace SVAI7
                         case 2:
                             for (int i = 0; i < 3; i++)
                             {
-                                if (board[pos[9], pos[10] - i] == 1)
+                                if (board[pos[9], pos[10] - i] == 1 || board[pos[9], pos[10] - i] == 25)
                                 {
                                     pos[9] = rnd.Next(10) + 1;
                                     pos[10] = rnd.Next(10) + 1;
@@ -673,7 +453,7 @@ namespace SVAI7
                         case 3:
                             for (int i = 0; i < 3; i++)
                             {
-                                if (board[pos[9], pos[10] + i] == 1)
+                                if (board[pos[9], pos[10] + i] == 1 || board[pos[9], pos[10] + i] == 25)
                                 {
                                     pos[9] = rnd.Next(10) + 1;
                                     pos[10] = rnd.Next(10) + 1;
@@ -692,7 +472,7 @@ namespace SVAI7
                         case 0:
                             for (int i = 0; i < 4; i++)
                             {
-                                if (board[pos[12] - i, pos[13]] == 1)
+                                if (board[pos[12] - i, pos[13]] == 1 || board[pos[12] - i, pos[13]] == 25)
                                 {
                                     pos[12] = rnd.Next(10) + 1;
                                     pos[13] = rnd.Next(10) + 1;
@@ -706,7 +486,7 @@ namespace SVAI7
                         case 1:
                             for (int i = 0; i < 4; i++)
                             {
-                                if (board[pos[12] + i, pos[13]] == 1)
+                                if (board[pos[12] + i, pos[13]] == 1 || board[pos[12] + i, pos[13]] == 25)
                                 {
                                     pos[12] = rnd.Next(10) + 1;
                                     pos[13] = rnd.Next(10) + 1;
@@ -720,7 +500,7 @@ namespace SVAI7
                         case 2:
                             for (int i = 0; i < 4; i++)
                             {
-                                if (board[pos[12], pos[13] - i] == 1)
+                                if (board[pos[12], pos[13] - i] == 1 || board[pos[12], pos[13] - i] == 25)
                                 {
                                     pos[12] = rnd.Next(10) + 1;
                                     pos[13] = rnd.Next(10) + 1;
@@ -734,7 +514,7 @@ namespace SVAI7
                         case 3:
                             for (int i = 0; i < 4; i++)
                             {
-                                if (board[pos[12], pos[13] + i] == 1)
+                                if (board[pos[12], pos[13] + i] == 1 || board[pos[12], pos[13] + i] == 25)
                                 {
                                     pos[12] = rnd.Next(10) + 1;
                                     pos[13] = rnd.Next(10) + 1;
@@ -753,7 +533,7 @@ namespace SVAI7
                         case 0:
                             for (int i = 0; i < 5; i++)
                             {
-                                if (board[pos[15] - i, pos[16]] == 1)
+                                if (board[pos[15] - i, pos[16]] == 1 || board[pos[15] - i, pos[16]] == 25)
                                 {
                                     pos[15] = rnd.Next(10) + 1;
                                     pos[16] = rnd.Next(10) + 1;
@@ -767,7 +547,7 @@ namespace SVAI7
                         case 1:
                             for (int i = 0; i < 5; i++)
                             {
-                                if (board[pos[15] + i, pos[16]] == 1)
+                                if (board[pos[15] + i, pos[16]] == 1 || board[pos[15] + i, pos[16]] == 25)
                                 {
                                     pos[15] = rnd.Next(10) + 1;
                                     pos[16] = rnd.Next(10) + 1;
@@ -781,7 +561,7 @@ namespace SVAI7
                         case 2:
                             for (int i = 0; i < 5; i++)
                             {
-                                if (board[pos[15], pos[16] - i] == 1)
+                                if (board[pos[15], pos[16] - i] == 1 || board[pos[15], pos[16] - i] == 25)
                                 {
                                     pos[15] = rnd.Next(10) + 1;
                                     pos[16] = rnd.Next(10) + 1;
@@ -795,7 +575,7 @@ namespace SVAI7
                         case 3:
                             for (int i = 0; i < 5; i++)
                             {
-                                if (board[pos[15], pos[16] + i] == 1)
+                                if (board[pos[15], pos[16] + i] == 1 || board[pos[15], pos[16] + i] == 25)
                                 {
                                     pos[15] = rnd.Next(10) + 1;
                                     pos[16] = rnd.Next(10) + 1;

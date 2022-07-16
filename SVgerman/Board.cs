@@ -457,7 +457,7 @@ namespace SVgerman
                             {
                                 if (position[0] + l < 11) P1board[position[0] + l, position[1]] = 25;
                                 if (position[0] + l < 11 && position[1] - 1 > 0) P1board[position[0] + l, position[1] - 1] = 25;
-                                if (position[0] + l < 11 && position[1] + 1 > 0) P1board[position[0] + l, position[1] + 1] = 25;
+                                if (position[0] + l < 11 && position[1] + 1 < 11) P1board[position[0] + l, position[1] + 1] = 25;
                             }
                         }
                         input = false;
@@ -474,18 +474,33 @@ namespace SVgerman
                             P1board[position[0], position[1] - i] = 1;
                             if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] - i] = 25;
                             if (position[0] - 1 > 0) P1board[position[0] - 1, position[1] - i] = 25;
-                            if(i == l - 1)
+                            if (i == l - 1)
                             {
-                                if (position[1] - l > 0) P1board[position[0], position[1] + l] = 25;
-                                if(position[1] - l < 11 && position[0] - 1)
+                                if (position[1] - l > 0) P1board[position[0], position[1] - l] = 25;
+                                if (position[1] - l > 0 && position[0] - 1 > 0) P1board[position[0] - 1, position[1] - l] = 25;
+                                if (position[1] - l > 0 && position[0] + 1 < 11) P1board[position[0] + 1, position[1] - l] = 25;
                             }
                         }
                         input = false;
                         break;
                     case "right":                                       //Um das Schiff nach "rechts" zu platzieren wird die x-Koordinate um 1 addiert
+                        if (position[1] - 1 > 0)
+                        {
+                            P1board[position[0], position[1] - 1] = 25;
+                            if (position[0] - 1 > 0) P1board[position[0] - 1, position[1] - 1] = 25;
+                            if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] - 1] = 25;
+                        }
                         for (int i = 0; i < l; i++)
                         {
                             P1board[position[0], position[1] + i] = 1;
+                            if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] + i] = 25;
+                            if (position[0] - 1 > 0) P1board[position[0] - 1, position[1] + i] = 25;
+                            if (i == l - 1) 
+                            {
+                                if (position[1] + l < 11) P1board[position[0], position[1] + l] = 25;
+                                if (position[1] + l < 11 && position[0] - 1 > 0) P1board[position[0] - 1, position[1] + l] = 25;
+                                if (position[1] + l < 11 && position[1] + 1 < 11) P1board[position[0] + 1, position[1] + l] = 25;
+                            }
                         }
                         input = false;
                         break;
