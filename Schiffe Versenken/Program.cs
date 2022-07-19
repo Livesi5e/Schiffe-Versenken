@@ -27,49 +27,51 @@ class UI
                 AIEasy enemy = new AIEasy();                                                //Initialisiert eine Einfache AI
                 bool gameEnd = false;                                                       //Beinhaltet, ob die momentane Runde beendet wurde
                 bool won = false;                                                           //Beinhaltet, wer gewonnen hat. true = Spieler 1, false = Spieler 2
-                Gamestate.Player1out();                                                     //Printed das Board von Spieler 1
-                Console.WriteLine("\nZuerst plaziere die 4 X-Schiffe, danach die 3 XX-Schiffe, dann die 2 XXX-Schiff und das XXXX-Schiff");
-                Console.WriteLine("Gebe ein, wo das Schiff plaziert werden soll und wie das orientiert sein soll. Die Syntax dafür ist \"A,2,right\". Möglich sind \"up\",\"down\",\"left\",\"right\"");
-                Console.WriteLine("Zuerst wird das erste X-Schiff plaziert\n");
-                Gamestate.PlaceP1(1);                                                       //Platziert ein Schiff der Länge 1
-                Console.Clear();
-                Gamestate.Player1out();
-                Console.WriteLine("\nGebe nun die Position des zweiten X-Schiff ein");
-                Gamestate.PlaceP1(1);                                                       //Platziert ein Schiff der Länge 1
-                Console.Clear();
-                Gamestate.Player1out();
-                Console.WriteLine("\nGebe nun die Position des dritten X-Schiff ein");
-                Gamestate.PlaceP1(1);                                                       //Platziert ein Schiff der Länge 1
-                Console.Clear();
-                Gamestate.Player1out();
-                Console.WriteLine("\nGebe nun die Position des vierten X-Schiff ein");
-                Gamestate.PlaceP1(1);                                                       //Platziert ein Schiff der Länge 1
-                Console.Clear();
-                Gamestate.Player1out();
-                Console.WriteLine("\nGebe nun die Position des ersten XX-Schiffs ein");
-                Gamestate.PlaceP1(2);                                                       //Platziert ein Schiff der Länge 2
-                Console.Clear();
-                Gamestate.Player1out();
-                Console.WriteLine("\nGebe nun die Position des zweiten XX-Schiffs ein");
-                Gamestate.PlaceP1(2);                                                       //Platziert ein Schiff der Länge 2
-                Console.Clear();
-                Gamestate.Player1out();
-                Console.WriteLine("\nGebe nun die Position des dritten XX-Schiffs ein");
-                Gamestate.PlaceP1(2);                                                       //Platziert ein Schiff der Länge 2
-                Console.Clear();
-                Gamestate.Player1out();
-                Console.WriteLine("\nGebe nun die Position des ersten XXX-Schiffs ein");
-                Gamestate.PlaceP1(3);                                                       //Platziert ein Schiff der Länge 3
-                Console.Clear();
-                Gamestate.Player1out();
-                Console.WriteLine("\nGebe nun die Position des zweiten XXX-Schiffs ein");
-                Gamestate.PlaceP1(3);                                                       //Platziert ein Schiff der Länge 3
-                Console.Clear();
-                Gamestate.Player1out();
-                Console.WriteLine("\nGebe nun die Position des XXXX-Schiffs ein");
-                Gamestate.PlaceP1(4);                                                       //Platziert ein Schiff der Länge 4
-                Console.Clear();
+                //Gamestate.Player1out();                                                     //Printed das Board von Spieler 1
+                //Console.WriteLine("\nZuerst plaziere die 4 X-Schiffe, danach die 3 XX-Schiffe, dann die 2 XXX-Schiff und das XXXX-Schiff");
+                //Console.WriteLine("Gebe ein, wo das Schiff plaziert werden soll und wie das orientiert sein soll. Die Syntax dafür ist \"A,2,right\". Möglich sind \"up\",\"down\",\"left\",\"right\"");
+                //Console.WriteLine("Zuerst wird das erste X-Schiff plaziert\n");
+                //Gamestate.PlaceP1(1);                                                       //Platziert ein Schiff der Länge 1
+                //Console.Clear();
+                //Gamestate.Player1out();
+                //Console.WriteLine("\nGebe nun die Position des zweiten X-Schiff ein");
+                //Gamestate.PlaceP1(1);                                                       //Platziert ein Schiff der Länge 1
+                //Console.Clear();
+                //Gamestate.Player1out();
+                //Console.WriteLine("\nGebe nun die Position des dritten X-Schiff ein");
+                //Gamestate.PlaceP1(1);                                                       //Platziert ein Schiff der Länge 1
+                //Console.Clear();
+                //Gamestate.Player1out();
+                //Console.WriteLine("\nGebe nun die Position des vierten X-Schiff ein");
+                //Gamestate.PlaceP1(1);                                                       //Platziert ein Schiff der Länge 1
+                //Console.Clear();
+                //Gamestate.Player1out();
+                //Console.WriteLine("\nGebe nun die Position des ersten XX-Schiffs ein");
+                //Gamestate.PlaceP1(2);                                                       //Platziert ein Schiff der Länge 2
+                //Console.Clear();
+                //Gamestate.Player1out();
+                //Console.WriteLine("\nGebe nun die Position des zweiten XX-Schiffs ein");
+                //Gamestate.PlaceP1(2);                                                       //Platziert ein Schiff der Länge 2
+                //Console.Clear();
+                //Gamestate.Player1out();
+                //Console.WriteLine("\nGebe nun die Position des dritten XX-Schiffs ein");
+                //Gamestate.PlaceP1(2);                                                       //Platziert ein Schiff der Länge 2
+                //Console.Clear();
+                //Gamestate.Player1out();
+                //Console.WriteLine("\nGebe nun die Position des ersten XXX-Schiffs ein");
+                //Gamestate.PlaceP1(3);                                                       //Platziert ein Schiff der Länge 3
+                //Console.Clear();
+                //Gamestate.Player1out();
+                //Console.WriteLine("\nGebe nun die Position des zweiten XXX-Schiffs ein");
+                //Gamestate.PlaceP1(3);                                                       //Platziert ein Schiff der Länge 3
+                //Console.Clear();
+                //Gamestate.Player1out();
+                //Console.WriteLine("\nGebe nun die Position des XXXX-Schiffs ein");
+                //Gamestate.PlaceP1(4);                                                       //Platziert ein Schiff der Länge 4
+                //Console.Clear();
                 enemy.Place(Gamestate);
+                Gamestate.Player2out();
+                Console.ReadLine();
                 while (gameEnd == false)
                 {
                     Console.Clear();

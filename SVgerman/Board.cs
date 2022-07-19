@@ -451,8 +451,8 @@ namespace SVgerman
                         for (int i = 0; i < l; i++)
                         {
                             P1board[position[0] + i, position[1]] = 1;
-                            if (position[1] + 1 < 11) P1board[position[0] - i, position[1] + 1] = 25;
-                            if (position[1] - 1 > 0) P1board[position[0] - i, position[1] - 1] = 25;
+                            if (position[1] + 1 < 11) P1board[position[0] + i, position[1] + 1] = 25;
+                            if (position[1] - 1 > 0) P1board[position[0] + i, position[1] - 1] = 25;
                             if(i == l - 1)
                             {
                                 if (position[0] + l < 11) P1board[position[0] + l, position[1]] = 25;
@@ -961,167 +961,32 @@ namespace SVgerman
         }
 
         //Eine Funktion welche die Schiffe der AI platziert
-        public void PlaceP2AI(int[] positions)
+        public void PlaceP2AI(int l, int[] positions)
         {
             switch (positions[2])
             {
                 case 0:
-                    for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < l; i++)
                     {
                         P2board[positions[0] - i, positions[1]] = 1;
                     }
                     break;
                 case 1:
-                    for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < l; i++)
                     {
                         P2board[positions[0] + i, positions[1]] = 1;
                     }
                     break;
                 case 2:
-                    for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < l; i++)
                     {
                         P2board[positions[0], positions[1] - i] = 1;
                     }
                     break;
                 case 3:
-                    for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < l; i++)
                     {
                         P2board[positions[0], positions[1] + i] = 1;
-                    }
-                    break;
-            }
-            switch (positions[5])
-            {
-                case 0:
-                    for (int i = 0; i < 2; i++)
-                    {
-                        P2board[positions[3] - i, positions[4]] = 1;
-                    }
-                    break;
-                case 1:
-                    for (int i = 0; i < 2; i++)
-                    {
-                        P2board[positions[3] + i, positions[4]] = 1;
-                    }
-                    break;
-                case 2:
-                    for (int i = 0; i < 2; i++)
-                    {
-                        P2board[positions[3], positions[4] - i] = 1;
-                    }
-                    break;
-                case 3:
-                    for (int i = 0; i < 2; i++)
-                    {
-                        P2board[positions[3], positions[4] + i] = 1;
-                    }
-                    break;
-            }
-            switch (positions[8])
-            {
-                case 0:
-                    for (int i = 0; i < 3; i++)
-                    {
-                        P2board[positions[6] - i, positions[7]] = 1;
-                    }
-                    break;
-                case 1:
-                    for (int i = 0; i < 3; i++)
-                    {
-                        P2board[positions[6] + i, positions[7]] = 1;
-                    }
-                    break;
-                case 2:
-                    for (int i = 0; i < 3; i++)
-                    {
-                        P2board[positions[6], positions[7] - i] = 1;
-                    }
-                    break;
-                case 3:
-                    for (int i = 0; i < 3; i++)
-                    {
-                        P2board[positions[6], positions[7] + i] = 1;
-                    }
-                    break;
-            }
-            switch (positions[11])
-            {
-                case 0:
-                    for (int i = 0; i < 3; i++)
-                    {
-                        P2board[positions[9] - i, positions[10]] = 1;
-                    }
-                    break;
-                case 1:
-                    for (int i = 0; i < 3; i++)
-                    {
-                        P2board[positions[9] + i, positions[10]] = 1;
-                    }
-                    break;
-                case 2:
-                    for (int i = 0; i < 3; i++)
-                    {
-                        P2board[positions[9], positions[10] - i] = 1;
-                    }
-                    break;
-                case 3:
-                    for (int i = 0; i < 3; i++)
-                    {
-                        P2board[positions[9], positions[10] + i] = 1;
-                    }
-                    break;
-            }
-            switch (positions[14])
-            {
-                case 0:
-                    for (int i = 0; i < 4; i++)
-                    {
-                        P2board[positions[12] - i, positions[13]] = 1;
-                    }
-                    break;
-                case 1:
-                    for (int i = 0; i < 4; i++)
-                    {
-                        P2board[positions[12] + i, positions[13]] = 1;
-                    }
-                    break;
-                case 2:
-                    for (int i = 0; i < 4; i++)
-                    {
-                        P2board[positions[12], positions[13] - i] = 1;
-                    }
-                    break;
-                case 3:
-                    for (int i = 0; i < 4; i++)
-                    {
-                        P2board[positions[12], positions[13] + i] = 1;
-                    }
-                    break;
-            }
-            switch (positions[17])
-            {
-                case 0:
-                    for (int i = 0; i < 5; i++)
-                    {
-                        P2board[positions[15] - i, positions[16]] = 1;
-                    }
-                    break;
-                case 1:
-                    for (int i = 0; i < 5; i++)
-                    {
-                        P2board[positions[15] + i, positions[16]] = 1;
-                    }
-                    break;
-                case 2:
-                    for (int i = 0; i < 5; i++)
-                    {
-                        P2board[positions[15], positions[16] - i] = 1;
-                    }
-                    break;
-                case 3:
-                    for (int i = 0; i < 5; i++)
-                    {
-                        P2board[positions[15], positions[16] + i] = 1;
                     }
                     break;
             }
@@ -1141,6 +1006,11 @@ namespace SVgerman
                 P1boardHidden[target[0], target[1]] = 24;
                 P1board[target[0], target[1]] = 24;
             }
+        }
+
+        public void setP2Board(int[,] i)
+        {
+            P2board = i;
         }
     }
 
