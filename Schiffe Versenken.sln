@@ -4,10 +4,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schiffe Versenken", "Schiffe Versenken\Schiffe Versenken.csproj", "{62A0D028-5DB7-418D-A937-A273B0A51D73}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6AA36ACE-87C1-422B-A854-47FBAE30B9FC} = {6AA36ACE-87C1-422B-A854-47FBAE30B9FC}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SVgerman", "SVgerman\SVgerman.csproj", "{7A7B0508-9AAD-4E18-9242-8F5BDFBF90C4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6AA36ACE-87C1-422B-A854-47FBAE30B9FC} = {6AA36ACE-87C1-422B-A854-47FBAE30B9FC}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SVAI7", "SVAI7\SVAI7.csproj", "{4EB1AA1B-068A-4B19-81FA-533357407D54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SVLang", "SVLang\SVLang.csproj", "{6AA36ACE-87C1-422B-A854-47FBAE30B9FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +63,18 @@ Global
 		{4EB1AA1B-068A-4B19-81FA-533357407D54}.SV|Any CPU.Build.0 = SV|Any CPU
 		{4EB1AA1B-068A-4B19-81FA-533357407D54}.SV|x64.ActiveCfg = SV|x64
 		{4EB1AA1B-068A-4B19-81FA-533357407D54}.SV|x64.Build.0 = SV|x64
+		{6AA36ACE-87C1-422B-A854-47FBAE30B9FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AA36ACE-87C1-422B-A854-47FBAE30B9FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AA36ACE-87C1-422B-A854-47FBAE30B9FC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6AA36ACE-87C1-422B-A854-47FBAE30B9FC}.Debug|x64.Build.0 = Debug|Any CPU
+		{6AA36ACE-87C1-422B-A854-47FBAE30B9FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AA36ACE-87C1-422B-A854-47FBAE30B9FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AA36ACE-87C1-422B-A854-47FBAE30B9FC}.Release|x64.ActiveCfg = Release|Any CPU
+		{6AA36ACE-87C1-422B-A854-47FBAE30B9FC}.Release|x64.Build.0 = Release|Any CPU
+		{6AA36ACE-87C1-422B-A854-47FBAE30B9FC}.SV|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AA36ACE-87C1-422B-A854-47FBAE30B9FC}.SV|Any CPU.Build.0 = Debug|Any CPU
+		{6AA36ACE-87C1-422B-A854-47FBAE30B9FC}.SV|x64.ActiveCfg = Debug|Any CPU
+		{6AA36ACE-87C1-422B-A854-47FBAE30B9FC}.SV|x64.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

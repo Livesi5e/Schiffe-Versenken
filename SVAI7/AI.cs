@@ -30,6 +30,9 @@ namespace SVAI7
             check(1);                               //Checkt ob die Position in Bounds ist und übergibt die Positionen im Array und die Länge des Schiffes
             setC(1);                                //Übergibt die Länge des Schiffs
             b.PlaceP2AI(1, pos);                    //Platziert das Schiff auf dem "richtigen" Board
+            //b.setP2Board(board);
+            //b.Player2out();
+            //Console.ReadLine();
             pos[0] = rnd.Next(10) + 1;              //Generiert die Zahlen für das nächste Schiff
             pos[1] = rnd.Next(10) + 1;
             pos[2] = rnd.Next(4);
@@ -37,6 +40,9 @@ namespace SVAI7
             checkO(1);
             setC(1);
             b.PlaceP2AI(1, pos);
+            //b.setP2Board(board);
+            //b.Player2out();
+            //Console.ReadLine();
             pos[0] = rnd.Next(10) + 1;
             pos[1] = rnd.Next(10) + 1;
             pos[2] = rnd.Next(4);
@@ -44,6 +50,9 @@ namespace SVAI7
             checkO(1);
             setC(1);
             b.PlaceP2AI(1, pos);
+            //b.setP2Board(board);
+            //b.Player2out();
+            //Console.ReadLine();
             pos[0] = rnd.Next(10) + 1;
             pos[1] = rnd.Next(10) + 1;
             pos[2] = rnd.Next(4);
@@ -51,6 +60,9 @@ namespace SVAI7
             checkO(1);
             setC(1);
             b.PlaceP2AI(1, pos);
+            //b.setP2Board(board);
+            //b.Player2out();
+            //Console.ReadLine();
             pos[0] = rnd.Next(10) + 1;
             pos[1] = rnd.Next(10) + 1;
             pos[2] = rnd.Next(4);
@@ -58,6 +70,9 @@ namespace SVAI7
             checkO(2);
             setC(2);
             b.PlaceP2AI(2, pos);
+            //b.setP2Board(board);
+            //b.Player2out();
+            //Console.ReadLine();
             pos[0] = rnd.Next(10) + 1;
             pos[1] = rnd.Next(10) + 1;
             pos[2] = rnd.Next(4);
@@ -65,6 +80,9 @@ namespace SVAI7
             checkO(2);
             setC(2);
             b.PlaceP2AI(2, pos);
+            //b.setP2Board(board);
+            //b.Player2out();
+            //Console.ReadLine();
             pos[0] = rnd.Next(10) + 1;
             pos[1] = rnd.Next(10) + 1;
             pos[2] = rnd.Next(4);
@@ -72,6 +90,9 @@ namespace SVAI7
             checkO(2);
             setC(2);
             b.PlaceP2AI(2, pos);
+            //b.setP2Board(board);
+            //b.Player2out();
+            //Console.ReadLine();
             pos[0] = rnd.Next(10) + 1;
             pos[1] = rnd.Next(10) + 1;
             pos[2] = rnd.Next(4);
@@ -79,6 +100,9 @@ namespace SVAI7
             checkO(3);
             setC(3);
             b.PlaceP2AI(3, pos);
+            //b.setP2Board(board);
+            //b.Player2out();
+            //Console.ReadLine();
             pos[0] = rnd.Next(10) + 1;
             pos[1] = rnd.Next(10) + 1;
             pos[2] = rnd.Next(4);
@@ -86,6 +110,9 @@ namespace SVAI7
             checkO(3);
             setC(3);
             b.PlaceP2AI(3, pos);
+            //b.setP2Board(board);
+            //b.Player2out();
+            //Console.ReadLine();
             pos[0] = rnd.Next(10) + 1;
             pos[1] = rnd.Next(10) + 1;
             pos[2] = rnd.Next(4);
@@ -93,7 +120,7 @@ namespace SVAI7
             checkO(4);
             setC(4);
             b.PlaceP2AI(4, pos);
-            b.setP2Board(board);
+            //b.setP2Board(board);
         }
 
         //Checkt ob das Schiff Out of Bounds ist. Benötigt die Positionen im Array (r) und die Länge des Schiffs (l)
@@ -102,7 +129,7 @@ namespace SVAI7
             switch (pos[2])
             {
                 case 0:
-                    if (pos[0] - (l - 1) < 1)
+                    if (pos[0] - l < 0)
                     {
                         pos[0] = rnd.Next(10) + 1;
                         pos[1] = rnd.Next(10) + 1;
@@ -111,7 +138,7 @@ namespace SVAI7
                     }
                     break;
                 case 1:
-                    if (pos[0] + (l - 1) > 10)
+                    if (pos[0] + l > 11)
                     {
                         pos[0] = rnd.Next(10) + 1;
                         pos[1] = rnd.Next(10) + 1;
@@ -120,7 +147,7 @@ namespace SVAI7
                     }
                     break;
                 case 2:
-                    if (pos[1] + (l - 1) > 10)
+                    if (pos[1] - l < 0)
                     {
                         pos[0] = rnd.Next(10) + 1;
                         pos[1] = rnd.Next(10) + 1;
@@ -129,7 +156,7 @@ namespace SVAI7
                     }
                     break;
                 case 3:
-                    if (pos[1] - (l - 1) < 1)
+                    if (pos[1] + l > 11)
                     {
                         pos[0] = rnd.Next(10) + 1;
                         pos[1] = rnd.Next(10) + 1;
@@ -145,7 +172,7 @@ namespace SVAI7
         {
             switch(pos[2])
             {
-                case 0:
+                case 0:                                          //Um das Schiff nach "oben" zu platzieren wird die y-Koordinate um 1 subtrahiert.
                     if (pos[0] + 1 < 11)
                     {
                         board[pos[0] + 1, pos[1]] = 25;
@@ -157,71 +184,71 @@ namespace SVAI7
                         board[pos[0] - i, pos[1]] = 1;
                         if (pos[1] + 1 < 11) board[pos[0] - i, pos[1] + 1] = 25;
                         if (pos[1] - 1 > 0) board[pos[0] - i, pos[1] - 1] = 25;
-                        if(i == l - 1 && pos[0] - l > 0)
+                        if (i == l - 1)
                         {
-                            if (pos[0] - l > 0) board[pos[0] - l, pos[1]] = 25;
-                            if (pos[0] - l > 0 && pos[1] + 1 < 11) board[pos[0] - l, pos[1] + 1] = 25;
-                            if (pos[0] - l > 0 && pos[1] - 1 > 0) board[pos[0] - l, pos[1] - 1] = 25;
+                            if (pos[0] - (i + 1) > 0) board[pos[0] - (i + 1), pos[1]] = 25;
+                            if (pos[0] - (i + 1) > 0 && pos[1] - 1 > 0) board[pos[0] - (i + 1), pos[1] - 1] = 25;
+                            if (pos[0] - (i + 1) > 0 && pos[1] + 1 < 11) board[pos[0] - (i + 1), pos[1] + 1] = 25;
                         }
                     }
                     break;
-                case 1:
+                case 1:                                        //Um das Schiff nach "unten" zu platzieren wird die y-Koordinate um 1 addiert
                     if (pos[0] - 1 > 0)
                     {
-                        board[pos[0] - 1, pos[1]] = 1;
-                        if (pos[1] + 1 < 11) board[pos[0] - 1, pos[1] + 1] = 25;
+                        board[pos[0] - 1, pos[1]] = 25;
                         if (pos[1] - 1 > 0) board[pos[0] - 1, pos[1] - 1] = 25;
+                        if (pos[1] + 1 < 11) board[pos[0] - 1, pos[1] + 1] = 25;
                     }
                     for (int i = 0; i < l; i++)
                     {
-                        board[pos[0] + i, pos[1]] = 25;
+                        board[pos[0] + i, pos[1]] = 1;
                         if (pos[1] + 1 < 11) board[pos[0] + i, pos[1] + 1] = 25;
                         if (pos[1] - 1 > 0) board[pos[0] + i, pos[1] - 1] = 25;
-                        if (i == l - 1 && pos[0] + l < 11)
+                        if (i == l - 1)
                         {
-                            board[pos[0] + l, pos[1]] = 25;
-                            if (pos[1] + 1 < 11) board[pos[0] + l, pos[1] + 1] = 25;
-                            if (pos[1] - 1 > 0) board[pos[0] + l, pos[1] - 1] = 25;
+                            if (pos[0] + l < 11) board[pos[0] + l, pos[1]] = 25;
+                            if (pos[0] + l < 11 && pos[1] - 1 > 0) board[pos[0] + l, pos[1] - 1] = 25;
+                            if (pos[0] + l < 11 && pos[1] + 1 < 11) board[pos[0] + l, pos[1] + 1] = 25;
                         }
                     }
                     break;
-                case 2:
-                    if (pos[1] - 1 > 0)
-                    {
-                        board[pos[0], pos[1] - 1] = 25;
-                        if (pos[0] + 1 < 11) board[pos[0] + 1, pos[1] - 1] = 25;
-                        if (pos[0] - 1 > 0) board[pos[0] - 1, pos[1] - 1] = 25;
-                    }
-                    for (int i = 0; i < l; i++)
-                    {
-                        board[pos[0], pos[1] + i] = 1;
-                        if (pos[0] + 1 < 11) board[pos[0] + 1, pos[1] + i] = 25;
-                        if (pos[0] - 1 > 0) board[pos[0] - 1, pos[1] + i] = 25;
-                        if (i == l - 1 && pos[1] + l < 11)
-                        {
-                            board[pos[0], pos[1] + l] = 25;
-                            if (pos[0] + 1 < 11) board[pos[0] + 1, pos[1] + l] = 25;
-                            if (pos[0] - 1 > 0) board[pos[0] - 1, pos[1] + l] = 25;
-                        }
-                    }
-                    break;
-                case 3:
-                    if (pos[1] + 1 < 0)
+                case 2:                                        //Um das Schiff nach "links" zu platzieren wird die x-Koordinate um 1 subtrahiert
+                    if (pos[1] + 1 < 11)
                     {
                         board[pos[0], pos[1] + 1] = 25;
-                        if (pos[0] + 1 < 11) board[pos[0] + 1, pos[1] + 1] = 25;
                         if (pos[0] - 1 > 0) board[pos[0] - 1, pos[1] + 1] = 25;
+                        if (pos[0] + 1 < 11) board[pos[0] + 1, pos[1] + 1] = 25;
                     }
                     for (int i = 0; i < l; i++)
                     {
                         board[pos[0], pos[1] - i] = 1;
                         if (pos[0] + 1 < 11) board[pos[0] + 1, pos[1] - i] = 25;
                         if (pos[0] - 1 > 0) board[pos[0] - 1, pos[1] - i] = 25;
-                        if (i == l - 1 && pos[1] - l > 0)
+                        if (i == l - 1)
                         {
-                            board[pos[0], pos[1] - l] = 25;
-                            if (pos[0] + 1 < 11) board[pos[0] + 1, pos[1] - l] = 25;
-                            if (pos[0] - 1 > 0) board[pos[0] - 1, pos[1] - l] = 25;
+                            if (pos[1] - l > 0) board[pos[0], pos[1] - l] = 25;
+                            if (pos[1] - l > 0 && pos[0] - 1 > 0) board[pos[0] - 1, pos[1] - l] = 25;
+                            if (pos[1] - l > 0 && pos[0] + 1 < 11) board[pos[0] + 1, pos[1] - l] = 25;
+                        }
+                    }
+                    break;
+                case 3:                                       //Um das Schiff nach "rechts" zu platzieren wird die x-Koordinate um 1 addiert
+                    if (pos[1] - 1 > 0)
+                    {
+                        board[pos[0], pos[1] - 1] = 25;
+                        if (pos[0] - 1 > 0) board[pos[0] - 1, pos[1] - 1] = 25;
+                        if (pos[0] + 1 < 11) board[pos[0] + 1, pos[1] - 1] = 25;
+                    }
+                    for (int i = 0; i < l; i++)
+                    {
+                        board[pos[0], pos[1] + i] = 1;
+                        if (pos[0] + 1 < 11) board[pos[0] + 1, pos[1] + i] = 25;
+                        if (pos[0] - 1 > 0) board[pos[0] - 1, pos[1] + i] = 25;
+                        if (i == l - 1)
+                        {
+                            if (pos[1] + l < 11) board[pos[0], pos[1] + l] = 25;
+                            if (pos[1] + l < 11 && pos[0] - 1 > 0) board[pos[0] - 1, pos[1] + l] = 25;
+                            if (pos[1] + l < 11 && pos[1] + 1 < 11) board[pos[0] + 1, pos[1] + l] = 25;
                         }
                     }
                     break;
@@ -265,7 +292,7 @@ namespace SVAI7
                 case 2:
                     for (int i = 0; i < l; i++)
                     {
-                        if (board[pos[0], pos[1] + i] == 1 || board[pos[0], pos[1] + i] == 25)
+                        if (board[pos[0], pos[1] - i] == 1 || board[pos[0], pos[1] - i] == 25)
                         {
                             pos[0] = rnd.Next(10) + 1;
                             pos[1] = rnd.Next(10) + 1;
@@ -279,7 +306,7 @@ namespace SVAI7
                 case 3:
                     for (int i = 0; i < l; i++)
                     {
-                        if (board[pos[0], pos[1] - i] == 1 || board[pos[0], pos[1] - i] == 25)
+                        if (board[pos[0], pos[1] + i] == 1 || board[pos[0], pos[1] + i] == 25)
                         {
                             pos[0] = rnd.Next(10) + 1;
                             pos[1] = rnd.Next(10) + 1;

@@ -424,8 +424,8 @@ namespace SVgerman
                         if (position[0] + 1 < 11) 
                         { 
                             P1board[position[0] + 1, position[1]] = 25;
-                            if (position[0] + 1 < 11 && position[1] + 1 < 11) P1board[position[0] + 1, position[1] + 1] = 25;
-                            if (position[0] + 1 < 11 && position[1] - 1 > 0) P1board[position[0] + 1, position[1] - 1] = 25;
+                            if (position[1] + 1 < 11) P1board[position[0] + 1, position[1] + 1] = 25;
+                            if (position[1] - 1 > 0) P1board[position[0] + 1, position[1] - 1] = 25;
                         }
                         for (int i = 0; i < l; i++)
                         {
@@ -500,6 +500,10 @@ namespace SVgerman
                                 if (position[1] + l < 11) P1board[position[0], position[1] + l] = 25;
                                 if (position[1] + l < 11 && position[0] - 1 > 0) P1board[position[0] - 1, position[1] + l] = 25;
                                 if (position[1] + l < 11 && position[1] + 1 < 11) P1board[position[0] + 1, position[1] + l] = 25;
+                            }
+                            else
+                            {
+
                             }
                         }
                         input = false;
