@@ -184,12 +184,12 @@ namespace SVAI7
                         board[pos[0] - i, pos[1]] = 1;
                         if (pos[1] + 1 < 11) board[pos[0] - i, pos[1] + 1] = 25;
                         if (pos[1] - 1 > 0) board[pos[0] - i, pos[1] - 1] = 25;
-                        if (i == l - 1)
-                        {
-                            if (pos[0] - (i + 1) > 0) board[pos[0] - (i + 1), pos[1]] = 25;
-                            if (pos[0] - (i + 1) > 0 && pos[1] - 1 > 0) board[pos[0] - (i + 1), pos[1] - 1] = 25;
-                            if (pos[0] - (i + 1) > 0 && pos[1] + 1 < 11) board[pos[0] - (i + 1), pos[1] + 1] = 25;
-                        }
+                    }
+                    if (pos[0] - l > 0)
+                    {
+                        board[pos[0] - l, pos[1]] = 25;
+                        if (pos[1] - 1 > 0) board[pos[0] - l, pos[1] - 1] = 25;
+                        if (pos[1] + 1 < 11) board[pos[0] - l, pos[1] + 1] = 25;
                     }
                     break;
                 case 1:                                        //Um das Schiff nach "unten" zu platzieren wird die y-Koordinate um 1 addiert
@@ -204,12 +204,12 @@ namespace SVAI7
                         board[pos[0] + i, pos[1]] = 1;
                         if (pos[1] + 1 < 11) board[pos[0] + i, pos[1] + 1] = 25;
                         if (pos[1] - 1 > 0) board[pos[0] + i, pos[1] - 1] = 25;
-                        if (i == l - 1)
-                        {
-                            if (pos[0] + l < 11) board[pos[0] + l, pos[1]] = 25;
-                            if (pos[0] + l < 11 && pos[1] - 1 > 0) board[pos[0] + l, pos[1] - 1] = 25;
-                            if (pos[0] + l < 11 && pos[1] + 1 < 11) board[pos[0] + l, pos[1] + 1] = 25;
-                        }
+                    }
+                    if (pos[0] + l < 11)
+                    {
+                        board[pos[0] + l, pos[1]] = 25;
+                        if (pos[1] - 1 > 0) board[pos[0] + l, pos[1] - 1] = 25;
+                        if (pos[1] + 1 < 11) board[pos[0] + l, pos[1] + 1] = 25;
                     }
                     break;
                 case 2:                                        //Um das Schiff nach "links" zu platzieren wird die x-Koordinate um 1 subtrahiert
@@ -224,12 +224,12 @@ namespace SVAI7
                         board[pos[0], pos[1] - i] = 1;
                         if (pos[0] + 1 < 11) board[pos[0] + 1, pos[1] - i] = 25;
                         if (pos[0] - 1 > 0) board[pos[0] - 1, pos[1] - i] = 25;
-                        if (i == l - 1)
-                        {
-                            if (pos[1] - l > 0) board[pos[0], pos[1] - l] = 25;
-                            if (pos[1] - l > 0 && pos[0] - 1 > 0) board[pos[0] - 1, pos[1] - l] = 25;
-                            if (pos[1] - l > 0 && pos[0] + 1 < 11) board[pos[0] + 1, pos[1] - l] = 25;
-                        }
+                    }
+                    if (pos[1] - l > 0)
+                    {
+                        board[pos[0], pos[1] - l] = 25;
+                        if (pos[0] - 1 > 0) board[pos[0] - 1, pos[1] - l] = 25;
+                        if (pos[0] + 1 < 11) board[pos[0] + 1, pos[1] - l] = 25;
                     }
                     break;
                 case 3:                                       //Um das Schiff nach "rechts" zu platzieren wird die x-Koordinate um 1 addiert
@@ -244,12 +244,12 @@ namespace SVAI7
                         board[pos[0], pos[1] + i] = 1;
                         if (pos[0] + 1 < 11) board[pos[0] + 1, pos[1] + i] = 25;
                         if (pos[0] - 1 > 0) board[pos[0] - 1, pos[1] + i] = 25;
-                        if (i == l - 1)
-                        {
-                            if (pos[1] + l < 11) board[pos[0], pos[1] + l] = 25;
-                            if (pos[1] + l < 11 && pos[0] - 1 > 0) board[pos[0] - 1, pos[1] + l] = 25;
-                            if (pos[1] + l < 11 && pos[1] + 1 < 11) board[pos[0] + 1, pos[1] + l] = 25;
-                        }
+                    }
+                    if (pos[1] + l < 11)
+                    {
+                        board[pos[0], pos[1] + l] = 25;
+                        if (pos[0] - 1 > 0) board[pos[0] - 1, pos[1] + l] = 25;
+                        if (pos[0] + 1 < 11) board[pos[0] + 1, pos[1] + l] = 25;
                     }
                     break;
                 default:

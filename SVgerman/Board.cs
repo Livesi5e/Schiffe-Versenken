@@ -1,12 +1,15 @@
 ﻿using System;
+using SVLang;
 
 namespace SVgerman
 {
     public class Board
     {
         public string temp;
+        public string lang;
+        dict d = new dict();
 
-        int[,] P1board = new int[,] {               //Das Board von Spieler 1
+        int[,] P1board = {                          //Das Board von Spieler 1
     //x = 0   1  2  3  4  5  6  7  8  9  10
         { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13},     //y = 0
         { 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},        //y = 1
@@ -21,7 +24,7 @@ namespace SVgerman
         { 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}         //y = 10
         };
 
-        int[,] P1boardHidden = new int[,] {         //Das Board von Spieler 1, welches Spieler 2 sieht
+        int[,] P1boardHidden = {                    //Das Board von Spieler 1, welches Spieler 2 sieht
         { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13},
         { 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         { 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -35,7 +38,7 @@ namespace SVgerman
         { 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         };
 
-        int[,] P2board = new int[,] {               //Das Board von Spieler 2
+        int[,] P2board = {                          //Das Board von Spieler 2
         { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13},
         { 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         { 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -49,7 +52,7 @@ namespace SVgerman
         { 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         };
 
-        int[,] P2boardHidden = new int[,] {         //Das Board von Spieler 2, welches Spieler 1 sieht
+        int[,] P2boardHidden = {                    //Das Board von Spieler 2, welches Spieler 1 sieht
         { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13},
         { 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         { 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -63,49 +66,44 @@ namespace SVgerman
         { 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         };
 
-        Dictionary[] OwnBoard = new Dictionary[26];
+        int[][] P1Schiffe = { 
+            new int[] { 0, 0},
+            new int[] { 0, 0},
+            new int[] { 0, 0},
+            new int[] { 0, 0},
+            new int[] { 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0, 0, 0, 0, 0},
+            new int[] { 4, 3, 2, 1}
+        };
 
-        public void SetDictionary()
-        {
-            OwnBoard[0] = new Dictionary(); OwnBoard[0].letter = 'O'; OwnBoard[0].color = 0;
-            OwnBoard[1] = new Dictionary(); OwnBoard[1].letter = 'X'; OwnBoard[1].color = 1;
-            OwnBoard[2] = new Dictionary(); OwnBoard[2].letter = 'K'; OwnBoard[2].color = 2;
-            OwnBoard[3] = new Dictionary(); OwnBoard[3].letter = ' '; OwnBoard[3].color = null;
-            OwnBoard[4] = new Dictionary(); OwnBoard[4].letter = '1'; OwnBoard[4].color = 3;
-            OwnBoard[5] = new Dictionary(); OwnBoard[5].letter = '2'; OwnBoard[5].color = 4;
-            OwnBoard[6] = new Dictionary(); OwnBoard[6].letter = '3'; OwnBoard[6].color = 3;
-            OwnBoard[7] = new Dictionary(); OwnBoard[7].letter = '4'; OwnBoard[7].color = 4;
-            OwnBoard[8] = new Dictionary(); OwnBoard[8].letter = '5'; OwnBoard[8].color = 3;
-            OwnBoard[9] = new Dictionary(); OwnBoard[9].letter = '6'; OwnBoard[9].color = 4;
-            OwnBoard[10] = new Dictionary(); OwnBoard[10].letter = '7'; OwnBoard[10].color = 3;
-            OwnBoard[11] = new Dictionary(); OwnBoard[11].letter = '8'; OwnBoard[11].color = 4;
-            OwnBoard[12] = new Dictionary(); OwnBoard[12].letter = '9'; OwnBoard[12].color = 3;
-            OwnBoard[13] = new Dictionary(); OwnBoard[13].letter = '1'; OwnBoard[13].letter2 = '0'; OwnBoard[13].color = 4;
-            OwnBoard[14] = new Dictionary(); OwnBoard[14].letter = 'A'; OwnBoard[14].color = 3;
-            OwnBoard[15] = new Dictionary(); OwnBoard[15].letter = 'B'; OwnBoard[15].color = 4;
-            OwnBoard[16] = new Dictionary(); OwnBoard[16].letter = 'C'; OwnBoard[16].color = 3;
-            OwnBoard[17] = new Dictionary(); OwnBoard[17].letter = 'D'; OwnBoard[17].color = 4;
-            OwnBoard[18] = new Dictionary(); OwnBoard[18].letter = 'E'; OwnBoard[18].color = 3;
-            OwnBoard[19] = new Dictionary(); OwnBoard[19].letter = 'F'; OwnBoard[19].color = 4;
-            OwnBoard[20] = new Dictionary(); OwnBoard[20].letter = 'G'; OwnBoard[20].color = 3;
-            OwnBoard[21] = new Dictionary(); OwnBoard[21].letter = 'H'; OwnBoard[21].color = 4;
-            OwnBoard[22] = new Dictionary(); OwnBoard[22].letter = 'I'; OwnBoard[22].color = 3;
-            OwnBoard[23] = new Dictionary(); OwnBoard[23].letter = 'J'; OwnBoard[23].color = 4;
-            OwnBoard[24] = new Dictionary(); OwnBoard[24].letter = 'M'; OwnBoard[24].color = 5;
-            OwnBoard[25] = new Dictionary(); OwnBoard[25].letter = 'O'; OwnBoard[25].color = 5;
-        }
+        int[][] P2Schiffe = {
+            new int[] { 0, 0},
+            new int[] { 0, 0},
+            new int[] { 0, 0},
+            new int[] { 0, 0},
+            new int[] { 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0, 0, 0, 0, 0}
+        };
 
         //Dies printed das Board von Spieler 1 in die Konsole
         public void Player1out()
         {
             Console.ForegroundColor = ConsoleColor.Gray;                        //Konsolenfarbe wird auf Grau umgestellt
-            Console.WriteLine("Dein Feld:\n");
+            Console.WriteLine(d.text(25, lang));
             Console.ResetColor();                                               //Farbe wird geresettet für weiters umfärben
             for (int i = 0; i < 11; i++)                                        //Hier wird durch die y-Koordinate geloopt
             {
                 for (int o = 0; o < 11; o++)                                    //Hier wird durch die x-Koordinate geloopt
                 {
-                    switch (OwnBoard[P1board[i, o]].color)                      //Hier wird nach der ID an der Stelle [x|y] die zugehörige Farb-ID aufgerufen
+                    switch (d.col(P1board[i, o]))                      //Hier wird nach der ID an der Stelle [x|y] die zugehörige Farb-ID aufgerufen
                     {
                         case 0:
                             Console.ForegroundColor = ConsoleColor.Blue;        //0 = Blau
@@ -128,26 +126,27 @@ namespace SVgerman
                         default:
                             break;
                     }
-                    Console.Write(OwnBoard[P1board[i, o]].letter);               //Hier wird nach der ID an der Stelle [x|y] der zugehörige Buchstabe geprinted
-                    if (P1board[i, o] == 13) Console.Write(OwnBoard[P1board[i, o]].letter2);
+                    Console.Write(d.lett(P1board[i, o]));               //Hier wird nach der ID an der Stelle [x|y] der zugehörige Buchstabe geprinted
+                    if (P1board[i, o] == 13) Console.Write('c');
                     Console.Write(" ");                                         //Aus Schönheitsgründen wird ein Leerzeichen zwischen den Buchstaben platziert
                     Console.ResetColor();                                       //Farbe wird geresettet für den nächsten Loop
                 }
                 Console.Write("\n");                                            //Nächste Zeile wird gestartet für den nächsten x-Koordinatenloop
             }
+            Console.WriteLine("\t" + P1Schiffe[10][0] + " " + d.text(33, lang) + P1Schiffe[10][1] + " " + d.text(34, lang) + P1Schiffe[10][2] + " " + d.text(35, lang) + P1Schiffe[10][3] + " " + d.text(36, lang));
         }
 
         //Dies printed das Board von Spieler 2 in die Konsole
         public void Player2out()
         {
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Dein Feld:\n");
+            Console.WriteLine(d.text(25, lang));
             Console.ResetColor();
             for (int i = 0; i < 11; i++)
             {
                 for (int o = 0; o < 11; o++)
                 {
-                    switch (OwnBoard[P2board[i, o]].color)
+                    switch (d.col(P2board[i, o]))
                     {
                         case 0:
                             Console.ForegroundColor = ConsoleColor.Blue;
@@ -170,8 +169,8 @@ namespace SVgerman
                         default:
                             break;
                     }
-                    Console.Write(OwnBoard[P2board[i, o]].letter);
-                    if (P2board[i, o] == 13) Console.Write(OwnBoard[P2board[i, o]].letter2);
+                    Console.Write(d.lett(P2board[i, o]));
+                    if (P2board[i, o] == 13) Console.Write('0');
                     Console.Write(" ");
                     Console.ResetColor();
                 }
@@ -183,12 +182,12 @@ namespace SVgerman
         public void Player1outh()
         {
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Gegnerisches Feld:");
+            Console.WriteLine(d.text(26, lang));
             for (int i = 0; i < 11; i++)
             {
                 for (int o = 0; o < 11; o++)
                 {
-                    switch (OwnBoard[P1boardHidden[i, o]].color)
+                    switch (d.col(P1boardHidden[i, o]))
                     {
                         case 0:
                             Console.ForegroundColor = ConsoleColor.Blue;
@@ -211,8 +210,8 @@ namespace SVgerman
                         default:
                             break;
                     }
-                    Console.Write(OwnBoard[P1boardHidden[i, o]].letter);
-                    if (P1boardHidden[i, o] == 13) Console.Write(OwnBoard[P1boardHidden[i, o]].letter2);
+                    Console.Write(d.lett(P1boardHidden[i, o]));
+                    if (P1boardHidden[i, o] == 13) Console.Write('0');
                     Console.Write(" ");
                     Console.ResetColor();
                 }
@@ -224,13 +223,13 @@ namespace SVgerman
         public void Player2outh()
         {
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Gegnerisches Feld");
+            Console.WriteLine(d.text(26, lang));
             Console.ResetColor();
             for (int i = 0; i < 11; i++)
             {
                 for (int o = 0; o < 11; o++)
                 {
-                    switch (OwnBoard[P2boardHidden[i, o]].color)
+                    switch (d.col(P2boardHidden[i, o]))
                     {
                         case 0:
                             Console.ForegroundColor = ConsoleColor.Blue;
@@ -253,8 +252,8 @@ namespace SVgerman
                         default:
                             break;
                     }
-                    Console.Write(OwnBoard[P2boardHidden[i, o]].letter);
-                    if (P2boardHidden[i, o] == 13) Console.Write(OwnBoard[P2boardHidden[i, o]].letter2);
+                    Console.Write(d.lett(P2boardHidden[i, o]));
+                    if (P2boardHidden[i, o] == 13) Console.Write('0');
                     Console.Write(" ");
                     Console.ResetColor();
                 }
@@ -266,13 +265,13 @@ namespace SVgerman
         public void Player2outhP1out()
         {
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Gegnerisches Feld:\t\tDein Feld:");
+            Console.WriteLine(d.text(26, lang) + "\t\t" + d.text(25, lang));
             Console.ResetColor();
             for (int i = 0; i < 11; i++)                                    //Hier wird durch die y-Koordinate beider Boards geloopt
             {
                 for (int o = 0; o < 11; o++)                                //Hier werden die ID's für die Punkte [x|y] des Boards von Spieler 2 geloopt
                 {
-                    switch (OwnBoard[P2boardHidden[i, o]].color)
+                    switch (d.col(P2boardHidden[i, o]))
                     {
                         case 0:
                             Console.ForegroundColor = ConsoleColor.Blue;
@@ -295,15 +294,15 @@ namespace SVgerman
                         default:
                             break;
                     }
-                    Console.Write(OwnBoard[P2boardHidden[i, o]].letter);
-                    if (P2boardHidden[i, o] == 13) Console.Write(OwnBoard[P2boardHidden[i, o]].letter2);
+                    Console.Write(d.lett(P2boardHidden[i, o]));
+                    if (P2boardHidden[i, o] == 13) Console.Write('0');
                     Console.Write(" ");
                     Console.ResetColor();
                 }
                 Console.Write("\t\t");                                          //Der Abstand zwischen den beiden Boards wird erstellt
                 for (int o = 0; o < 11; o++)                                    //Hier werden die ID's für die Punkte [x|y] des Boards von Spieler 1 geloopt
                 {
-                    switch (OwnBoard[P1board[i, o]].color)
+                    switch (d.col(P1board[i, o]))
                     {
                         case 0:
                             Console.ForegroundColor = ConsoleColor.Blue;
@@ -326,8 +325,8 @@ namespace SVgerman
                         default:
                             break;
                     }
-                    Console.Write(OwnBoard[P1board[i, o]].letter);
-                    if (P1board[i, o] == 13) Console.Write(OwnBoard[P1board[i, o]].letter2);
+                    Console.Write(d.lett(P1board[i, o]));
+                    if (P1board[i, o] == 13) Console.Write('0');
                     Console.Write(" ");
                     Console.ResetColor();
                 }
@@ -338,13 +337,13 @@ namespace SVgerman
         public void Player1outhP2out()
         {
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Gegnerisches Feld:\t\tDein Feld:");
+            Console.WriteLine(d.text(26, lang) + "\t\t" + d.text(25, lang));
             Console.ResetColor();
             for (int i = 0; i < 11; i++)                                    //Hier wird durch die y-Koordinate beider Boards geloopt
             {
                 for (int o = 0; o < 11; o++)                                //Hier werden die ID's für die Punkte [x|y] des Boards von Spieler 2 geloopt
                 {
-                    switch (OwnBoard[P1boardHidden[i, o]].color)
+                    switch (d.col(P1boardHidden[i, o]))
                     {
                         case 0:
                             Console.ForegroundColor = ConsoleColor.Blue;
@@ -367,15 +366,15 @@ namespace SVgerman
                         default:
                             break;
                     }
-                    Console.Write(OwnBoard[P1boardHidden[i, o]].letter);
-                    if (P1boardHidden[i, o] == 13) Console.Write(OwnBoard[P1boardHidden[i, o]].letter2);
+                    Console.Write(d.lett(P1boardHidden[i, o]));
+                    if (P1boardHidden[i, o] == 13) Console.Write('0');
                     Console.Write(" ");
                     Console.ResetColor();
                 }
                 Console.Write("\t\t");                                          //Der Abstand zwischen den beiden Boards wird erstellt
                 for (int o = 0; o < 11; o++)                                    //Hier werden die ID's für die Punkte [x|y] des Boards von Spieler 1 geloopt
                 {
-                    switch (OwnBoard[P2board[i, o]].color)
+                    switch (d.col(P2board[i, o]))
                     {
                         case 0:
                             Console.ForegroundColor = ConsoleColor.Blue;
@@ -398,8 +397,8 @@ namespace SVgerman
                         default:
                             break;
                     }
-                    Console.Write(OwnBoard[P2board[i, o]].letter);
-                    if (P2board[i, o] == 13) Console.Write(OwnBoard[P2board[i, o]].letter2);
+                    Console.Write(d.col(P2board[i, o]));
+                    if (P2board[i, o] == 13) Console.Write('0');
                     Console.Write(" ");
                     Console.ResetColor();
                 }
@@ -421,8 +420,8 @@ namespace SVgerman
                 switch (sub[2])                                         //Anhand der Länge und Orientierung wird das Schiff plaziert
                 {
                     case "up":                                          //Um das Schiff nach "oben" zu platzieren wird die y-Koordinate um 1 subtrahiert.
-                        if (position[0] + 1 < 11) 
-                        { 
+                        if (position[0] + 1 < 11)
+                        {
                             P1board[position[0] + 1, position[1]] = 25;
                             if (position[1] + 1 < 11) P1board[position[0] + 1, position[1] + 1] = 25;
                             if (position[1] - 1 > 0) P1board[position[0] + 1, position[1] - 1] = 25;
@@ -430,19 +429,19 @@ namespace SVgerman
                         for (int i = 0; i < l; i++)
                         {
                             P1board[position[0] - i, position[1]] = 1;
-                            if(position[1] + 1 < 11) P1board[position[0] - i, position[1] + 1] = 25;
+                            if (position[1] + 1 < 11) P1board[position[0] - i, position[1] + 1] = 25;
                             if (position[1] - 1 > 0) P1board[position[0] - i, position[1] - 1] = 25;
-                            if(i == l - 1)
-                            {
-                                if (position[0] - (i + 1) > 0) P1board[position[0] - (i + 1), position[1]] = 25;
-                                if (position[0] - (i + 1) > 0 && position[1] - 1 > 0) P1board[position[0] - (i + 1), position[1] - 1] = 25;
-                                if (position[0] - (i + 1) > 0 && position[1] + 1 < 11) P1board[position[0] - (i + 1), position[1] + 1] = 25;
-                            }
+                        }
+                        if (position[0] - l > 0)
+                        {
+                            P1board[position[0] - l, position[1]] = 25;
+                            if (position[1] - 1 > 0) P1board[position[0] - l, position[1] - 1] = 25;
+                            if (position[1] + 1 < 11) P1board[position[0] - l, position[1] + 1] = 25;
                         }
                         input = false;
                         break;
                     case "down":                                        //Um das Schiff nach "unten" zu platzieren wird die y-Koordinate um 1 addiert
-                        if(position[0] - 1 > 0)
+                        if (position[0] - 1 > 0)
                         {
                             P1board[position[0] - 1, position[1]] = 25;
                             if (position[1] - 1 > 0) P1board[position[0] - 1, position[1] - 1] = 25;
@@ -453,17 +452,17 @@ namespace SVgerman
                             P1board[position[0] + i, position[1]] = 1;
                             if (position[1] + 1 < 11) P1board[position[0] + i, position[1] + 1] = 25;
                             if (position[1] - 1 > 0) P1board[position[0] + i, position[1] - 1] = 25;
-                            if(i == l - 1)
-                            {
-                                if (position[0] + l < 11) P1board[position[0] + l, position[1]] = 25;
-                                if (position[0] + l < 11 && position[1] - 1 > 0) P1board[position[0] + l, position[1] - 1] = 25;
-                                if (position[0] + l < 11 && position[1] + 1 < 11) P1board[position[0] + l, position[1] + 1] = 25;
-                            }
+                        }
+                        if (position[0] + l < 11)
+                        {
+                            P1board[position[0] + l, position[1]] = 25;
+                            if (position[1] - 1 > 0) P1board[position[0] + l, position[1] - 1] = 25;
+                            if (position[0] + 1 < 11) P1board[position[0] + l, position[1] + 1] = 25;
                         }
                         input = false;
                         break;
                     case "left":                                        //Um das Schiff nach "links" zu platzieren wird die x-Koordinate um 1 subtrahiert
-                        if(position[1] + 1 < 11)
+                        if (position[1] + 1 < 11)
                         {
                             P1board[position[0], position[1] + 1] = 25;
                             if (position[0] - 1 > 0) P1board[position[0] - 1, position[1] + 1] = 25;
@@ -474,12 +473,12 @@ namespace SVgerman
                             P1board[position[0], position[1] - i] = 1;
                             if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] - i] = 25;
                             if (position[0] - 1 > 0) P1board[position[0] - 1, position[1] - i] = 25;
-                            if (i == l - 1)
-                            {
-                                if (position[1] - l > 0) P1board[position[0], position[1] - l] = 25;
-                                if (position[1] - l > 0 && position[0] - 1 > 0) P1board[position[0] - 1, position[1] - l] = 25;
-                                if (position[1] - l > 0 && position[0] + 1 < 11) P1board[position[0] + 1, position[1] - l] = 25;
-                            }
+                        }
+                        if (position[1] - l > 0)
+                        {
+                            P1board[position[0], position[1] - l] = 25;
+                            if (position[0] - 1 > 0) P1board[position[0] - 1, position[1] - l] = 25;
+                            if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] - l] = 25;
                         }
                         input = false;
                         break;
@@ -495,21 +494,17 @@ namespace SVgerman
                             P1board[position[0], position[1] + i] = 1;
                             if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] + i] = 25;
                             if (position[0] - 1 > 0) P1board[position[0] - 1, position[1] + i] = 25;
-                            if (i == l - 1) 
-                            {
-                                if (position[1] + l < 11) P1board[position[0], position[1] + l] = 25;
-                                if (position[1] + l < 11 && position[0] - 1 > 0) P1board[position[0] - 1, position[1] + l] = 25;
-                                if (position[1] + l < 11 && position[1] + 1 < 11) P1board[position[0] + 1, position[1] + l] = 25;
-                            }
-                            else
-                            {
-
-                            }
+                        }
+                        if (position[1] + l < 11)
+                        {
+                            P1board[position[0], position[1] - l] = 25;
+                            if (position[0] - 1 > 0) P1board[position[0] - 1, position[1] + l] = 25;
+                            if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] + l] = 25;
                         }
                         input = false;
                         break;
                     default:                                            //Falls keine Richtung angegeben wurde oder eine nicht existierende Richtung angegeben wurde, wird eine neue Richtung abgefragt und noch mal gecheckt
-                        Console.WriteLine("Bitte gib eine existierende Richtung an");
+                        Console.WriteLine(d.text(27, lang));
                         sub[2] = Console.ReadLine();
                         position = check(position, l, sub[2]);
                         position = P1checkO(position, l, sub[2]);
@@ -595,14 +590,14 @@ namespace SVgerman
         }
 
         //Checkt, ob die angegebene Position innerhalb des Boards liegt, sollte das Schiff dort gesetzt werden. Benötigt die Position (p), Länge des Schiffs (l) und die Orientierung (d)
-        int[] check(int[] p, int l, string d)
+        int[] check(int[] p, int l, string di)
         {
-            switch (d)                      //Nach der Orientierung wird unterschiedlich gecheckt
+            switch (di)                      //Nach der Orientierung wird unterschiedlich gecheckt
             {
                 case "up":
                     if (p[0] - (l - 1) < 1)    //Es wird der entfernteste Punkt berechnet, welcher vom Schiff aus existiert und geguckt, ob dieser Out of Bounds liegt
                     {
-                        Console.WriteLine("Das passt leider nicht :/ Gib bitte ne Position an, wo der passt");
+                        Console.WriteLine(d.text(28, lang));
                         p = get();                      //Sollte dieser nicht passen, wird nach einem neuen Punkt gefragt
                         p = check(p, l, sub[2]);      //Dieser wird rekursiv wieder mit dieser Funktion gecheckt
                     }
@@ -610,7 +605,7 @@ namespace SVgerman
                 case "down":
                     if (p[0] + (l - 1) > 10)
                     {
-                        Console.WriteLine("Das passt leider nicht :/ Gib bitte ne Position an, wo der passt");
+                        Console.WriteLine(d.text(28, lang));
                         p = get();
                         p = check(p, l, sub[2]);
                     }
@@ -618,7 +613,7 @@ namespace SVgerman
                 case "left":
                     if (p[1] - (l - 1) < 1)
                     {
-                        Console.WriteLine("Das passt leider nicht :/ Gib bitte ne Position an, wo der passt");
+                        Console.WriteLine(d.text(28, lang));
                         p = get();
                         p = check(p, l, sub[2]);
                     }
@@ -626,7 +621,7 @@ namespace SVgerman
                 case "right":
                     if (p[1] + (l - 1) > 10)
                     {
-                        Console.WriteLine("Das passt leider nicht :/ Gib bitte ne Position an, wo der passt");
+                        Console.WriteLine(d.text(28, lang));
                         p = get();
                         p = check(p, l, sub[2]);
                     }
@@ -638,16 +633,16 @@ namespace SVgerman
         }
 
         //Eine Funktion, die checkt, ob ein Schiff mit einem anderem kollidiert. Benötigt die Position (p), Länge des Schiffs (l) und die Orientierung (d)
-        int[] P1checkO(int[] p, int l, string d)
+        int[] P1checkO(int[] p, int l, string di)
         {
             for (int i = 0; i < l; i++)                     //Loopt durch jeden Punkt, der erstellt werden würde, um zu gucken, ob da schon einer ist
             {
-                switch (d)                                  //Basierend auf der Orientierung wird in eine andere Richtung geguckt
+                switch (di)                                  //Basierend auf der Orientierung wird in eine andere Richtung geguckt
                 {
                     case "up":
                         if (P1board[p[0] - i, p[1]] == 1 || P1board[p[0] - i, p[1]] == 25)    //Die Koordinate wird um die Loopanzahl versetzt und geguck, ob die ID dort einem anderem Schiff entspricht
                         {
-                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            Console.WriteLine(d.text(29, lang));
                             p = get();                      //Wenn dies der Fall ist, wird ein neuer Punkt angefragt
                             p = check(p, l, sub[2]);        //Dieser auf Out of Bounds geprüft
                             p = P1checkO(p, l, sub[2]);     //und rekursiv in dieser Funktion geprüft, bis die Koordinaten passen
@@ -656,7 +651,7 @@ namespace SVgerman
                     case "down":
                         if (P1board[p[0] + i, p[1]] == 1 || P1board[p[0] + i, p[1]] == 25)
                         {
-                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            Console.WriteLine(d.text(29, lang));
                             p = get();
                             p = check(p, l, sub[2]);
                             p = P1checkO(p, l, sub[2]);
@@ -665,7 +660,7 @@ namespace SVgerman
                     case "left":
                         if (P1board[p[0], p[1] - i] == 1 || P1board[p[0], p[1] - i] == 25)
                         {
-                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            Console.WriteLine(d.text(29, lang));
                             p = get();
                             p = check(p, l, sub[2]);
                             p = P1checkO(p, l, sub[2]);
@@ -674,7 +669,7 @@ namespace SVgerman
                     case "right":
                         if (P1board[p[0], p[1] + i] == 1 || P1board[p[0], p[1] + i] == 25)
                         {
-                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            Console.WriteLine(d.text(29, lang));
                             p = get();
                             p = check(p, l, sub[2]);
                             p = P1checkO(p, l, sub[2]);
@@ -692,7 +687,7 @@ namespace SVgerman
             int[] target = Shootget();                      //Die Position, wohin der Spieler schießen möchte wird abgegriffen
             while (P2boardHidden[target[0], target[1]] == 1 || P2boardHidden[target[0], target[1]] == 2)       //Es wird auf dem Board des Spielers 2, welches Spieler 1 sieht gecheckt, ob die Koordinate entweder die ID für einen Treffer oder ein Miss beinhaltet
             {
-                Console.WriteLine("Hier hast du schon hingeschossen. Wähle lieber ne Position wo du noch nicht geschossen hast");
+                Console.WriteLine(d.text(30, lang));
                 target = Shootget();                        //Sollte dies der Fall sein, wird eine neue Koordinate abgefragt
             }
             if (P2board[target[0], target[1]] == 1)           //Sobald der Punkt an einer Stelle ist, welche valide ist, wird gechekt, ob ein Schiff an der Stelle ist
@@ -705,6 +700,12 @@ namespace SVgerman
                 P2boardHidden[target[0], target[1]] = 24;
                 P2board[target[0], target[1]] = 24;
             }
+            checkS();
+        }
+
+        void checkS()
+        {
+
         }
 
         int[] target = new int[2];                          //Speichert die Koordinaten des Ziels als int[]
@@ -757,7 +758,7 @@ namespace SVgerman
                     target[1] = P1sg2(sub[1]);
                     break;
                 default:                        //Sollte der Input nicht im Spielfeld liegen, wird diese Funktion rekursiv aufgerufen
-                    Console.WriteLine("Dies liegt leider nicht im Spielfeld. Bitte wähle eine andere Position");
+                    Console.WriteLine(d.text(31, lang));
                     target = Shootget();
                     break;
             }
@@ -801,7 +802,7 @@ namespace SVgerman
                     temp = 10;
                     break;
                 default:        //Wenn die Zahl nicht im Spielfeld liegt, wird nach einer neuen gefragt und diese Funktion rekursiv aufgerufen
-                    Console.WriteLine("Dies liegt leider nicht im Spielfeld. Bitte wähle eine andere Zahl");
+                    Console.WriteLine(d.text(32, lang));
                     temp = P1sg2(Console.ReadLine());
                     break;
             }
@@ -854,7 +855,7 @@ namespace SVgerman
                         input = false;
                         break;
                     default:                                            //Falls keine Richtung angegeben wurde oder eine nicht existierende Richtung angegeben wurde, wird eine neue Richtung abgefragt und noch mal gecheckt
-                        Console.WriteLine("Bitte gib eine existierende Richtung an");
+                        Console.WriteLine(d.text(27, lang));
                         sub[2] = Console.ReadLine();
                         position = check(position, l, sub[2]);
                         position = P2checkO(position, l, sub[2]);
@@ -863,16 +864,16 @@ namespace SVgerman
             }
         }
 
-        int[] P2checkO(int[] p, int l, string d)
+        int[] P2checkO(int[] p, int l, string di)
         {
             for (int i = 0; i < l; i++)                     //Loopt durch jeden Punkt, der erstellt werden würde, um zu gucken, ob da schon einer ist
             {
-                switch (d)                                  //Basierend auf der Orientierung wird in eine andere Richtung geguckt
+                switch (di)                                  //Basierend auf der Orientierung wird in eine andere Richtung geguckt
                 {
                     case "up":
                         if (P2board[p[0] - i, p[1]] == 1)   //Die Koordinate wird um die Loopanzahl versetzt und geguck, ob die ID dort einem anderem Schiff entspricht
                         {
-                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            Console.WriteLine(d.text(29, lang));
                             p = get();                      //Wenn dies der Fall ist, wird ein neuer Punkt angefragt
                             p = check(p, l, sub[2]);        //Dieser auf Out of Bounds geprüft
                             p = P2checkO(p, l, sub[2]);     //und rekursiv in dieser Funktion geprüft, bis die Koordinaten passen
@@ -881,7 +882,7 @@ namespace SVgerman
                     case "down":
                         if (P2board[p[0] + i, p[1]] == 1)
                         {
-                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            Console.WriteLine(d.text(29, lang));
                             p = get();
                             p = check(p, l, sub[2]);
                             p = P2checkO(p, l, sub[2]);
@@ -890,7 +891,7 @@ namespace SVgerman
                     case "left":
                         if (P2board[p[0], p[1] - i] == 1)
                         {
-                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            Console.WriteLine(d.text(29, lang));
                             p = get();
                             p = check(p, l, sub[2]);
                             p = P2checkO(p, l, sub[2]);
@@ -899,7 +900,7 @@ namespace SVgerman
                     case "right":
                         if (P2board[p[0], p[1] + i] == 1)
                         {
-                            Console.WriteLine("Hier ist leider schon ein Schiff, bitte gib einen freien Platz an");
+                            Console.WriteLine(d.text(29, lang));
                             p = get();
                             p = check(p, l, sub[2]);
                             p = P2checkO(p, l, sub[2]);
@@ -915,7 +916,7 @@ namespace SVgerman
             int[] target = Shootget();                      //Die Position, wohin der Spieler schießen möchte wird abgegriffen
             while (P1boardHidden[target[0], target[1]] == 1 || P1boardHidden[target[0], target[1]] == 2)       //Es wird auf dem Board des Spielers 2, welches Spieler 1 sieht gecheckt, ob die Koordinate entweder die ID für einen Treffer oder ein Miss beinhaltet
             {
-                Console.WriteLine("Hier hast du schon hingeschossen. Wähle lieber ne Position wo du noch nicht geschossen hast");
+                Console.WriteLine(d.text(30, lang));
                 target = Shootget();                        //Sollte dies der Fall sein, wird eine neue Koordinate abgefragt
             }
             if (P1board[target[0], target[1]] == 1)         //Sobald der Punkt an einer Stelle ist, welche valide ist, wird gechekt, ob ein Schiff an der Stelle ist
@@ -1016,12 +1017,5 @@ namespace SVgerman
         {
             P2board = i;
         }
-    }
-
-    class Dictionary
-    {
-        public char letter { get; set; }
-        public char letter2 { get; set; }
-        public int? color { get; set; }
     }
 }
