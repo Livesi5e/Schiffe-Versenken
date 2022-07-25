@@ -510,7 +510,7 @@ namespace SVgerman
                         if (position[1] + l < 11)
                         {
                             P1board[position[0], position[1] - l] = 25;
-                            if (!Int32.IsNullOrEmpty(position[0]) && position[0] - 1 > 0) P1board[position[0] - 1, position[1] + l] = 25;
+                            if (position[0] - 1 > 0) P1board[position[0] - 1, position[1] + l] = 25;
                             if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] + l] = 25;
                         }
                         input = false;
