@@ -37,13 +37,14 @@ class UI
                 Console.WriteLine(d.text(4, lang));
                 Console.WriteLine(d.text(5, lang));
                 Console.WriteLine(d.text(6, lang));
-                Gamestate.PlaceP1(1);
+                Gamestate.PlaceP1(1, 0);
+                Console.ReadLine();
                 reset();
                 for (int i = 0; i < 9; i++)
                 {
                     Gamestate.Player1out();
                     Console.WriteLine(d.text(i + 7, lang));
-                    Gamestate.PlaceP1(d.place(i));
+                    Gamestate.PlaceP1(d.place(i), i + 1);
                     reset();
                 }
                 enemy.Place(Gamestate);
@@ -85,13 +86,13 @@ class UI
                 Console.WriteLine(d.text(4, lang));
                 Console.WriteLine(d.text(5, lang));
                 Console.WriteLine(d.text(6, lang));
-                Gamestate.PlaceP1(1);
+                Gamestate.PlaceP1(1, 0);
                 reset();
                 for (int i = 0; i < 9; i++)
                 {
                     Gamestate.Player1out();
                     Console.WriteLine(d.text(i + 7, lang));
-                    Gamestate.PlaceP1(d.place(i));
+                    Gamestate.PlaceP1(d.place(i), i + 1);
                     reset();
                 }
                 Gamestate.Player1out();
@@ -105,13 +106,13 @@ class UI
                 Console.WriteLine(d.text(4, lang));
                 Console.WriteLine(d.text(5, lang));
                 Console.WriteLine(d.text(6, lang));
-                Gamestate.PlaceP2(1);
+                Gamestate.PlaceP2(1, 0);
                 reset();
                 for (int i = 0; i < 9; i++)
                 {
                     Gamestate.Player2out();
                     Console.WriteLine(d.text(i + 7, lang));
-                    Gamestate.PlaceP2(d.place(i));
+                    Gamestate.PlaceP2(d.place(i), i + 1);
                     reset();
                 }
                 Gamestate.Player2out();

@@ -66,7 +66,7 @@ namespace SVgerman
         { 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         };
 
-        int[][] P1Schiffe = { 
+        public int[][] P1Schiffe = { 
             new int[] { 0, 0},
             new int[] { 0, 0},
             new int[] { 0, 0},
@@ -80,7 +80,7 @@ namespace SVgerman
             new int[] { 4, 3, 2, 1}
         };
 
-        int[][] P2Schiffe = {
+        public int[][] P2Schiffe = {
             new int[] { 0, 0},
             new int[] { 0, 0},
             new int[] { 0, 0},
@@ -409,11 +409,12 @@ namespace SVgerman
         public string[] sub;                                            //Der Array an User-Inputs [0] = y-Koordinate, [1] = x-Koordinate, [2] = Orientierung
 
         //Hier ist das Platzieren der Schiffe des ersten Spielers. Übergeben wird die Länge des Schiffes
-        public void PlaceP1(int l)
+        public void PlaceP1(int l, int r)
         {
             bool input = true;                                          //Speichert ob ein Input vom User kam. false bedeutet, dass es einen Input gab
+            int temp = 0;
             int[] position = get();                                     //Hier wird die Position des Schiffes mithilfe der Funktion get() vom User abgegriffen
-            position = check(position, l, sub[2]);                    //Hier wird gecheckt ob die Position des Schiffes innerhalb des Feldes ist
+            position = check(position, l, sub[2]);                      //Hier wird gecheckt ob die Position des Schiffes innerhalb des Feldes ist
             position = P1checkO(position, l, sub[2]);                   //Hier wird gecheckt ob das Schiff mit anderen Schiffen kollidiert
             while (input)
             {
@@ -431,6 +432,9 @@ namespace SVgerman
                             P1board[position[0] - i, position[1]] = 1;
                             if (position[1] + 1 < 11) P1board[position[0] - i, position[1] + 1] = 25;
                             if (position[1] - 1 > 0) P1board[position[0] - i, position[1] - 1] = 25;
+                            P1Schiffe[r][temp] = position[0] - i;
+                            P1Schiffe[r][temp + 1] = position[1];
+                            temp = temp + 2;
                         }
                         if (position[0] - l > 0)
                         {
@@ -452,6 +456,9 @@ namespace SVgerman
                             P1board[position[0] + i, position[1]] = 1;
                             if (position[1] + 1 < 11) P1board[position[0] + i, position[1] + 1] = 25;
                             if (position[1] - 1 > 0) P1board[position[0] + i, position[1] - 1] = 25;
+                            P1Schiffe[r][temp] = position[0] + i;
+                            P1Schiffe[r][temp + 1] = position[1];
+                            temp = temp + 2;
                         }
                         if (position[0] + l < 11)
                         {
@@ -473,6 +480,9 @@ namespace SVgerman
                             P1board[position[0], position[1] - i] = 1;
                             if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] - i] = 25;
                             if (position[0] - 1 > 0) P1board[position[0] - 1, position[1] - i] = 25;
+                            P1Schiffe[r][temp] = position[0];
+                            P1Schiffe[r][temp + 1] = position[1] - i;
+                            temp = temp + 2;
                         }
                         if (position[1] - l > 0)
                         {
@@ -494,11 +504,13 @@ namespace SVgerman
                             P1board[position[0], position[1] + i] = 1;
                             if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] + i] = 25;
                             if (position[0] - 1 > 0) P1board[position[0] - 1, position[1] + i] = 25;
+                            P1Schiffe[r][temp] = position[0];
+                            P1Schiffe[r][temp + 1] = position[1] + i;
                         }
                         if (position[1] + l < 11)
                         {
                             P1board[position[0], position[1] - l] = 25;
-                            if (position[0] - 1 > 0) P1board[position[0] - 1, position[1] + l] = 25;
+                            if (!Int32.IsNullOrEmpty(position[0]) && position[0] - 1 > 0) P1board[position[0] - 1, position[1] + l] = 25;
                             if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] + l] = 25;
                         }
                         input = false;
@@ -816,9 +828,10 @@ namespace SVgerman
         }
 
         //Eine WIP Funktion für den Multiplayermodus
-        public void PlaceP2(int l)
+        public void PlaceP2(int l, int r)
         {
             bool input = true;
+            int temp = 0;
             int[] position = get();
             position = check(position, l, sub[2]);
             position = P2checkO(position, l, sub[2]);
@@ -827,9 +840,26 @@ namespace SVgerman
                 switch (sub[2])                                         //Anhand der Länge und Orientierung wird das Schiff plaziert
                 {
                     case "up":                                          //Um das Schiff nach "oben" zu platzieren wird die y-Koordinate um 1 subtrahiert.
+                        if (position[0] + 1 < 11)
+                        {
+                            P1board[position[0] + 1, position[1]] = 25;
+                            if (position[1] - 1 > 0) P2board[position[0] + 1, position[1] - 1] = 25;
+                            if (position[1] + 1 < 11) P2board[position[0] + 1, position[1] + 1] = 25;
+                        }
                         for (int i = 0; i < l; i++)
                         {
                             P2board[position[0] - i, position[1]] = 1;
+                            if (position[1] - 1 > 0) P2board[position[0] - i, position[1] - 1] = 25;
+                            if (position[1] + 1 < 11) P2board[position[0] - i, position[1] + 1] = 25;
+                            P2Schiffe[r][temp] = position[0];
+                            P2Schiffe[r][temp + 1] = position[1];
+                            temp = temp + 2;
+                        }
+                        if (position[0] - l > 0)
+                        {
+                            P2board[position[0] - l, position[1]] = 25;
+                            if (position[1] - 1 > 0) P2board[position[0] - l, position[1] - 1] = 25;
+                            if (position[1] + 1 < 11) P2board[position[0] - l, position[1] + 1] = 25;
                         }
                         input = false;
                         break;
