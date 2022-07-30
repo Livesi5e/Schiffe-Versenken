@@ -77,7 +77,7 @@ namespace SVgerman
             new int[] { 0, 0, 0, 0, 0, 0},
             new int[] { 0, 0, 0, 0, 0, 0},
             new int[] { 0, 0, 0, 0, 0, 0, 0, 0},
-            new int[] { 4, 3, 2, 1}
+            new int[] { 0, 0, 0, 0}
         };
 
         public int[][] P2Schiffe = {
@@ -90,7 +90,8 @@ namespace SVgerman
             new int[] { 0, 0, 0, 0},
             new int[] { 0, 0, 0, 0, 0, 0},
             new int[] { 0, 0, 0, 0, 0, 0},
-            new int[] { 0, 0, 0, 0, 0, 0, 0, 0}
+            new int[] { 0, 0, 0, 0, 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0}
         };
 
         //Dies printed das Board von Spieler 1 in die Konsole
@@ -133,7 +134,7 @@ namespace SVgerman
                 }
                 Console.Write("\n");                                            //Nächste Zeile wird gestartet für den nächsten x-Koordinatenloop
             }
-            Console.WriteLine("\t" + P1Schiffe[10][0] + " " + d.text(33, lang) + P1Schiffe[10][1] + " " + d.text(34, lang) + P1Schiffe[10][2] + " " + d.text(35, lang) + P1Schiffe[10][3] + " " + d.text(36, lang));
+            Console.WriteLine("\n" + P1Schiffe[10][0] + " " + d.text(33, lang) + P1Schiffe[10][1] + " " + d.text(34, lang) + P1Schiffe[10][2] + " " + d.text(35, lang) + P1Schiffe[10][3] + " " + d.text(36, lang));
         }
 
         //Dies printed das Board von Spieler 2 in die Konsole
@@ -176,6 +177,7 @@ namespace SVgerman
                 }
                 Console.Write("\n");
             }
+            Console.WriteLine("\n" + P2Schiffe[10][0] + " " + d.text(33, lang) + P2Schiffe[10][1] + " " + d.text(34, lang) + P2Schiffe[10][2] + " " + d.text(35, lang));
         }
 
         //Dies printed die Sicht von Spieler 2 auf das Board von Spieler 1 in die Konsole
@@ -509,7 +511,7 @@ namespace SVgerman
                         }
                         if (position[1] + l < 11)
                         {
-                            P1board[position[0], position[1] - l] = 25;
+                            P1board[position[0], position[1] + l] = 25;
                             if (position[0] - 1 > 0) P1board[position[0] - 1, position[1] + l] = 25;
                             if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] + l] = 25;
                         }
@@ -522,6 +524,7 @@ namespace SVgerman
                         position = P1checkO(position, l, sub[2]);
                         break;
                 }
+                P1Schiffe[10][l - 1]++;
             }
 
         }
@@ -851,7 +854,7 @@ namespace SVgerman
                             P2board[position[0] - i, position[1]] = 1;
                             if (position[1] - 1 > 0) P2board[position[0] - i, position[1] - 1] = 25;
                             if (position[1] + 1 < 11) P2board[position[0] - i, position[1] + 1] = 25;
-                            P2Schiffe[r][temp] = position[0];
+                            P2Schiffe[r][temp] = position[0] - i;
                             P2Schiffe[r][temp + 1] = position[1];
                             temp = temp + 2;
                         }
@@ -864,23 +867,68 @@ namespace SVgerman
                         input = false;
                         break;
                     case "down":                                        //Um das Schiff nach "unten" zu platzieren wird die y-Koordinate um 1 addiert
+                        if (position[0] - 1 > 0)
+                        {
+                            P2board[position[0] - 1, position[1]] = 25;
+                            if (position[1] - 1 > 0) P2board[position[0] - 1, position[1] - 1] = 25;
+                            if (position[1] + 1 < 11) P2board[position[0] - 1, position[1] + 1] = 25;
+                        }
                         for (int i = 0; i < l; i++)
                         {
                             P2board[position[0] + i, position[1]] = 1;
+                            if (position[1] - 1 > 0) P2board[position[0] + i, position[1] - 1] = 25;
+                            if (position[1] + 1 < 11) P2board[position[0] + i, position[1] + 1] = 25;
+                            P2Schiffe[r][temp] = position[0] + i;
+                            P2Schiffe[r][temp + 1] = position[1];
+                            temp = temp + 2;
+                        }
+                        if (position[0] + l < 11)
+                        {
+                            P2board[position[0] + l, position[1]] = 25;
+                            if (position[1] - 1 > 0) P2board[position[0] + l, position[1] - 1] = 25;
+                            if (position[1] + 1 < 11) P2board[position[0] + l, position[1] + 1] = 25;
                         }
                         input = false;
                         break;
                     case "left":                                        //Um das Schiff nach "links" zu platzieren wird die x-Koordinate um 1 subtrahiert
+                        if (position[1] + 1 < 11)
+                        {
+                            P2board[position[0], position[1] + 1] = 25;
+                            if (position[0] - 1 > 0) P2board[position[0] - 1, position[1] + 1] = 25;
+                            if (position[0] + 1 < 11) P2board[position[0] + 1, position[1] + 1] = 25;
+                        }
                         for (int i = 0; i < l; i++)
                         {
                             P2board[position[0], position[1] - i] = 1;
+                            if (position[0] - 1 > 0) P2board[position[0] - 1, position[1] - i] = 25;
+                            if (position[0] + 1 < 11) P2board[position[0] + 1, position[0] - i] = 25;
+                            P2Schiffe[r][temp] = position[0];
+                            P2Schiffe[r][temp + 1] = position[1] - i;
+                            temp = temp + 2;
+                        }
+                        if (position[1] - l > 0)
+                        {
+                            P2board[position[0], position[1] - l] = 25;
+                            if (position[0] - 1 > 0) P2board[position[0] - 1, position[1] - l] = 25;
+                            if (position[0] + 1 < 11) P2board[position[0] + 1, position[1] - l] = 25;
                         }
                         input = false;
                         break;
                     case "right":                                       //Um das Schiff nach "rechts" zu platzieren wird die x-Koordinate um 1 addiert
+                        if (position[1] - 1 > 0)
+                        {
+                            P2board[position[0], position[1] - 1] = 25;
+                            if (position[0] - 1 > 0) P2board[position[0] - 1, position[1] - 1] = 25;
+                            if (position[0] + 1 < 11) P2board[position[0] + 1, position[1] - 1] = 25;
+                        }
                         for (int i = 0; i < l; i++)
                         {
                             P2board[position[0], position[1] + i] = 1;
+                            if (position[0] - 1 > 0) P2board[position[0] - 1, position[1] + i] = 25;
+                            if (position[0] + 1 < 11) P2board[position[0] + 1, position[1] + i] = 25;
+                            P2Schiffe[r][temp] = position[0];
+                            P2Schiffe[r][temp + 1] = position[1] + i;
+                            temp = temp + 2;
                         }
                         input = false;
                         break;
@@ -891,6 +939,7 @@ namespace SVgerman
                         position = P2checkO(position, l, sub[2]);
                         break;
                 }
+                P2Schiffe[10][l - 1]++;
             }
         }
 
@@ -996,32 +1045,45 @@ namespace SVgerman
         }
 
         //Eine Funktion welche die Schiffe der AI platziert
-        public void PlaceP2AI(int l, int[] positions)
+        public void PlaceP2AI(int l, int[] positions, int r)
         {
+            int temp = 0;
             switch (positions[2])
             {
                 case 0:
                     for (int i = 0; i < l; i++)
                     {
                         P2board[positions[0] - i, positions[1]] = 1;
+                        P2Schiffe[r][temp] = positions[0] - i;
+                        P2Schiffe[r][temp++] = positions[1];
+                        temp = temp + 2;
                     }
                     break;
                 case 1:
                     for (int i = 0; i < l; i++)
                     {
                         P2board[positions[0] + i, positions[1]] = 1;
+                        P2Schiffe[r][temp] = positions[0] + i;
+                        P2Schiffe[r][temp++] = positions[1];
+                        temp = temp + 2;
                     }
                     break;
                 case 2:
                     for (int i = 0; i < l; i++)
                     {
                         P2board[positions[0], positions[1] - i] = 1;
+                        P2Schiffe[r][temp] = positions[0];
+                        P2Schiffe[r][temp++] = positions[1] - i;
+                        temp = temp + 2;
                     }
                     break;
                 case 3:
                     for (int i = 0; i < l; i++)
                     {
                         P2board[positions[0], positions[1] + i] = 1;
+                        P2Schiffe[r][temp] = positions[0];
+                        P2Schiffe[r][temp++] = positions[1] + i;
+                        temp = temp + 2;
                     }
                     break;
             }

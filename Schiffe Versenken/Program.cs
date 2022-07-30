@@ -38,7 +38,6 @@ class UI
                 Console.WriteLine(d.text(5, lang));
                 Console.WriteLine(d.text(6, lang));
                 Gamestate.PlaceP1(1, 0);
-                Console.ReadLine();
                 reset();
                 for (int i = 0; i < 9; i++)
                 {

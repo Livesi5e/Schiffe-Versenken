@@ -29,7 +29,7 @@ namespace SVAI7
             pos[2] = rnd.Next(4);                   //Generiert eine zufällige Orientierung
             check(1);                               //Checkt ob die Position in Bounds ist und übergibt die Positionen im Array und die Länge des Schiffes
             setC(1);                                //Übergibt die Länge des Schiffs
-            b.PlaceP2AI(1, pos);                    //Platziert das Schiff auf dem "richtigen" Board
+            b.PlaceP2AI(1, pos, 0);                    //Platziert das Schiff auf dem "richtigen" Board
             //b.setP2Board(board);
             //b.Player2out();
             //Console.ReadLine();
@@ -39,7 +39,7 @@ namespace SVAI7
             check(1);
             checkO(1);
             setC(1);
-            b.PlaceP2AI(1, pos);
+            b.PlaceP2AI(1, pos, 1);
             //b.setP2Board(board);
             //b.Player2out();
             //Console.ReadLine();
@@ -49,7 +49,7 @@ namespace SVAI7
             check(1);
             checkO(1);
             setC(1);
-            b.PlaceP2AI(1, pos);
+            b.PlaceP2AI(1, pos, 2);
             //b.setP2Board(board);
             //b.Player2out();
             //Console.ReadLine();
@@ -59,7 +59,7 @@ namespace SVAI7
             check(1);
             checkO(1);
             setC(1);
-            b.PlaceP2AI(1, pos);
+            b.PlaceP2AI(1, pos, 3);
             //b.setP2Board(board);
             //b.Player2out();
             //Console.ReadLine();
@@ -69,7 +69,7 @@ namespace SVAI7
             check(2);
             checkO(2);
             setC(2);
-            b.PlaceP2AI(2, pos);
+            b.PlaceP2AI(2, pos, 4);
             //b.setP2Board(board);
             //b.Player2out();
             //Console.ReadLine();
@@ -79,7 +79,7 @@ namespace SVAI7
             check(2);
             checkO(2);
             setC(2);
-            b.PlaceP2AI(2, pos);
+            b.PlaceP2AI(2, pos, 5);
             //b.setP2Board(board);
             //b.Player2out();
             //Console.ReadLine();
@@ -89,7 +89,7 @@ namespace SVAI7
             check(2);
             checkO(2);
             setC(2);
-            b.PlaceP2AI(2, pos);
+            b.PlaceP2AI(2, pos, 6);
             //b.setP2Board(board);
             //b.Player2out();
             //Console.ReadLine();
@@ -99,7 +99,7 @@ namespace SVAI7
             check(3);
             checkO(3);
             setC(3);
-            b.PlaceP2AI(3, pos);
+            b.PlaceP2AI(3, pos, 7);
             //b.setP2Board(board);
             //b.Player2out();
             //Console.ReadLine();
@@ -109,7 +109,7 @@ namespace SVAI7
             check(3);
             checkO(3);
             setC(3);
-            b.PlaceP2AI(3, pos);
+            b.PlaceP2AI(3, pos, 8);
             //b.setP2Board(board);
             //b.Player2out();
             //Console.ReadLine();
@@ -119,7 +119,7 @@ namespace SVAI7
             check(4);
             checkO(4);
             setC(4);
-            b.PlaceP2AI(4, pos);
+            b.PlaceP2AI(4, pos, 9);
             //b.setP2Board(board);
         }
 
