@@ -67,19 +67,19 @@ namespace SVgerman
         };
 
         public int?[][] P1Schiffe = { 
-            new int?[] { 0, 0},
-            new int?[] { 0, 0},
-            new int?[] { 0, 0},
-            new int?[] { 0, 0},
-            new int?[] { 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0, 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            /*0*/new int?[] { 0, 0},                                //Koordinaten des ersten X-Schiff
+            /*1*/new int?[] { 0, 0},                                //Koordinaten des zweiten X-Schiff
+            /*2*/new int?[] { 0, 0},                                //Koordinaten des drittes X-Schiff
+            /*3*/new int?[] { 0, 0},                                //Koordinaten des viertes X-Schiff
+            /*4*/new int?[] { 0, 0, 0, 0},                          //Koordinaten des ersten XX-Schiff
+            /*5*/new int?[] { 0, 0, 0, 0},                          //Koordinaten des zweiten XX-Schiff
+            /*6*/new int?[] { 0, 0, 0, 0},                          //Koordinaten des dritten XX-Schiff
+            /*7*/new int?[] { 0, 0, 0, 0, 0, 0},                    //Koordinaten des ersten XXX-Schiff
+            /*8*/new int?[] { 0, 0, 0, 0, 0, 0},                    //Koordinaten des zweiten XXX-Schiff
+            /*9*/new int?[] { 0, 0, 0, 0, 0, 0, 0, 0},              //Koordinaten des XXXX-Schiff
+            /*10*/new int?[] { 0, 0, 0, 0},                         //Anzahl der Schiffe auf dem Board
+            /*11*/new int?[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},       //Ob die Berechnung des kaputten Schiffs schon gemacht wurde
+            /*12*/new int?[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},       //Orientierung jedes Schiffes
         };
 
         int[][] P1SchiffeC ={
@@ -96,19 +96,19 @@ namespace SVgerman
         };
 
         public int?[][] P2Schiffe = {
-            new int?[] { 0, 0},
-            new int?[] { 0, 0},
-            new int?[] { 0, 0},
-            new int?[] { 0, 0},
-            new int?[] { 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0, 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            /*0*/new int?[] { 0, 0},
+            /*1*/new int?[] { 0, 0},
+            /*2*/new int?[] { 0, 0},
+            /*3*/new int?[] { 0, 0},
+            /*4*/new int?[] { 0, 0, 0, 0},
+            /*5*/new int?[] { 0, 0, 0, 0},
+            /*6*/new int?[] { 0, 0, 0, 0},
+            /*7*/new int?[] { 0, 0, 0, 0, 0, 0},
+            /*8*/new int?[] { 0, 0, 0, 0, 0, 0},
+            /*9*/new int?[] { 0, 0, 0, 0, 0, 0, 0, 0},
+            /*10*/new int?[] { 0, 0, 0, 0},
+            /*11*/new int?[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            /*12*/new int?[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         };
 
         int[][] P2SchiffeC ={
@@ -788,42 +788,42 @@ namespace SVgerman
                 P2Schiffe[11][0]++;
                 if (P2SchiffeC[0][0] - 1 > 0)
                 {
-                    P1board[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1]] = 24;
-                    P1boardHidden[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1]] = 24;
+                    P2board[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1]] = 24;
+                    P2boardHidden[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1]] = 24;
                     if (P2SchiffeC[0][1] + 1 < 11)
                     {
-                        P1board[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1] + 1] = 24;
-                        P1boardHidden[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1] + 1] = 24;
+                        P2board[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1] + 1] = 24;
+                        P2boardHidden[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1] + 1] = 24;
                     }
                     if (P2SchiffeC[0][1] - 1 > 0)
                     {
-                        P1board[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1] - 1] = 24;
-                        P1boardHidden[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1] - 1] = 24;
+                        P2board[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1] - 1] = 24;
+                        P2boardHidden[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1] - 1] = 24;
                     }
                 }
                 if (P2SchiffeC[0][1] + 1 < 11)
                 {
-                    P1board[P2SchiffeC[0][0], P2SchiffeC[0][1] + 1] = 24;
-                    P1boardHidden[P2SchiffeC[0][0], P2SchiffeC[0][1] + 1] = 24;
+                    P2board[P2SchiffeC[0][0], P2SchiffeC[0][1] + 1] = 24;
+                    P2boardHidden[P2SchiffeC[0][0], P2SchiffeC[0][1] + 1] = 24;
                 }
                 if (P2SchiffeC[0][1] - 1 > 0)
                 {
-                    P1board[P2SchiffeC[0][0], P2SchiffeC[0][1] - 1] = 24;
-                    P1boardHidden[P2SchiffeC[0][0], P2SchiffeC[0][1] - 1] = 24;
+                    P2board[P2SchiffeC[0][0], P2SchiffeC[0][1] - 1] = 24;
+                    P2boardHidden[P2SchiffeC[0][0], P2SchiffeC[0][1] - 1] = 24;
                 }
                 if (P2SchiffeC[0][0] + 1 < 11)
                 {
-                    P1board[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1]] = 24;
-                    P1boardHidden[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1]] = 24;
+                    P2board[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1]] = 24;
+                    P2boardHidden[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1]] = 24;
                     if (P2SchiffeC[0][1] + 1 < 11)
                     {
-                        P1board[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1] + 1] = 24;
-                        P1boardHidden[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1] + 1] = 24;
+                        P2board[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1] + 1] = 24;
+                        P2boardHidden[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1] + 1] = 24;
                     }
                     if (P2SchiffeC[0][1] - 1 > 0)
                     {
-                        P1board[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1] - 1] = 24;
-                        P1boardHidden[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1] - 1] = 24;
+                        P2board[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1] - 1] = 24;
+                        P2boardHidden[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1] - 1] = 24;
                     }
                 }
             }
@@ -833,42 +833,42 @@ namespace SVgerman
                 P2Schiffe[11][1]++;
                 if (P2SchiffeC[1][0] - 1 > 0)
                 {
-                    P1board[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1]] = 24;
-                    P1boardHidden[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1]] = 24;
+                    P2board[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1]] = 24;
+                    P2boardHidden[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1]] = 24;
                     if (P2SchiffeC[1][1] + 1 < 11)
                     {
-                        P1board[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1] + 1] = 24;
-                        P1boardHidden[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1] + 1] = 24;
+                        P2board[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1] + 1] = 24;
+                        P2boardHidden[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1] + 1] = 24;
                     }
                     if (P2SchiffeC[1][1] - 1 > 0)
                     {
-                        P1board[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1] - 1] = 24;
-                        P1boardHidden[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1] - 1] = 24;
+                        P2board[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1] - 1] = 24;
+                        P2boardHidden[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1] - 1] = 24;
                     }
                 }
                 if (P2SchiffeC[1][1] + 1 < 11)
                 {
-                    P1board[P2SchiffeC[1][0], P2SchiffeC[1][1] + 1] = 24;
-                    P1boardHidden[P2SchiffeC[1][0], P2SchiffeC[1][1] + 1] = 24;
+                    P2board[P2SchiffeC[1][0], P2SchiffeC[1][1] + 1] = 24;
+                    P2boardHidden[P2SchiffeC[1][0], P2SchiffeC[1][1] + 1] = 24;
                 }
                 if (P2SchiffeC[1][1] - 1 > 0)
                 {
-                    P1board[P2SchiffeC[1][0], P2SchiffeC[1][1] - 1] = 24;
-                    P1boardHidden[P2SchiffeC[1][0], P2SchiffeC[1][1] - 1] = 24;
+                    P2board[P2SchiffeC[1][0], P2SchiffeC[1][1] - 1] = 24;
+                    P2boardHidden[P2SchiffeC[1][0], P2SchiffeC[1][1] - 1] = 24;
                 }
                 if (P2SchiffeC[1][0] + 1 < 11)
                 {
-                    P1board[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1]] = 24;
-                    P1boardHidden[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1]] = 24;
+                    P2board[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1]] = 24;
+                    P2boardHidden[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1]] = 24;
                     if (P2SchiffeC[1][1] + 1 < 11)
                     {
-                        P1board[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1] + 1] = 24;
-                        P1boardHidden[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1] + 1] = 24;
+                        P2board[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1] + 1] = 24;
+                        P2boardHidden[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1] + 1] = 24;
                     }
                     if (P2SchiffeC[1][1] - 1 > 0)
                     {
-                        P1board[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1] - 1] = 24;
-                        P1boardHidden[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1] - 1] = 24;
+                        P2board[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1] - 1] = 24;
+                        P2boardHidden[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1] - 1] = 24;
                     }
                 }
             }
@@ -878,42 +878,42 @@ namespace SVgerman
                 P2Schiffe[11][2]++;
                 if (P2SchiffeC[2][0] - 1 > 0)
                 {
-                    P1board[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1]] = 24;
-                    P1boardHidden[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1]] = 24;
+                    P2board[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1]] = 24;
+                    P2boardHidden[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1]] = 24;
                     if (P2SchiffeC[2][1] + 1 < 11)
                     {
-                        P1board[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1] + 1] = 24;
-                        P1boardHidden[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1] + 1] = 24;
+                        P2board[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1] + 1] = 24;
+                        P2boardHidden[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1] + 1] = 24;
                     }
                     if (P2SchiffeC[2][1] - 1 > 0)
                     {
-                        P1board[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1] - 1] = 24;
-                        P1boardHidden[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1] - 1] = 24;
+                        P2board[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1] - 1] = 24;
+                        P2boardHidden[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1] - 1] = 24;
                     }
                 }
                 if (P2SchiffeC[2][1] + 1 < 11)
                 {
-                    P1board[P2SchiffeC[2][0], P2SchiffeC[2][1] + 1] = 24;
-                    P1boardHidden[P2SchiffeC[2][0], P2SchiffeC[2][1] + 1] = 24;
+                    P2board[P2SchiffeC[2][0], P2SchiffeC[2][1] + 1] = 24;
+                    P2boardHidden[P2SchiffeC[2][0], P2SchiffeC[2][1] + 1] = 24;
                 }
                 if (P2SchiffeC[2][1] - 1 > 0)
                 {
-                    P1board[P2SchiffeC[2][0], P2SchiffeC[2][1] - 1] = 24;
-                    P1boardHidden[P2SchiffeC[2][0], P2SchiffeC[2][1] - 1] = 24;
+                    P2board[P2SchiffeC[2][0], P2SchiffeC[2][1] - 1] = 24;
+                    P2boardHidden[P2SchiffeC[2][0], P2SchiffeC[2][1] - 1] = 24;
                 }
                 if (P2SchiffeC[2][0] + 1 < 11)
                 {
-                    P1board[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1]] = 24;
-                    P1boardHidden[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1]] = 24;
+                    P2board[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1]] = 24;
+                    P2boardHidden[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1]] = 24;
                     if (P2SchiffeC[2][1] + 1 < 11)
                     {
-                        P1board[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1] + 1] = 24;
-                        P1boardHidden[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1] + 1] = 24;
+                        P2board[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1] + 1] = 24;
+                        P2boardHidden[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1] + 1] = 24;
                     }
                     if (P2SchiffeC[2][1] - 1 > 0)
                     {
-                        P1board[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1] - 1] = 24;
-                        P1boardHidden[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1] - 1] = 24;
+                        P2board[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1] - 1] = 24;
+                        P2boardHidden[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1] - 1] = 24;
                     }
                 }
             }
@@ -923,42 +923,42 @@ namespace SVgerman
                 P2Schiffe[11][3]++;
                 if (P2SchiffeC[3][0] - 1 > 0)
                 {
-                    P1board[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1]] = 24;
-                    P1boardHidden[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1]] = 24;
+                    P2board[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1]] = 24;
+                    P2boardHidden[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1]] = 24;
                     if (P2SchiffeC[3][1] + 1 < 11)
                     {
-                        P1board[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1] + 1] = 24;
-                        P1boardHidden[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1] + 1] = 24;
+                        P2board[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1] + 1] = 24;
+                        P2boardHidden[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1] + 1] = 24;
                     }
                     if (P2SchiffeC[3][1] - 1 > 0)
                     {
-                        P1board[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1] - 1] = 24;
-                        P1boardHidden[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1] - 1] = 24;
+                        P2board[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1] - 1] = 24;
+                        P2boardHidden[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1] - 1] = 24;
                     }
                 }
                 if (P2SchiffeC[3][1] + 1 < 11)
                 {
-                    P1board[P2SchiffeC[3][0], P2SchiffeC[3][1] + 1] = 24;
-                    P1boardHidden[P2SchiffeC[3][0], P2SchiffeC[3][1] + 1] = 24;
+                    P2board[P2SchiffeC[3][0], P2SchiffeC[3][1] + 1] = 24;
+                    P2boardHidden[P2SchiffeC[3][0], P2SchiffeC[3][1] + 1] = 24;
                 }
                 if (P2SchiffeC[3][1] - 1 > 0)
                 {
-                    P1board[P2SchiffeC[3][0], P2SchiffeC[3][1] - 1] = 24;
-                    P1boardHidden[P2SchiffeC[3][0], P2SchiffeC[3][1] - 1] = 24;
+                    P2board[P2SchiffeC[3][0], P2SchiffeC[3][1] - 1] = 24;
+                    P2boardHidden[P2SchiffeC[3][0], P2SchiffeC[3][1] - 1] = 24;
                 }
                 if (P2SchiffeC[3][0] + 1 < 11)
                 {
-                    P1board[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1]] = 24;
-                    P1boardHidden[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1]] = 24;
+                    P2board[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1]] = 24;
+                    P2boardHidden[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1]] = 24;
                     if (P2SchiffeC[3][1] + 1 < 11)
                     {
-                        P1board[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1] + 1] = 24;
-                        P1boardHidden[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1] + 1] = 24;
+                        P2board[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1] + 1] = 24;
+                        P2boardHidden[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1] + 1] = 24;
                     }
                     if (P2SchiffeC[3][1] - 1 > 0)
                     {
-                        P1board[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1] - 1] = 24;
-                        P1boardHidden[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1] - 1] = 24;
+                        P2board[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1] - 1] = 24;
+                        P2boardHidden[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1] - 1] = 24;
                     }
                 }
             }
@@ -966,31 +966,1217 @@ namespace SVgerman
             {
                 P2Schiffe[10][1]--;
                 P2Schiffe[11][4]++;
+                switch (P2Schiffe[12][4])
+                {
+                    case 0:
+                        if (P2SchiffeC[4][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[4][0] + 1, P2SchiffeC[4][1]] = 24;
+                            P2boardHidden[P2SchiffeC[4][0] + 1, P2SchiffeC[4][1]] = 24;
+                            if(P2SchiffeC[4][1] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[4][0] + 1, P2SchiffeC[4][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[4][0] + 1, P2SchiffeC[4][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[4][1] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[4][0] + 1, P2SchiffeC[4][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[4][0] + 1, P2SchiffeC[4][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[4][1] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[4][0], P2SchiffeC[4][1] + 1] = 24;
+                            P2board[P2SchiffeC[4][2], P2SchiffeC[4][3] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[4][0], P2SchiffeC[4][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[4][2], P2SchiffeC[4][3] + 1] = 24;
+                        }
+                        if (P2SchiffeC[4][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[4][0], P2SchiffeC[4][1] - 1] = 24;
+                            P2board[P2SchiffeC[4][2], P2SchiffeC[4][3] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[4][0], P2SchiffeC[4][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[4][2], P2SchiffeC[4][3] - 1] = 24;
+                        }
+                        if(P2SchiffeC[4][2] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[4][2] - 1, P2SchiffeC[4][3]] = 24;
+                            P2boardHidden[P2SchiffeC[4][2] - 1, P2SchiffeC[4][3]] = 24;
+                            if (P2SchiffeC[4][3] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[4][2] - 1, P2SchiffeC[4][3] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[4][2] - 1, P2SchiffeC[4][3] + 1] = 24;
+                            }
+                            if (P2SchiffeC[4][3] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[4][2] - 1, P2SchiffeC[4][3] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[4][2] - 1, P2SchiffeC[4][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 1:
+                        if (P2SchiffeC[4][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[4][0] - 1, P2SchiffeC[4][1]] = 24;
+                            P2boardHidden[P2SchiffeC[4][0] - 1, P2SchiffeC[4][1]] = 24;
+                            if (P2SchiffeC[4][1] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[4][0] - 1, P2SchiffeC[4][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[4][0] - 1, P2SchiffeC[4][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[4][1] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[4][0] - 1, P2SchiffeC[4][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[4][0] - 1, P2SchiffeC[4][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[4][1] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[4][0], P2SchiffeC[4][1] + 1] = 24;
+                            P2board[P2SchiffeC[4][2], P2SchiffeC[4][3] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[4][0], P2SchiffeC[4][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[4][2], P2SchiffeC[4][3] + 1] = 24;
+                        }
+                        if (P2SchiffeC[4][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[4][0], P2SchiffeC[4][1] - 1] = 24;
+                            P2board[P2SchiffeC[4][2], P2SchiffeC[4][3] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[4][0], P2SchiffeC[4][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[4][2], P2SchiffeC[4][3] - 1] = 24;
+                        }
+                        if (P2SchiffeC[4][2] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[4][2] + 1, P2SchiffeC[4][3]] = 24;
+                            P2boardHidden[P2SchiffeC[4][2] + 1, P2SchiffeC[4][3]] = 24;
+                            if (P2SchiffeC[4][3] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[4][2] + 1, P2SchiffeC[4][3] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[4][2] + 1, P2SchiffeC[4][3] + 1] = 24;
+                            }
+                            if (P2SchiffeC[4][3] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[4][2] + 1, P2SchiffeC[4][3] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[4][2] + 1, P2SchiffeC[4][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 2:
+                        if (P2SchiffeC[4][1] + 1 > 0)
+                        {
+                            P2board[P2SchiffeC[4][0], P2SchiffeC[4][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[4][0], P2SchiffeC[4][1] + 1] = 24;
+                            if (P2SchiffeC[4][0] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[4][0] + 1, P2SchiffeC[4][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[4][0] + 1, P2SchiffeC[4][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[4][0] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[4][0] - 1, P2SchiffeC[4][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[4][0] - 1, P2SchiffeC[4][1] + 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[4][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[4][0] + 1, P2SchiffeC[4][1]] = 24;
+                            P2board[P2SchiffeC[4][2] + 1, P2SchiffeC[4][3]] = 24;
+                            P2boardHidden[P2SchiffeC[4][0] + 1, P2SchiffeC[4][1]] = 24;
+                            P2boardHidden[P2SchiffeC[4][2] + 1, P2SchiffeC[4][3]] = 24;
+                        }
+                        if (P2SchiffeC[4][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[4][0] - 1, P2SchiffeC[4][1]] = 24;
+                            P2board[P2SchiffeC[4][2] - 1, P2SchiffeC[4][3]] = 24;
+                            P2boardHidden[P2SchiffeC[4][0] - 1, P2SchiffeC[4][1]] = 24;
+                            P2boardHidden[P2SchiffeC[4][2] - 1, P2SchiffeC[4][3]] = 24;
+                        }
+                        if (P2SchiffeC[4][3] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[4][2], P2SchiffeC[4][3] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[4][2], P2SchiffeC[4][3] - 1] = 24;
+                            if (P2SchiffeC[4][2] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[4][2] + 1, P2SchiffeC[4][3] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[4][2] + 1, P2SchiffeC[4][3] - 1] = 24;
+                            }
+                            if (P2SchiffeC[4][2] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[4][2] - 1, P2SchiffeC[4][3] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[4][2] - 1, P2SchiffeC[4][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 3:
+                        if (P2SchiffeC[4][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[4][0], P2SchiffeC[4][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[4][0], P2SchiffeC[4][1] - 1] = 24;
+                            if (P2SchiffeC[4][0] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[4][0] + 1, P2SchiffeC[4][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[4][0] + 1, P2SchiffeC[4][1] - 1] = 24;
+                            }
+                            if (P2SchiffeC[4][0] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[4][0] - 1, P2SchiffeC[4][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[4][0] - 1, P2SchiffeC[4][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[4][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[4][0] + 1, P2SchiffeC[4][1]] = 24;
+                            P2board[P2SchiffeC[4][2] + 1, P2SchiffeC[4][3]] = 24;
+                            P2boardHidden[P2SchiffeC[4][0] + 1, P2SchiffeC[4][1]] = 24;
+                            P2boardHidden[P2SchiffeC[4][2] + 1, P2SchiffeC[4][3]] = 24;
+                        }
+                        if (P2SchiffeC[4][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[4][0] - 1, P2SchiffeC[4][1]] = 24;
+                            P2board[P2SchiffeC[4][2] - 1, P2SchiffeC[4][3]] = 24;
+                            P2boardHidden[P2SchiffeC[4][0] - 1, P2SchiffeC[4][1]] = 24;
+                            P2boardHidden[P2SchiffeC[4][2] - 1, P2SchiffeC[4][3]] = 24;
+                        }
+                        if (P2SchiffeC[4][3] + 1 > 0)
+                        {
+                            P2board[P2SchiffeC[4][2], P2SchiffeC[4][3] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[4][2], P2SchiffeC[4][3] + 1] = 24;
+                            if (P2SchiffeC[4][2] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[4][2] + 1, P2SchiffeC[4][3] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[4][2] + 1, P2SchiffeC[4][3] + 1] = 24;
+                            }
+                            if (P2SchiffeC[4][2] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[4][2] - 1, P2SchiffeC[4][3] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[4][2] - 1, P2SchiffeC[4][3] + 1] = 24;
+                            }
+                        }
+                        break;
+                }
             }
             if (P2Schiffe[5][0] == null && P2Schiffe[5][1] == null && P2Schiffe[5][2] == null && P2Schiffe[5][3] == null && P2Schiffe[11][5] == 0)
             {
                 P2Schiffe[10][1]--;
                 P2Schiffe[11][5]++;
+                switch (P2Schiffe[12][5])
+                {
+                    case 0:
+                        if (P2SchiffeC[5][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[5][0] + 1, P2SchiffeC[5][1]] = 24;
+                            P2boardHidden[P2SchiffeC[5][0] + 1, P2SchiffeC[5][1]] = 24;
+                            if (P2SchiffeC[5][1] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[5][0] + 1, P2SchiffeC[5][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[5][0] + 1, P2SchiffeC[5][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[5][1] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[5][0] + 1, P2SchiffeC[5][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[5][0] + 1, P2SchiffeC[5][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[5][1] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[5][0], P2SchiffeC[5][1] + 1] = 24;
+                            P2board[P2SchiffeC[5][2], P2SchiffeC[5][3] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[5][0], P2SchiffeC[5][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[5][2], P2SchiffeC[5][3] + 1] = 24;
+                        }
+                        if (P2SchiffeC[5][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[5][0], P2SchiffeC[5][1] - 1] = 24;
+                            P2board[P2SchiffeC[5][2], P2SchiffeC[5][3] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[5][0], P2SchiffeC[5][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[5][2], P2SchiffeC[5][3] - 1] = 24;
+                        }
+                        if (P2SchiffeC[5][2] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[5][2] - 1, P2SchiffeC[5][3]] = 24;
+                            P2boardHidden[P2SchiffeC[5][2] - 1, P2SchiffeC[5][3]] = 24;
+                            if (P2SchiffeC[5][3] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[5][2] - 1, P2SchiffeC[5][3] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[5][2] - 1, P2SchiffeC[5][3] + 1] = 24;
+                            }
+                            if (P2SchiffeC[5][3] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[5][2] - 1, P2SchiffeC[5][3] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[5][2] - 1, P2SchiffeC[5][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 1:
+                        if (P2SchiffeC[5][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[5][0] - 1, P2SchiffeC[5][1]] = 24;
+                            P2boardHidden[P2SchiffeC[5][0] - 1, P2SchiffeC[5][1]] = 24;
+                            if (P2SchiffeC[5][1] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[5][0] - 1, P2SchiffeC[5][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[5][0] - 1, P2SchiffeC[5][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[5][1] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[5][0] - 1, P2SchiffeC[5][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[5][0] - 1, P2SchiffeC[5][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[5][1] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[5][0], P2SchiffeC[5][1] + 1] = 24;
+                            P2board[P2SchiffeC[5][2], P2SchiffeC[5][3] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[5][0], P2SchiffeC[5][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[5][2], P2SchiffeC[5][3] + 1] = 24;
+                        }
+                        if (P2SchiffeC[5][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[5][0], P2SchiffeC[5][1] - 1] = 24;
+                            P2board[P2SchiffeC[5][2], P2SchiffeC[5][3] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[5][0], P2SchiffeC[5][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[5][2], P2SchiffeC[5][3] - 1] = 24;
+                        }
+                        if (P2SchiffeC[5][2] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[5][2] + 1, P2SchiffeC[5][3]] = 24;
+                            P2boardHidden[P2SchiffeC[5][2] + 1, P2SchiffeC[5][3]] = 24;
+                            if (P2SchiffeC[5][3] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[5][2] + 1, P2SchiffeC[5][3] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[5][2] + 1, P2SchiffeC[5][3] + 1] = 24;
+                            }
+                            if (P2SchiffeC[5][3] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[5][2] + 1, P2SchiffeC[5][3] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[5][2] + 1, P2SchiffeC[5][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 2:
+                        if (P2SchiffeC[5][1] + 1 > 0)
+                        {
+                            P2board[P2SchiffeC[5][0], P2SchiffeC[5][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[5][0], P2SchiffeC[5][1] + 1] = 24;
+                            if (P2SchiffeC[5][0] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[5][0] + 1, P2SchiffeC[5][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[5][0] + 1, P2SchiffeC[5][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[5][0] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[5][0] - 1, P2SchiffeC[5][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[5][0] - 1, P2SchiffeC[5][1] + 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[5][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[5][0] + 1, P2SchiffeC[5][1]] = 24;
+                            P2board[P2SchiffeC[5][2] + 1, P2SchiffeC[5][3]] = 24;
+                            P2boardHidden[P2SchiffeC[5][0] + 1, P2SchiffeC[5][1]] = 24;
+                            P2boardHidden[P2SchiffeC[5][2] + 1, P2SchiffeC[5][3]] = 24;
+                        }
+                        if (P2SchiffeC[5][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[5][0] - 1, P2SchiffeC[5][1]] = 24;
+                            P2board[P2SchiffeC[5][2] - 1, P2SchiffeC[5][3]] = 24;
+                            P2boardHidden[P2SchiffeC[5][0] - 1, P2SchiffeC[5][1]] = 24;
+                            P2boardHidden[P2SchiffeC[5][2] - 1, P2SchiffeC[5][3]] = 24;
+                        }
+                        if (P2SchiffeC[5][3] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[5][2], P2SchiffeC[5][3] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[5][2], P2SchiffeC[5][3] - 1] = 24;
+                            if (P2SchiffeC[5][2] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[5][2] + 1, P2SchiffeC[5][3] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[5][2] + 1, P2SchiffeC[5][3] - 1] = 24;
+                            }
+                            if (P2SchiffeC[5][2] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[5][2] - 1, P2SchiffeC[5][3] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[5][2] - 1, P2SchiffeC[5][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 3:
+                        if (P2SchiffeC[5][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[5][0], P2SchiffeC[5][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[5][0], P2SchiffeC[5][1] - 1] = 24;
+                            if (P2SchiffeC[5][0] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[5][0] + 1, P2SchiffeC[5][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[5][0] + 1, P2SchiffeC[5][1] - 1] = 24;
+                            }
+                            if (P2SchiffeC[5][0] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[5][0] - 1, P2SchiffeC[5][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[5][0] - 1, P2SchiffeC[5][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[5][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[5][0] + 1, P2SchiffeC[5][1]] = 24;
+                            P2board[P2SchiffeC[5][2] + 1, P2SchiffeC[5][3]] = 24;
+                            P2boardHidden[P2SchiffeC[5][0] + 1, P2SchiffeC[5][1]] = 24;
+                            P2boardHidden[P2SchiffeC[5][2] + 1, P2SchiffeC[5][3]] = 24;
+                        }
+                        if (P2SchiffeC[5][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[5][0] - 1, P2SchiffeC[5][1]] = 24;
+                            P2board[P2SchiffeC[5][2] - 1, P2SchiffeC[5][3]] = 24;
+                            P2boardHidden[P2SchiffeC[5][0] - 1, P2SchiffeC[5][1]] = 24;
+                            P2boardHidden[P2SchiffeC[5][2] - 1, P2SchiffeC[5][3]] = 24;
+                        }
+                        if (P2SchiffeC[5][3] + 1 > 0)
+                        {
+                            P2board[P2SchiffeC[5][2], P2SchiffeC[5][3] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[5][2], P2SchiffeC[5][3] + 1] = 24;
+                            if (P2SchiffeC[5][2] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[5][2] + 1, P2SchiffeC[5][3] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[5][2] + 1, P2SchiffeC[5][3] + 1] = 24;
+                            }
+                            if (P2SchiffeC[5][2] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[5][2] - 1, P2SchiffeC[5][3] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[5][2] - 1, P2SchiffeC[5][3] + 1] = 24;
+                            }
+                        }
+                        break;
+                }
             }
             if (P2Schiffe[6][0] == null && P2Schiffe[6][1] == null && P2Schiffe[6][2] == null && P2Schiffe[6][3] == null && P2Schiffe[11][6] == 0)
             {
                 P2Schiffe[10][1]--;
                 P2Schiffe[11][6]++;
+                switch (P2Schiffe[12][6])
+                {
+                    case 0:
+                        if (P2SchiffeC[6][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[6][0] + 1, P2SchiffeC[6][1]] = 24;
+                            P2boardHidden[P2SchiffeC[6][0] + 1, P2SchiffeC[6][1]] = 24;
+                            if (P2SchiffeC[6][1] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[6][0] + 1, P2SchiffeC[6][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[6][0] + 1, P2SchiffeC[6][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[6][1] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[6][0] + 1, P2SchiffeC[6][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[6][0] + 1, P2SchiffeC[6][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[6][1] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[6][0], P2SchiffeC[6][1] + 1] = 24;
+                            P2board[P2SchiffeC[6][2], P2SchiffeC[6][3] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[6][0], P2SchiffeC[6][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[6][2], P2SchiffeC[6][3] + 1] = 24;
+                        }
+                        if (P2SchiffeC[6][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[6][0], P2SchiffeC[6][1] - 1] = 24;
+                            P2board[P2SchiffeC[6][2], P2SchiffeC[6][3] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[6][0], P2SchiffeC[6][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[6][2], P2SchiffeC[6][3] - 1] = 24;
+                        }
+                        if (P2SchiffeC[6][2] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[6][2] - 1, P2SchiffeC[6][3]] = 24;
+                            P2boardHidden[P2SchiffeC[6][2] - 1, P2SchiffeC[6][3]] = 24;
+                            if (P2SchiffeC[6][3] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[6][2] - 1, P2SchiffeC[6][3] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[6][2] - 1, P2SchiffeC[6][3] + 1] = 24;
+                            }
+                            if (P2SchiffeC[6][3] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[6][2] - 1, P2SchiffeC[6][3] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[6][2] - 1, P2SchiffeC[6][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 1:
+                        if (P2SchiffeC[6][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[6][0] - 1, P2SchiffeC[6][1]] = 24;
+                            P2boardHidden[P2SchiffeC[6][0] - 1, P2SchiffeC[6][1]] = 24;
+                            if (P2SchiffeC[6][1] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[6][0] - 1, P2SchiffeC[6][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[6][0] - 1, P2SchiffeC[6][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[6][1] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[6][0] - 1, P2SchiffeC[6][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[6][0] - 1, P2SchiffeC[6][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[6][1] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[6][0], P2SchiffeC[6][1] + 1] = 24;
+                            P2board[P2SchiffeC[6][2], P2SchiffeC[6][3] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[6][0], P2SchiffeC[6][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[6][2], P2SchiffeC[6][3] + 1] = 24;
+                        }
+                        if (P2SchiffeC[6][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[6][0], P2SchiffeC[6][1] - 1] = 24;
+                            P2board[P2SchiffeC[6][2], P2SchiffeC[6][3] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[6][0], P2SchiffeC[6][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[6][2], P2SchiffeC[6][3] - 1] = 24;
+                        }
+                        if (P2SchiffeC[6][2] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[6][2] + 1, P2SchiffeC[6][3]] = 24;
+                            P2boardHidden[P2SchiffeC[6][2] + 1, P2SchiffeC[6][3]] = 24;
+                            if (P2SchiffeC[6][3] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[6][2] + 1, P2SchiffeC[6][3] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[6][2] + 1, P2SchiffeC[6][3] + 1] = 24;
+                            }
+                            if (P2SchiffeC[6][3] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[6][2] + 1, P2SchiffeC[6][3] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[6][2] + 1, P2SchiffeC[6][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 2:
+                        if (P2SchiffeC[6][1] + 1 > 0)
+                        {
+                            P2board[P2SchiffeC[6][0], P2SchiffeC[6][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[6][0], P2SchiffeC[6][1] + 1] = 24;
+                            if (P2SchiffeC[6][0] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[6][0] + 1, P2SchiffeC[6][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[6][0] + 1, P2SchiffeC[6][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[6][0] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[6][0] - 1, P2SchiffeC[6][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[6][0] - 1, P2SchiffeC[6][1] + 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[6][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[6][0] + 1, P2SchiffeC[6][1]] = 24;
+                            P2board[P2SchiffeC[6][2] + 1, P2SchiffeC[6][3]] = 24;
+                            P2boardHidden[P2SchiffeC[6][0] + 1, P2SchiffeC[6][1]] = 24;
+                            P2boardHidden[P2SchiffeC[6][2] + 1, P2SchiffeC[6][3]] = 24;
+                        }
+                        if (P2SchiffeC[6][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[6][0] - 1, P2SchiffeC[6][1]] = 24;
+                            P2board[P2SchiffeC[6][2] - 1, P2SchiffeC[6][3]] = 24;
+                            P2boardHidden[P2SchiffeC[6][0] - 1, P2SchiffeC[6][1]] = 24;
+                            P2boardHidden[P2SchiffeC[6][2] - 1, P2SchiffeC[6][3]] = 24;
+                        }
+                        if (P2SchiffeC[6][3] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[6][2], P2SchiffeC[6][3] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[6][2], P2SchiffeC[6][3] - 1] = 24;
+                            if (P2SchiffeC[6][2] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[6][2] + 1, P2SchiffeC[6][3] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[6][2] + 1, P2SchiffeC[6][3] - 1] = 24;
+                            }
+                            if (P2SchiffeC[6][2] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[6][2] - 1, P2SchiffeC[6][3] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[6][2] - 1, P2SchiffeC[6][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 3:
+                        if (P2SchiffeC[6][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[6][0], P2SchiffeC[6][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[6][0], P2SchiffeC[6][1] - 1] = 24;
+                            if (P2SchiffeC[6][0] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[6][0] + 1, P2SchiffeC[6][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[6][0] + 1, P2SchiffeC[6][1] - 1] = 24;
+                            }
+                            if (P2SchiffeC[6][0] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[6][0] - 1, P2SchiffeC[6][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[6][0] - 1, P2SchiffeC[6][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[6][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[6][0] + 1, P2SchiffeC[6][1]] = 24;
+                            P2board[P2SchiffeC[6][2] + 1, P2SchiffeC[6][3]] = 24;
+                            P2boardHidden[P2SchiffeC[6][0] + 1, P2SchiffeC[6][1]] = 24;
+                            P2boardHidden[P2SchiffeC[6][2] + 1, P2SchiffeC[6][3]] = 24;
+                        }
+                        if (P2SchiffeC[6][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[6][0] - 1, P2SchiffeC[6][1]] = 24;
+                            P2board[P2SchiffeC[6][2] - 1, P2SchiffeC[6][3]] = 24;
+                            P2boardHidden[P2SchiffeC[6][0] - 1, P2SchiffeC[6][1]] = 24;
+                            P2boardHidden[P2SchiffeC[6][2] - 1, P2SchiffeC[6][3]] = 24;
+                        }
+                        if (P2SchiffeC[6][3] + 1 > 0)
+                        {
+                            P2board[P2SchiffeC[6][2], P2SchiffeC[6][3] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[6][2], P2SchiffeC[6][3] + 1] = 24;
+                            if (P2SchiffeC[6][2] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[6][2] + 1, P2SchiffeC[6][3] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[6][2] + 1, P2SchiffeC[6][3] + 1] = 24;
+                            }
+                            if (P2SchiffeC[6][2] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[6][2] - 1, P2SchiffeC[6][3] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[6][2] - 1, P2SchiffeC[6][3] + 1] = 24;
+                            }
+                        }
+                        break;
+                }
             }
             if (P2Schiffe[7][0] == null && P2Schiffe[7][1] == null && P2Schiffe[7][2] == null && P2Schiffe[7][3] == null && P2Schiffe[7][4] == null && P2Schiffe[7][5] == null && P2Schiffe[11][7] == 0)
             {
                 P2Schiffe[10][2]--;
                 P2Schiffe[11][7]++;
+                switch (P2Schiffe[12][7])
+                {
+                    case 0:
+                        if (P2SchiffeC[7][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[7][0] + 1, P2SchiffeC[7][1]] = 24;
+                            P2boardHidden[P2SchiffeC[7][0] + 1, P2SchiffeC[7][1]] = 24;
+                            if (P2SchiffeC[7][1] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[7][0] + 1, P2SchiffeC[7][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[7][0] + 1, P2SchiffeC[7][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[7][1] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[7][0] + 1, P2SchiffeC[7][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[7][0] + 1, P2SchiffeC[7][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[7][1] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[7][0], P2SchiffeC[7][1] + 1] = 24;
+                            P2board[P2SchiffeC[7][2], P2SchiffeC[7][3] + 1] = 24;
+                            P2board[P2SchiffeC[7][4], P2SchiffeC[7][5] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[7][0], P2SchiffeC[7][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[7][2], P2SchiffeC[7][3] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[7][2], P2SchiffeC[7][5] + 1] = 24;
+                        }
+                        if (P2SchiffeC[7][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[7][0], P2SchiffeC[7][1] - 1] = 24;
+                            P2board[P2SchiffeC[7][2], P2SchiffeC[7][3] - 1] = 24;
+                            P2board[P2SchiffeC[7][4], P2SchiffeC[7][5] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[7][0], P2SchiffeC[7][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[7][2], P2SchiffeC[7][3] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[7][4], P2SchiffeC[7][5] - 1] = 24;
+                        }
+                        if (P2SchiffeC[7][4] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[7][4] - 1, P2SchiffeC[7][5]] = 24;
+                            P2boardHidden[P2SchiffeC[7][4] - 1, P2SchiffeC[7][5]] = 24;
+                            if (P2SchiffeC[7][5] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[7][4] - 1, P2SchiffeC[7][5] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[7][4] - 1, P2SchiffeC[7][5] + 1] = 24;
+                            }
+                            if (P2SchiffeC[7][5] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[7][4] - 1, P2SchiffeC[7][5] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[7][4] - 1, P2SchiffeC[7][5] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 1:
+                        if (P2SchiffeC[7][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[7][0] - 1, P2SchiffeC[7][1]] = 24;
+                            P2boardHidden[P2SchiffeC[7][0] - 1, P2SchiffeC[7][1]] = 24;
+                            if (P2SchiffeC[7][1] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[7][0] - 1, P2SchiffeC[7][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[7][0] - 1, P2SchiffeC[7][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[7][1] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[7][0] - 1, P2SchiffeC[7][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[7][0] - 1, P2SchiffeC[7][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[7][1] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[7][0], P2SchiffeC[7][1] + 1] = 24;
+                            P2board[P2SchiffeC[7][2], P2SchiffeC[7][3] + 1] = 24;
+                            P2board[P2SchiffeC[7][4], P2SchiffeC[7][5] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[7][0], P2SchiffeC[7][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[7][2], P2SchiffeC[7][3] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[7][4], P2SchiffeC[7][5] + 1] = 24;
+                        }
+                        if (P2SchiffeC[7][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[7][0], P2SchiffeC[7][1] - 1] = 24;
+                            P2board[P2SchiffeC[7][2], P2SchiffeC[7][3] - 1] = 24;
+                            P2board[P2SchiffeC[7][4], P2SchiffeC[7][5] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[7][0], P2SchiffeC[7][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[7][2], P2SchiffeC[7][3] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[7][4], P2SchiffeC[7][5] - 1] = 24;
+                        }
+                        if (P2SchiffeC[7][4] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[7][4] + 1, P2SchiffeC[7][5]] = 24;
+                            P2boardHidden[P2SchiffeC[7][4] + 1, P2SchiffeC[7][5]] = 24;
+                            if (P2SchiffeC[7][5] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[7][4] + 1, P2SchiffeC[7][5] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[7][4] + 1, P2SchiffeC[7][5] + 1] = 24;
+                            }
+                            if (P2SchiffeC[7][5] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[7][4] + 1, P2SchiffeC[7][5] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[7][4] + 1, P2SchiffeC[7][5] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 2:
+                        if (P2SchiffeC[7][1] + 1 > 0)
+                        {
+                            P2board[P2SchiffeC[7][0], P2SchiffeC[7][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[7][0], P2SchiffeC[7][1] + 1] = 24;
+                            if (P2SchiffeC[7][0] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[7][0] + 1, P2SchiffeC[7][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[7][0] + 1, P2SchiffeC[7][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[7][0] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[7][0] - 1, P2SchiffeC[7][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[7][0] - 1, P2SchiffeC[7][1] + 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[7][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[7][0] + 1, P2SchiffeC[7][1]] = 24;
+                            P2board[P2SchiffeC[7][2] + 1, P2SchiffeC[7][3]] = 24;
+                            P2board[P2SchiffeC[7][4] + 1, P2SchiffeC[7][5]] = 24;
+                            P2boardHidden[P2SchiffeC[7][0] + 1, P2SchiffeC[7][1]] = 24;
+                            P2boardHidden[P2SchiffeC[7][2] + 1, P2SchiffeC[7][3]] = 24;
+                            P2boardHidden[P2SchiffeC[7][4] + 1, P2SchiffeC[7][5]] = 24;
+                        }
+                        if (P2SchiffeC[7][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[7][0] - 1, P2SchiffeC[7][1]] = 24;
+                            P2board[P2SchiffeC[7][2] - 1, P2SchiffeC[7][3]] = 24;
+                            P2board[P2SchiffeC[7][4] - 1, P2SchiffeC[7][5]] = 24;
+                            P2boardHidden[P2SchiffeC[7][0] - 1, P2SchiffeC[7][1]] = 24;
+                            P2boardHidden[P2SchiffeC[7][2] - 1, P2SchiffeC[7][3]] = 24;
+                            P2boardHidden[P2SchiffeC[7][4] - 1, P2SchiffeC[7][5]] = 24;
+                        }
+                        if (P2SchiffeC[7][5] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[7][4], P2SchiffeC[7][5] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[7][4], P2SchiffeC[7][5] - 1] = 24;
+                            if (P2SchiffeC[7][4] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[7][4] + 1, P2SchiffeC[7][5] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[7][4] + 1, P2SchiffeC[7][5] - 1] = 24;
+                            }
+                            if (P2SchiffeC[7][4] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[7][4] - 1, P2SchiffeC[7][5] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[7][4] - 1, P2SchiffeC[7][5] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 3:
+                        if (P2SchiffeC[7][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[7][0], P2SchiffeC[7][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[7][0], P2SchiffeC[7][1] - 1] = 24;
+                            if (P2SchiffeC[7][0] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[7][0] + 1, P2SchiffeC[7][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[7][0] + 1, P2SchiffeC[7][1] - 1] = 24;
+                            }
+                            if (P2SchiffeC[7][0] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[7][0] - 1, P2SchiffeC[7][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[7][0] - 1, P2SchiffeC[7][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[7][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[7][0] + 1, P2SchiffeC[7][1]] = 24;
+                            P2board[P2SchiffeC[7][2] + 1, P2SchiffeC[7][3]] = 24;
+                            P2board[P2SchiffeC[7][4] + 1, P2SchiffeC[7][5]] = 24;
+                            P2boardHidden[P2SchiffeC[7][0] + 1, P2SchiffeC[7][1]] = 24;
+                            P2boardHidden[P2SchiffeC[7][2] + 1, P2SchiffeC[7][3]] = 24;
+                            P2boardHidden[P2SchiffeC[7][4] + 1, P2SchiffeC[7][5]] = 24;
+                        }
+                        if (P2SchiffeC[7][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[7][0] - 1, P2SchiffeC[7][1]] = 24;
+                            P2board[P2SchiffeC[7][2] - 1, P2SchiffeC[7][3]] = 24;
+                            P2board[P2SchiffeC[7][4] - 1, P2SchiffeC[7][5]] = 24;
+                            P2boardHidden[P2SchiffeC[7][0] - 1, P2SchiffeC[7][1]] = 24;
+                            P2boardHidden[P2SchiffeC[7][2] - 1, P2SchiffeC[7][3]] = 24;
+                            P2boardHidden[P2SchiffeC[7][4] - 1, P2SchiffeC[7][5]] = 24;
+                        }
+                        if (P2SchiffeC[7][5] + 1 > 0)
+                        {
+                            P2board[P2SchiffeC[7][4], P2SchiffeC[7][5] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[7][4], P2SchiffeC[7][5] + 1] = 24;
+                            if (P2SchiffeC[7][4] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[7][4] + 1, P2SchiffeC[7][5] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[7][4] + 1, P2SchiffeC[7][5] + 1] = 24;
+                            }
+                            if (P2SchiffeC[7][4] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[7][4] - 1, P2SchiffeC[7][5] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[7][5] - 1, P2SchiffeC[7][5] + 1] = 24;
+                            }
+                        }
+                        break;
+                }
             }
             if (P2Schiffe[8][0] == null && P2Schiffe[8][1] == null && P2Schiffe[8][2] == null && P2Schiffe[8][3] == null && P2Schiffe[8][4] == null && P2Schiffe[8][5] == null && P2Schiffe[11][8] == 0)
             {
                 P2Schiffe[10][2]--;
                 P2Schiffe[11][8]++;
+                switch (P2Schiffe[12][8])
+                {
+                    case 0:
+                        if (P2SchiffeC[8][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[8][0] + 1, P2SchiffeC[8][1]] = 24;
+                            P2boardHidden[P2SchiffeC[8][0] + 1, P2SchiffeC[8][1]] = 24;
+                            if (P2SchiffeC[8][1] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[8][0] + 1, P2SchiffeC[8][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[8][0] + 1, P2SchiffeC[8][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[8][1] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[8][0] + 1, P2SchiffeC[8][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[8][0] + 1, P2SchiffeC[8][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[8][1] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[8][0], P2SchiffeC[8][1] + 1] = 24;
+                            P2board[P2SchiffeC[8][2], P2SchiffeC[8][3] + 1] = 24;
+                            P2board[P2SchiffeC[8][4], P2SchiffeC[8][5] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[8][0], P2SchiffeC[8][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[8][2], P2SchiffeC[8][3] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[8][4], P2SchiffeC[8][5] + 1] = 24;
+                        }
+                        if (P2SchiffeC[8][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[8][0], P2SchiffeC[8][1] - 1] = 24;
+                            P2board[P2SchiffeC[8][2], P2SchiffeC[8][3] - 1] = 24;
+                            P2board[P2SchiffeC[8][4], P2SchiffeC[8][5] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[8][0], P2SchiffeC[8][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[8][2], P2SchiffeC[8][3] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[8][4], P2SchiffeC[8][5] - 1] = 24;
+                        }
+                        if (P2SchiffeC[8][4] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[8][4] - 1, P2SchiffeC[8][5]] = 24;
+                            P2boardHidden[P2SchiffeC[8][4] - 1, P2SchiffeC[8][5]] = 24;
+                            if (P2SchiffeC[8][5] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[8][4] - 1, P2SchiffeC[8][5] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[8][4] - 1, P2SchiffeC[8][5] + 1] = 24;
+                            }
+                            if (P2SchiffeC[8][5] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[8][4] - 1, P2SchiffeC[8][5] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[8][4] - 1, P2SchiffeC[8][5] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 1:
+                        if (P2SchiffeC[8][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[8][0] - 1, P2SchiffeC[8][1]] = 24;
+                            P2boardHidden[P2SchiffeC[8][0] - 1, P2SchiffeC[8][1]] = 24;
+                            if (P2SchiffeC[8][1] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[8][0] - 1, P2SchiffeC[8][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[8][0] - 1, P2SchiffeC[8][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[8][1] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[8][0] - 1, P2SchiffeC[8][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[8][0] - 1, P2SchiffeC[8][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[8][1] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[8][0], P2SchiffeC[8][1] + 1] = 24;
+                            P2board[P2SchiffeC[8][2], P2SchiffeC[8][3] + 1] = 24;
+                            P2board[P2SchiffeC[8][4], P2SchiffeC[8][5] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[8][0], P2SchiffeC[8][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[8][2], P2SchiffeC[8][3] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[8][4], P2SchiffeC[8][5] + 1] = 24;
+                        }
+                        if (P2SchiffeC[8][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[8][0], P2SchiffeC[8][1] - 1] = 24;
+                            P2board[P2SchiffeC[8][2], P2SchiffeC[8][3] - 1] = 24;
+                            P2board[P2SchiffeC[8][4], P2SchiffeC[8][5] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[8][0], P2SchiffeC[8][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[8][2], P2SchiffeC[8][3] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[8][4], P2SchiffeC[8][5] - 1] = 24;
+                        }
+                        if (P2SchiffeC[8][4] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[8][4] + 1, P2SchiffeC[8][5]] = 24;
+                            P2boardHidden[P2SchiffeC[8][4] + 1, P2SchiffeC[8][5]] = 24;
+                            if (P2SchiffeC[8][5] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[8][4] + 1, P2SchiffeC[8][5] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[8][4] + 1, P2SchiffeC[8][5] + 1] = 24;
+                            }
+                            if (P2SchiffeC[8][5] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[8][4] + 1, P2SchiffeC[8][5] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[8][4] + 1, P2SchiffeC[8][5] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 2:
+                        if (P2SchiffeC[8][1] + 1 > 0)
+                        {
+                            P2board[P2SchiffeC[8][0], P2SchiffeC[8][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[8][0], P2SchiffeC[8][1] + 1] = 24;
+                            if (P2SchiffeC[8][0] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[8][0] + 1, P2SchiffeC[8][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[8][0] + 1, P2SchiffeC[8][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[8][0] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[8][0] - 1, P2SchiffeC[8][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[8][0] - 1, P2SchiffeC[8][1] + 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[8][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[8][0] + 1, P2SchiffeC[8][1]] = 24;
+                            P2board[P2SchiffeC[8][2] + 1, P2SchiffeC[8][3]] = 24;
+                            P2board[P2SchiffeC[8][4] + 1, P2SchiffeC[8][5]] = 24;
+                            P2boardHidden[P2SchiffeC[8][0] + 1, P2SchiffeC[8][1]] = 24;
+                            P2boardHidden[P2SchiffeC[8][2] + 1, P2SchiffeC[8][3]] = 24;
+                            P2boardHidden[P2SchiffeC[8][4] + 1, P2SchiffeC[8][5]] = 24;
+                        }
+                        if (P2SchiffeC[8][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[8][0] - 1, P2SchiffeC[8][1]] = 24;
+                            P2board[P2SchiffeC[8][2] - 1, P2SchiffeC[8][3]] = 24;
+                            P2board[P2SchiffeC[8][4] - 1, P2SchiffeC[8][5]] = 24;
+                            P2boardHidden[P2SchiffeC[8][0] - 1, P2SchiffeC[8][1]] = 24;
+                            P2boardHidden[P2SchiffeC[8][2] - 1, P2SchiffeC[8][3]] = 24;
+                            P2boardHidden[P2SchiffeC[8][4] - 1, P2SchiffeC[8][5]] = 24;
+                        }
+                        if (P2SchiffeC[8][5] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[8][4], P2SchiffeC[8][5] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[8][4], P2SchiffeC[8][5] - 1] = 24;
+                            if (P2SchiffeC[8][4] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[8][4] + 1, P2SchiffeC[8][5] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[8][4] + 1, P2SchiffeC[8][5] - 1] = 24;
+                            }
+                            if (P2SchiffeC[8][4] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[8][4] - 1, P2SchiffeC[8][5] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[8][4] - 1, P2SchiffeC[8][5] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 3:
+                        if (P2SchiffeC[8][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[8][0], P2SchiffeC[8][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[8][0], P2SchiffeC[8][1] - 1] = 24;
+                            if (P2SchiffeC[8][0] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[8][0] + 1, P2SchiffeC[8][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[8][0] + 1, P2SchiffeC[8][1] - 1] = 24;
+                            }
+                            if (P2SchiffeC[8][0] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[8][0] - 1, P2SchiffeC[8][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[8][0] - 1, P2SchiffeC[8][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[8][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[8][0] + 1, P2SchiffeC[8][1]] = 24;
+                            P2board[P2SchiffeC[8][2] + 1, P2SchiffeC[8][3]] = 24;
+                            P2board[P2SchiffeC[8][4] + 1, P2SchiffeC[8][5]] = 24;
+                            P2boardHidden[P2SchiffeC[8][0] + 1, P2SchiffeC[8][1]] = 24;
+                            P2boardHidden[P2SchiffeC[8][2] + 1, P2SchiffeC[8][3]] = 24;
+                            P2boardHidden[P2SchiffeC[8][4] + 1, P2SchiffeC[8][5]] = 24;
+                        }
+                        if (P2SchiffeC[8][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[8][0] - 1, P2SchiffeC[8][1]] = 24;
+                            P2board[P2SchiffeC[8][2] - 1, P2SchiffeC[8][3]] = 24;
+                            P2board[P2SchiffeC[8][4] - 1, P2SchiffeC[8][5]] = 24;
+                            P2boardHidden[P2SchiffeC[8][0] - 1, P2SchiffeC[8][1]] = 24;
+                            P2boardHidden[P2SchiffeC[8][2] - 1, P2SchiffeC[8][3]] = 24;
+                            P2boardHidden[P2SchiffeC[8][4] - 1, P2SchiffeC[8][5]] = 24;
+                        }
+                        if (P2SchiffeC[8][5] + 1 > 0)
+                        {
+                            P2board[P2SchiffeC[8][4], P2SchiffeC[8][5] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[8][4], P2SchiffeC[8][5] + 1] = 24;
+                            if (P2SchiffeC[8][4] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[8][4] + 1, P2SchiffeC[8][5] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[8][4] + 1, P2SchiffeC[8][5] + 1] = 24;
+                            }
+                            if (P2SchiffeC[8][4] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[8][4] - 1, P2SchiffeC[8][5] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[8][4] - 1, P2SchiffeC[8][5] + 1] = 24;
+                            }
+                        }
+                        break;
+                }
             }
             if (P2Schiffe[9][0] == null && P2Schiffe[9][1] == null && P2Schiffe[9][2] == null && P2Schiffe[9][3] == null && P2Schiffe[9][5] == null && P2Schiffe[9][5] == null && P2Schiffe[9][6] == null && P2Schiffe[9][7] == null && P2Schiffe[11][9] == 0)
             {
                 P2Schiffe[10][3]--;
                 P2Schiffe[11][8]++;
+                switch (P2Schiffe[12][8])
+                {
+                    case 0:
+                        if (P2SchiffeC[9][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[9][0] + 1, P2SchiffeC[9][1]] = 24;
+                            P2boardHidden[P2SchiffeC[9][0] + 1, P2SchiffeC[9][1]] = 24;
+                            if (P2SchiffeC[9][1] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[9][0] + 1, P2SchiffeC[9][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[9][0] + 1, P2SchiffeC[9][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[9][1] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[9][0] + 1, P2SchiffeC[9][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[9][0] + 1, P2SchiffeC[9][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[9][1] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[9][0], P2SchiffeC[9][1] + 1] = 24;
+                            P2board[P2SchiffeC[9][2], P2SchiffeC[9][3] + 1] = 24;
+                            P2board[P2SchiffeC[9][4], P2SchiffeC[9][5] + 1] = 24;
+                            P2board[P2SchiffeC[9][6], P2SchiffeC[9][7] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][0], P2SchiffeC[9][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][2], P2SchiffeC[9][3] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][4], P2SchiffeC[9][5] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][6], P2SchiffeC[9][7] + 1] = 24;
+                        }
+                        if (P2SchiffeC[9][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[9][0], P2SchiffeC[9][1] - 1] = 24;
+                            P2board[P2SchiffeC[9][2], P2SchiffeC[9][3] - 1] = 24;
+                            P2board[P2SchiffeC[9][4], P2SchiffeC[9][5] - 1] = 24;
+                            P2board[P2SchiffeC[9][6], P2SchiffeC[9][7] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][0], P2SchiffeC[9][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][2], P2SchiffeC[9][3] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][4], P2SchiffeC[9][5] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][6], P2SchiffeC[9][7] - 1] = 24;
+                        }
+                        if (P2SchiffeC[9][6] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[9][6] - 1, P2SchiffeC[9][7]] = 24;
+                            P2boardHidden[P2SchiffeC[9][6] - 1, P2SchiffeC[9][7]] = 24;
+                            if (P2SchiffeC[9][7] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[9][6] - 1, P2SchiffeC[9][7] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[9][6] - 1, P2SchiffeC[9][7] + 1] = 24;
+                            }
+                            if (P2SchiffeC[9][7] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[9][6] - 1, P2SchiffeC[9][7] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[9][6] - 1, P2SchiffeC[9][7] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 1:
+                        if (P2SchiffeC[9][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[9][0] - 1, P2SchiffeC[9][1]] = 24;
+                            P2boardHidden[P2SchiffeC[9][0] - 1, P2SchiffeC[9][1]] = 24;
+                            if (P2SchiffeC[9][1] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[9][0] - 1, P2SchiffeC[9][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[9][0] - 1, P2SchiffeC[9][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[9][1] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[9][0] - 1, P2SchiffeC[9][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[9][0] - 1, P2SchiffeC[9][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[9][1] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[9][0], P2SchiffeC[9][1] + 1] = 24;
+                            P2board[P2SchiffeC[9][2], P2SchiffeC[9][3] + 1] = 24;
+                            P2board[P2SchiffeC[9][4], P2SchiffeC[9][5] + 1] = 24;
+                            P2board[P2SchiffeC[9][6], P2SchiffeC[9][7] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][0], P2SchiffeC[9][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][2], P2SchiffeC[9][3] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][4], P2SchiffeC[9][5] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][6], P2SchiffeC[9][7] + 1] = 24;
+                        }
+                        if (P2SchiffeC[9][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[9][0], P2SchiffeC[9][1] - 1] = 24;
+                            P2board[P2SchiffeC[9][2], P2SchiffeC[9][3] - 1] = 24;
+                            P2board[P2SchiffeC[9][4], P2SchiffeC[9][5] - 1] = 24;
+                            P2board[P2SchiffeC[9][6], P2SchiffeC[9][7] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][0], P2SchiffeC[9][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][2], P2SchiffeC[9][3] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][4], P2SchiffeC[9][5] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][6], P2SchiffeC[9][7] - 1] = 24;
+                        }
+                        if (P2SchiffeC[9][6] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[9][6] + 1, P2SchiffeC[9][7]] = 24;
+                            P2boardHidden[P2SchiffeC[9][6] + 1, P2SchiffeC[9][7]] = 24;
+                            if (P2SchiffeC[9][7] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[9][6] + 1, P2SchiffeC[9][7] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[9][6] + 1, P2SchiffeC[9][7] + 1] = 24;
+                            }
+                            if (P2SchiffeC[9][7] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[9][6] + 1, P2SchiffeC[9][7] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[9][6] + 1, P2SchiffeC[9][7] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 2:
+                        if (P2SchiffeC[9][1] + 1 > 0)
+                        {
+                            P2board[P2SchiffeC[9][0], P2SchiffeC[9][1] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][0], P2SchiffeC[9][1] + 1] = 24;
+                            if (P2SchiffeC[9][0] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[9][0] + 1, P2SchiffeC[9][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[9][0] + 1, P2SchiffeC[9][1] + 1] = 24;
+                            }
+                            if (P2SchiffeC[9][0] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[9][0] - 1, P2SchiffeC[9][1] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[9][0] - 1, P2SchiffeC[9][1] + 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[9][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[9][0] + 1, P2SchiffeC[9][1]] = 24;
+                            P2board[P2SchiffeC[9][2] + 1, P2SchiffeC[9][3]] = 24;
+                            P2board[P2SchiffeC[9][4] + 1, P2SchiffeC[9][5]] = 24;
+                            P2board[P2SchiffeC[9][6] + 1, P2SchiffeC[9][7]] = 24;
+                            P2boardHidden[P2SchiffeC[9][0] + 1, P2SchiffeC[9][1]] = 24;
+                            P2boardHidden[P2SchiffeC[9][2] + 1, P2SchiffeC[9][3]] = 24;
+                            P2boardHidden[P2SchiffeC[9][4] + 1, P2SchiffeC[9][5]] = 24;
+                            P2boardHidden[P2SchiffeC[9][6] + 1, P2SchiffeC[9][7]] = 24;
+                        }
+                        if (P2SchiffeC[9][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[9][0] - 1, P2SchiffeC[9][1]] = 24;
+                            P2board[P2SchiffeC[9][2] - 1, P2SchiffeC[9][3]] = 24;
+                            P2board[P2SchiffeC[9][4] - 1, P2SchiffeC[9][5]] = 24;
+                            P2board[P2SchiffeC[9][6] - 1, P2SchiffeC[9][7]] = 24;
+                            P2boardHidden[P2SchiffeC[9][0] - 1, P2SchiffeC[9][1]] = 24;
+                            P2boardHidden[P2SchiffeC[9][2] - 1, P2SchiffeC[9][3]] = 24;
+                            P2boardHidden[P2SchiffeC[9][4] - 1, P2SchiffeC[9][5]] = 24;
+                            P2boardHidden[P2SchiffeC[9][6] - 1, P2SchiffeC[9][7]] = 24;
+                        }
+                        if (P2SchiffeC[9][7] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[9][6], P2SchiffeC[9][7] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][6], P2SchiffeC[9][7] - 1] = 24;
+                            if (P2SchiffeC[9][6] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[9][6] + 1, P2SchiffeC[9][7] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[9][6] + 1, P2SchiffeC[9][7] - 1] = 24;
+                            }
+                            if (P2SchiffeC[9][6] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[9][6] - 1, P2SchiffeC[9][7] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[9][6] - 1, P2SchiffeC[9][7] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 3:
+                        if (P2SchiffeC[9][1] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[9][0], P2SchiffeC[9][1] - 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][0], P2SchiffeC[9][1] - 1] = 24;
+                            if (P2SchiffeC[9][0] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[9][0] + 1, P2SchiffeC[9][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[9][0] + 1, P2SchiffeC[9][1] - 1] = 24;
+                            }
+                            if (P2SchiffeC[9][0] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[9][0] - 1, P2SchiffeC[9][1] - 1] = 24;
+                                P2boardHidden[P2SchiffeC[9][0] - 1, P2SchiffeC[9][1] - 1] = 24;
+                            }
+                        }
+                        if (P2SchiffeC[9][0] + 1 < 11)
+                        {
+                            P2board[P2SchiffeC[9][0] + 1, P2SchiffeC[9][1]] = 24;
+                            P2board[P2SchiffeC[9][2] + 1, P2SchiffeC[9][3]] = 24;
+                            P2board[P2SchiffeC[9][4] + 1, P2SchiffeC[9][5]] = 24;
+                            P2board[P2SchiffeC[9][6] + 1, P2SchiffeC[9][7]] = 24;
+                            P2boardHidden[P2SchiffeC[9][0] + 1, P2SchiffeC[9][1]] = 24;
+                            P2boardHidden[P2SchiffeC[9][2] + 1, P2SchiffeC[9][3]] = 24;
+                            P2boardHidden[P2SchiffeC[9][4] + 1, P2SchiffeC[9][5]] = 24;
+                            P2boardHidden[P2SchiffeC[9][6] + 1, P2SchiffeC[9][7]] = 24;
+                        }
+                        if (P2SchiffeC[9][0] - 1 > 0)
+                        {
+                            P2board[P2SchiffeC[9][0] - 1, P2SchiffeC[9][1]] = 24;
+                            P2board[P2SchiffeC[9][2] - 1, P2SchiffeC[9][3]] = 24;
+                            P2board[P2SchiffeC[9][4] - 1, P2SchiffeC[9][5]] = 24;
+                            P2board[P2SchiffeC[9][6] - 1, P2SchiffeC[9][7]] = 24;
+                            P2boardHidden[P2SchiffeC[9][0] - 1, P2SchiffeC[9][1]] = 24;
+                            P2boardHidden[P2SchiffeC[9][2] - 1, P2SchiffeC[9][3]] = 24;
+                            P2boardHidden[P2SchiffeC[9][4] - 1, P2SchiffeC[9][5]] = 24;
+                            P2boardHidden[P2SchiffeC[9][6] - 1, P2SchiffeC[9][7]] = 24;
+                        }
+                        if (P2SchiffeC[9][7] + 1 > 0)
+                        {
+                            P2board[P2SchiffeC[9][6], P2SchiffeC[9][7] + 1] = 24;
+                            P2boardHidden[P2SchiffeC[9][6], P2SchiffeC[9][7] + 1] = 24;
+                            if (P2SchiffeC[9][6] + 1 < 11)
+                            {
+                                P2board[P2SchiffeC[9][6] + 1, P2SchiffeC[9][7] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[9][6] + 1, P2SchiffeC[9][7] + 1] = 24;
+                            }
+                            if (P2SchiffeC[9][6] - 1 > 0)
+                            {
+                                P2board[P2SchiffeC[9][6] - 1, P2SchiffeC[9][7] + 1] = 24;
+                                P2boardHidden[P2SchiffeC[9][6] - 1, P2SchiffeC[9][7] + 1] = 24;
+                            }
+                        }
+                        break;
+                }
             }
         }
         void checkSP1()
@@ -1179,31 +2365,1217 @@ namespace SVgerman
             {
                 P1Schiffe[10][1]--;
                 P1Schiffe[11][4]++;
+                switch (P1Schiffe[12][4])
+                {
+                    case 0:
+                        if (P1SchiffeC[4][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[4][0] + 1, P1SchiffeC[4][1]] = 24;
+                            P1boardHidden[P1SchiffeC[4][0] + 1, P1SchiffeC[4][1]] = 24;
+                            if (P1SchiffeC[4][1] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[4][0] + 1, P1SchiffeC[4][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[4][0] + 1, P1SchiffeC[4][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[4][1] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[4][0] + 1, P1SchiffeC[4][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[4][0] + 1, P1SchiffeC[4][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[4][1] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[4][0], P1SchiffeC[4][1] + 1] = 24;
+                            P1board[P1SchiffeC[4][2], P1SchiffeC[4][3] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[4][0], P1SchiffeC[4][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[4][2], P1SchiffeC[4][3] + 1] = 24;
+                        }
+                        if (P1SchiffeC[4][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[4][0], P1SchiffeC[4][1] - 1] = 24;
+                            P1board[P1SchiffeC[4][2], P1SchiffeC[4][3] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[4][0], P1SchiffeC[4][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[4][2], P1SchiffeC[4][3] - 1] = 24;
+                        }
+                        if (P1SchiffeC[4][2] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[4][2] - 1, P1SchiffeC[4][3]] = 24;
+                            P1boardHidden[P1SchiffeC[4][2] - 1, P1SchiffeC[4][3]] = 24;
+                            if (P1SchiffeC[4][3] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[4][2] - 1, P1SchiffeC[4][3] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[4][2] - 1, P1SchiffeC[4][3] + 1] = 24;
+                            }
+                            if (P1SchiffeC[4][3] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[4][2] - 1, P1SchiffeC[4][3] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[4][2] - 1, P1SchiffeC[4][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 1:
+                        if (P1SchiffeC[4][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[4][0] - 1, P1SchiffeC[4][1]] = 24;
+                            P1boardHidden[P1SchiffeC[4][0] - 1, P1SchiffeC[4][1]] = 24;
+                            if (P1SchiffeC[4][1] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[4][0] - 1, P1SchiffeC[4][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[4][0] - 1, P1SchiffeC[4][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[4][1] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[4][0] - 1, P1SchiffeC[4][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[4][0] - 1, P1SchiffeC[4][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[4][1] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[4][0], P1SchiffeC[4][1] + 1] = 24;
+                            P1board[P1SchiffeC[4][2], P1SchiffeC[4][3] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[4][0], P1SchiffeC[4][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[4][2], P1SchiffeC[4][3] + 1] = 24;
+                        }
+                        if (P1SchiffeC[4][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[4][0], P1SchiffeC[4][1] - 1] = 24;
+                            P1board[P1SchiffeC[4][2], P1SchiffeC[4][3] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[4][0], P1SchiffeC[4][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[4][2], P1SchiffeC[4][3] - 1] = 24;
+                        }
+                        if (P1SchiffeC[4][2] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[4][2] + 1, P1SchiffeC[4][3]] = 24;
+                            P1boardHidden[P1SchiffeC[4][2] + 1, P1SchiffeC[4][3]] = 24;
+                            if (P1SchiffeC[4][3] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[4][2] + 1, P1SchiffeC[4][3] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[4][2] + 1, P1SchiffeC[4][3] + 1] = 24;
+                            }
+                            if (P1SchiffeC[4][3] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[4][2] + 1, P1SchiffeC[4][3] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[4][2] + 1, P1SchiffeC[4][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 2:
+                        if (P1SchiffeC[4][1] + 1 > 0)
+                        {
+                            P1board[P1SchiffeC[4][0], P1SchiffeC[4][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[4][0], P1SchiffeC[4][1] + 1] = 24;
+                            if (P1SchiffeC[4][0] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[4][0] + 1, P1SchiffeC[4][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[4][0] + 1, P1SchiffeC[4][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[4][0] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[4][0] - 1, P1SchiffeC[4][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[4][0] - 1, P1SchiffeC[4][1] + 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[4][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[4][0] + 1, P1SchiffeC[4][1]] = 24;
+                            P1board[P1SchiffeC[4][2] + 1, P1SchiffeC[4][3]] = 24;
+                            P1boardHidden[P1SchiffeC[4][0] + 1, P1SchiffeC[4][1]] = 24;
+                            P1boardHidden[P1SchiffeC[4][2] + 1, P1SchiffeC[4][3]] = 24;
+                        }
+                        if (P1SchiffeC[4][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[4][0] - 1, P1SchiffeC[4][1]] = 24;
+                            P1board[P1SchiffeC[4][2] - 1, P1SchiffeC[4][3]] = 24;
+                            P1boardHidden[P1SchiffeC[4][0] - 1, P1SchiffeC[4][1]] = 24;
+                            P1boardHidden[P1SchiffeC[4][2] - 1, P1SchiffeC[4][3]] = 24;
+                        }
+                        if (P1SchiffeC[4][3] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[4][2], P1SchiffeC[4][3] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[4][2], P1SchiffeC[4][3] - 1] = 24;
+                            if (P1SchiffeC[4][2] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[4][2] + 1, P1SchiffeC[4][3] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[4][2] + 1, P1SchiffeC[4][3] - 1] = 24;
+                            }
+                            if (P1SchiffeC[4][2] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[4][2] - 1, P1SchiffeC[4][3] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[4][2] - 1, P1SchiffeC[4][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 3:
+                        if (P1SchiffeC[4][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[4][0], P1SchiffeC[4][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[4][0], P1SchiffeC[4][1] - 1] = 24;
+                            if (P1SchiffeC[4][0] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[4][0] + 1, P1SchiffeC[4][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[4][0] + 1, P1SchiffeC[4][1] - 1] = 24;
+                            }
+                            if (P1SchiffeC[4][0] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[4][0] - 1, P1SchiffeC[4][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[4][0] - 1, P1SchiffeC[4][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[4][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[4][0] + 1, P1SchiffeC[4][1]] = 24;
+                            P1board[P1SchiffeC[4][2] + 1, P1SchiffeC[4][3]] = 24;
+                            P1boardHidden[P1SchiffeC[4][0] + 1, P1SchiffeC[4][1]] = 24;
+                            P1boardHidden[P1SchiffeC[4][2] + 1, P1SchiffeC[4][3]] = 24;
+                        }
+                        if (P1SchiffeC[4][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[4][0] - 1, P1SchiffeC[4][1]] = 24;
+                            P1board[P1SchiffeC[4][2] - 1, P1SchiffeC[4][3]] = 24;
+                            P1boardHidden[P1SchiffeC[4][0] - 1, P1SchiffeC[4][1]] = 24;
+                            P1boardHidden[P1SchiffeC[4][2] - 1, P1SchiffeC[4][3]] = 24;
+                        }
+                        if (P1SchiffeC[4][3] + 1 > 0)
+                        {
+                            P1board[P1SchiffeC[4][2], P1SchiffeC[4][3] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[4][2], P1SchiffeC[4][3] + 1] = 24;
+                            if (P1SchiffeC[4][2] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[4][2] + 1, P1SchiffeC[4][3] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[4][2] + 1, P1SchiffeC[4][3] + 1] = 24;
+                            }
+                            if (P1SchiffeC[4][2] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[4][2] - 1, P1SchiffeC[4][3] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[4][2] - 1, P1SchiffeC[4][3] + 1] = 24;
+                            }
+                        }
+                        break;
+                }
             }
             if (P1Schiffe[5][0] == null && P1Schiffe[5][1] == null && P1Schiffe[5][2] == null && P1Schiffe[5][3] == null && P1Schiffe[11][5] == 0)
             {
                 P1Schiffe[10][1]--;
                 P1Schiffe[11][5]++;
+                switch (P1Schiffe[12][5])
+                {
+                    case 0:
+                        if (P1SchiffeC[5][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[5][0] + 1, P1SchiffeC[5][1]] = 24;
+                            P1boardHidden[P1SchiffeC[5][0] + 1, P1SchiffeC[5][1]] = 24;
+                            if (P1SchiffeC[5][1] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[5][0] + 1, P1SchiffeC[5][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[5][0] + 1, P1SchiffeC[5][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[5][1] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[5][0] + 1, P1SchiffeC[5][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[5][0] + 1, P1SchiffeC[5][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[5][1] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[5][0], P1SchiffeC[5][1] + 1] = 24;
+                            P1board[P1SchiffeC[5][2], P1SchiffeC[5][3] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[5][0], P1SchiffeC[5][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[5][2], P1SchiffeC[5][3] + 1] = 24;
+                        }
+                        if (P1SchiffeC[5][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[5][0], P1SchiffeC[5][1] - 1] = 24;
+                            P1board[P1SchiffeC[5][2], P1SchiffeC[5][3] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[5][0], P1SchiffeC[5][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[5][2], P1SchiffeC[5][3] - 1] = 24;
+                        }
+                        if (P1SchiffeC[5][2] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[5][2] - 1, P1SchiffeC[5][3]] = 24;
+                            P1boardHidden[P1SchiffeC[5][2] - 1, P1SchiffeC[5][3]] = 24;
+                            if (P1SchiffeC[5][3] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[5][2] - 1, P1SchiffeC[5][3] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[5][2] - 1, P1SchiffeC[5][3] + 1] = 24;
+                            }
+                            if (P1SchiffeC[5][3] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[5][2] - 1, P1SchiffeC[5][3] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[5][2] - 1, P1SchiffeC[5][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 1:
+                        if (P1SchiffeC[5][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[5][0] - 1, P1SchiffeC[5][1]] = 24;
+                            P1boardHidden[P1SchiffeC[5][0] - 1, P1SchiffeC[5][1]] = 24;
+                            if (P1SchiffeC[5][1] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[5][0] - 1, P1SchiffeC[5][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[5][0] - 1, P1SchiffeC[5][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[5][1] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[5][0] - 1, P1SchiffeC[5][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[5][0] - 1, P1SchiffeC[5][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[5][1] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[5][0], P1SchiffeC[5][1] + 1] = 24;
+                            P1board[P1SchiffeC[5][2], P1SchiffeC[5][3] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[5][0], P1SchiffeC[5][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[5][2], P1SchiffeC[5][3] + 1] = 24;
+                        }
+                        if (P1SchiffeC[5][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[5][0], P1SchiffeC[5][1] - 1] = 24;
+                            P1board[P1SchiffeC[5][2], P1SchiffeC[5][3] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[5][0], P1SchiffeC[5][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[5][2], P1SchiffeC[5][3] - 1] = 24;
+                        }
+                        if (P1SchiffeC[5][2] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[5][2] + 1, P1SchiffeC[5][3]] = 24;
+                            P1boardHidden[P1SchiffeC[5][2] + 1, P1SchiffeC[5][3]] = 24;
+                            if (P1SchiffeC[5][3] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[5][2] + 1, P1SchiffeC[5][3] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[5][2] + 1, P1SchiffeC[5][3] + 1] = 24;
+                            }
+                            if (P1SchiffeC[5][3] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[5][2] + 1, P1SchiffeC[5][3] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[5][2] + 1, P1SchiffeC[5][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 2:
+                        if (P1SchiffeC[5][1] + 1 > 0)
+                        {
+                            P1board[P1SchiffeC[5][0], P1SchiffeC[5][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[5][0], P1SchiffeC[5][1] + 1] = 24;
+                            if (P1SchiffeC[5][0] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[5][0] + 1, P1SchiffeC[5][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[5][0] + 1, P1SchiffeC[5][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[5][0] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[5][0] - 1, P1SchiffeC[5][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[5][0] - 1, P1SchiffeC[5][1] + 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[5][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[5][0] + 1, P1SchiffeC[5][1]] = 24;
+                            P1board[P1SchiffeC[5][2] + 1, P1SchiffeC[5][3]] = 24;
+                            P1boardHidden[P1SchiffeC[5][0] + 1, P1SchiffeC[5][1]] = 24;
+                            P1boardHidden[P1SchiffeC[5][2] + 1, P1SchiffeC[5][3]] = 24;
+                        }
+                        if (P1SchiffeC[5][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[5][0] - 1, P1SchiffeC[5][1]] = 24;
+                            P1board[P1SchiffeC[5][2] - 1, P1SchiffeC[5][3]] = 24;
+                            P1boardHidden[P1SchiffeC[5][0] - 1, P1SchiffeC[5][1]] = 24;
+                            P1boardHidden[P1SchiffeC[5][2] - 1, P1SchiffeC[5][3]] = 24;
+                        }
+                        if (P1SchiffeC[5][3] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[5][2], P1SchiffeC[5][3] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[5][2], P1SchiffeC[5][3] - 1] = 24;
+                            if (P1SchiffeC[5][2] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[5][2] + 1, P1SchiffeC[5][3] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[5][2] + 1, P1SchiffeC[5][3] - 1] = 24;
+                            }
+                            if (P1SchiffeC[5][2] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[5][2] - 1, P1SchiffeC[5][3] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[5][2] - 1, P1SchiffeC[5][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 3:
+                        if (P1SchiffeC[5][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[5][0], P1SchiffeC[5][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[5][0], P1SchiffeC[5][1] - 1] = 24;
+                            if (P1SchiffeC[5][0] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[5][0] + 1, P1SchiffeC[5][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[5][0] + 1, P1SchiffeC[5][1] - 1] = 24;
+                            }
+                            if (P1SchiffeC[5][0] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[5][0] - 1, P1SchiffeC[5][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[5][0] - 1, P1SchiffeC[5][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[5][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[5][0] + 1, P1SchiffeC[5][1]] = 24;
+                            P1board[P1SchiffeC[5][2] + 1, P1SchiffeC[5][3]] = 24;
+                            P1boardHidden[P1SchiffeC[5][0] + 1, P1SchiffeC[5][1]] = 24;
+                            P1boardHidden[P1SchiffeC[5][2] + 1, P1SchiffeC[5][3]] = 24;
+                        }
+                        if (P1SchiffeC[5][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[5][0] - 1, P1SchiffeC[5][1]] = 24;
+                            P1board[P1SchiffeC[5][2] - 1, P1SchiffeC[5][3]] = 24;
+                            P1boardHidden[P1SchiffeC[5][0] - 1, P1SchiffeC[5][1]] = 24;
+                            P1boardHidden[P1SchiffeC[5][2] - 1, P1SchiffeC[5][3]] = 24;
+                        }
+                        if (P1SchiffeC[5][3] + 1 > 0)
+                        {
+                            P1board[P1SchiffeC[5][2], P1SchiffeC[5][3] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[5][2], P1SchiffeC[5][3] + 1] = 24;
+                            if (P1SchiffeC[5][2] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[5][2] + 1, P1SchiffeC[5][3] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[5][2] + 1, P1SchiffeC[5][3] + 1] = 24;
+                            }
+                            if (P1SchiffeC[5][2] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[5][2] - 1, P1SchiffeC[5][3] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[5][2] - 1, P1SchiffeC[5][3] + 1] = 24;
+                            }
+                        }
+                        break;
+                }
             }
             if (P1Schiffe[6][0] == null && P1Schiffe[6][1] == null && P1Schiffe[6][2] == null && P1Schiffe[6][3] == null && P1Schiffe[11][6] == 0)
             {
                 P1Schiffe[10][1]--;
                 P1Schiffe[11][6]++;
+                switch (P1Schiffe[12][6])
+                {
+                    case 0:
+                        if (P1SchiffeC[6][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[6][0] + 1, P1SchiffeC[6][1]] = 24;
+                            P1boardHidden[P1SchiffeC[6][0] + 1, P1SchiffeC[6][1]] = 24;
+                            if (P1SchiffeC[6][1] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[6][0] + 1, P1SchiffeC[6][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[6][0] + 1, P1SchiffeC[6][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[6][1] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[6][0] + 1, P1SchiffeC[6][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[6][0] + 1, P1SchiffeC[6][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[6][1] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[6][0], P1SchiffeC[6][1] + 1] = 24;
+                            P1board[P1SchiffeC[6][2], P1SchiffeC[6][3] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[6][0], P1SchiffeC[6][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[6][2], P1SchiffeC[6][3] + 1] = 24;
+                        }
+                        if (P1SchiffeC[6][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[6][0], P1SchiffeC[6][1] - 1] = 24;
+                            P1board[P1SchiffeC[6][2], P1SchiffeC[6][3] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[6][0], P1SchiffeC[6][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[6][2], P1SchiffeC[6][3] - 1] = 24;
+                        }
+                        if (P1SchiffeC[6][2] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[6][2] - 1, P1SchiffeC[6][3]] = 24;
+                            P1boardHidden[P1SchiffeC[6][2] - 1, P1SchiffeC[6][3]] = 24;
+                            if (P1SchiffeC[6][3] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[6][2] - 1, P1SchiffeC[6][3] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[6][2] - 1, P1SchiffeC[6][3] + 1] = 24;
+                            }
+                            if (P1SchiffeC[6][3] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[6][2] - 1, P1SchiffeC[6][3] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[6][2] - 1, P1SchiffeC[6][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 1:
+                        if (P1SchiffeC[6][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[6][0] - 1, P1SchiffeC[6][1]] = 24;
+                            P1boardHidden[P1SchiffeC[6][0] - 1, P1SchiffeC[6][1]] = 24;
+                            if (P1SchiffeC[6][1] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[6][0] - 1, P1SchiffeC[6][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[6][0] - 1, P1SchiffeC[6][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[6][1] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[6][0] - 1, P1SchiffeC[6][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[6][0] - 1, P1SchiffeC[6][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[6][1] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[6][0], P1SchiffeC[6][1] + 1] = 24;
+                            P1board[P1SchiffeC[6][2], P1SchiffeC[6][3] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[6][0], P1SchiffeC[6][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[6][2], P1SchiffeC[6][3] + 1] = 24;
+                        }
+                        if (P1SchiffeC[6][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[6][0], P1SchiffeC[6][1] - 1] = 24;
+                            P1board[P1SchiffeC[6][2], P1SchiffeC[6][3] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[6][0], P1SchiffeC[6][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[6][2], P1SchiffeC[6][3] - 1] = 24;
+                        }
+                        if (P1SchiffeC[6][2] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[6][2] + 1, P1SchiffeC[6][3]] = 24;
+                            P1boardHidden[P1SchiffeC[6][2] + 1, P1SchiffeC[6][3]] = 24;
+                            if (P1SchiffeC[6][3] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[6][2] + 1, P1SchiffeC[6][3] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[6][2] + 1, P1SchiffeC[6][3] + 1] = 24;
+                            }
+                            if (P1SchiffeC[6][3] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[6][2] + 1, P1SchiffeC[6][3] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[6][2] + 1, P1SchiffeC[6][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 2:
+                        if (P1SchiffeC[6][1] + 1 > 0)
+                        {
+                            P1board[P1SchiffeC[6][0], P1SchiffeC[6][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[6][0], P1SchiffeC[6][1] + 1] = 24;
+                            if (P1SchiffeC[6][0] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[6][0] + 1, P1SchiffeC[6][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[6][0] + 1, P1SchiffeC[6][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[6][0] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[6][0] - 1, P1SchiffeC[6][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[6][0] - 1, P1SchiffeC[6][1] + 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[6][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[6][0] + 1, P1SchiffeC[6][1]] = 24;
+                            P1board[P1SchiffeC[6][2] + 1, P1SchiffeC[6][3]] = 24;
+                            P1boardHidden[P1SchiffeC[6][0] + 1, P1SchiffeC[6][1]] = 24;
+                            P1boardHidden[P1SchiffeC[6][2] + 1, P1SchiffeC[6][3]] = 24;
+                        }
+                        if (P1SchiffeC[6][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[6][0] - 1, P1SchiffeC[6][1]] = 24;
+                            P1board[P1SchiffeC[6][2] - 1, P1SchiffeC[6][3]] = 24;
+                            P1boardHidden[P1SchiffeC[6][0] - 1, P1SchiffeC[6][1]] = 24;
+                            P1boardHidden[P1SchiffeC[6][2] - 1, P1SchiffeC[6][3]] = 24;
+                        }
+                        if (P1SchiffeC[6][3] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[6][2], P1SchiffeC[6][3] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[6][2], P1SchiffeC[6][3] - 1] = 24;
+                            if (P1SchiffeC[6][2] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[6][2] + 1, P1SchiffeC[6][3] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[6][2] + 1, P1SchiffeC[6][3] - 1] = 24;
+                            }
+                            if (P1SchiffeC[6][2] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[6][2] - 1, P1SchiffeC[6][3] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[6][2] - 1, P1SchiffeC[6][3] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 3:
+                        if (P1SchiffeC[6][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[6][0], P1SchiffeC[6][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[6][0], P1SchiffeC[6][1] - 1] = 24;
+                            if (P1SchiffeC[6][0] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[6][0] + 1, P1SchiffeC[6][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[6][0] + 1, P1SchiffeC[6][1] - 1] = 24;
+                            }
+                            if (P1SchiffeC[6][0] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[6][0] - 1, P1SchiffeC[6][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[6][0] - 1, P1SchiffeC[6][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[6][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[6][0] + 1, P1SchiffeC[6][1]] = 24;
+                            P1board[P1SchiffeC[6][2] + 1, P1SchiffeC[6][3]] = 24;
+                            P1boardHidden[P1SchiffeC[6][0] + 1, P1SchiffeC[6][1]] = 24;
+                            P1boardHidden[P1SchiffeC[6][2] + 1, P1SchiffeC[6][3]] = 24;
+                        }
+                        if (P1SchiffeC[6][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[6][0] - 1, P1SchiffeC[6][1]] = 24;
+                            P1board[P1SchiffeC[6][2] - 1, P1SchiffeC[6][3]] = 24;
+                            P1boardHidden[P1SchiffeC[6][0] - 1, P1SchiffeC[6][1]] = 24;
+                            P1boardHidden[P1SchiffeC[6][2] - 1, P1SchiffeC[6][3]] = 24;
+                        }
+                        if (P1SchiffeC[6][3] + 1 > 0)
+                        {
+                            P1board[P1SchiffeC[6][2], P1SchiffeC[6][3] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[6][2], P1SchiffeC[6][3] + 1] = 24;
+                            if (P1SchiffeC[6][2] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[6][2] + 1, P1SchiffeC[6][3] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[6][2] + 1, P1SchiffeC[6][3] + 1] = 24;
+                            }
+                            if (P1SchiffeC[6][2] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[6][2] - 1, P1SchiffeC[6][3] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[6][2] - 1, P1SchiffeC[6][3] + 1] = 24;
+                            }
+                        }
+                        break;
+                }
             }
             if (P1Schiffe[7][0] == null && P1Schiffe[7][1] == null && P1Schiffe[7][2] == null && P1Schiffe[7][3] == null && P1Schiffe[7][4] == null && P1Schiffe[7][5] == null && P1Schiffe[11][7] == 0)
             {
                 P1Schiffe[10][2]--;
                 P1Schiffe[11][7]++;
+                switch (P1Schiffe[12][7])
+                {
+                    case 0:
+                        if (P1SchiffeC[7][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[7][0] + 1, P1SchiffeC[7][1]] = 24;
+                            P1boardHidden[P1SchiffeC[7][0] + 1, P1SchiffeC[7][1]] = 24;
+                            if (P1SchiffeC[7][1] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[7][0] + 1, P1SchiffeC[7][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[7][0] + 1, P1SchiffeC[7][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[7][1] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[7][0] + 1, P1SchiffeC[7][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[7][0] + 1, P1SchiffeC[7][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[7][1] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[7][0], P1SchiffeC[7][1] + 1] = 24;
+                            P1board[P1SchiffeC[7][2], P1SchiffeC[7][3] + 1] = 24;
+                            P1board[P1SchiffeC[7][4], P1SchiffeC[7][5] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[7][0], P1SchiffeC[7][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[7][2], P1SchiffeC[7][3] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[7][2], P1SchiffeC[7][5] + 1] = 24;
+                        }
+                        if (P1SchiffeC[7][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[7][0], P1SchiffeC[7][1] - 1] = 24;
+                            P1board[P1SchiffeC[7][2], P1SchiffeC[7][3] - 1] = 24;
+                            P1board[P1SchiffeC[7][4], P1SchiffeC[7][5] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[7][0], P1SchiffeC[7][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[7][2], P1SchiffeC[7][3] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[7][4], P1SchiffeC[7][5] - 1] = 24;
+                        }
+                        if (P1SchiffeC[7][4] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[7][4] - 1, P1SchiffeC[7][5]] = 24;
+                            P1boardHidden[P1SchiffeC[7][4] - 1, P1SchiffeC[7][5]] = 24;
+                            if (P1SchiffeC[7][5] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[7][4] - 1, P1SchiffeC[7][5] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[7][4] - 1, P1SchiffeC[7][5] + 1] = 24;
+                            }
+                            if (P1SchiffeC[7][5] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[7][4] - 1, P1SchiffeC[7][5] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[7][4] - 1, P1SchiffeC[7][5] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 1:
+                        if (P1SchiffeC[7][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[7][0] - 1, P1SchiffeC[7][1]] = 24;
+                            P1boardHidden[P1SchiffeC[7][0] - 1, P1SchiffeC[7][1]] = 24;
+                            if (P1SchiffeC[7][1] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[7][0] - 1, P1SchiffeC[7][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[7][0] - 1, P1SchiffeC[7][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[7][1] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[7][0] - 1, P1SchiffeC[7][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[7][0] - 1, P1SchiffeC[7][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[7][1] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[7][0], P1SchiffeC[7][1] + 1] = 24;
+                            P1board[P1SchiffeC[7][2], P1SchiffeC[7][3] + 1] = 24;
+                            P1board[P1SchiffeC[7][4], P1SchiffeC[7][5] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[7][0], P1SchiffeC[7][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[7][2], P1SchiffeC[7][3] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[7][4], P1SchiffeC[7][5] + 1] = 24;
+                        }
+                        if (P1SchiffeC[7][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[7][0], P1SchiffeC[7][1] - 1] = 24;
+                            P1board[P1SchiffeC[7][2], P1SchiffeC[7][3] - 1] = 24;
+                            P1board[P1SchiffeC[7][4], P1SchiffeC[7][5] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[7][0], P1SchiffeC[7][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[7][2], P1SchiffeC[7][3] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[7][4], P1SchiffeC[7][5] - 1] = 24;
+                        }
+                        if (P1SchiffeC[7][4] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[7][4] + 1, P1SchiffeC[7][5]] = 24;
+                            P1boardHidden[P1SchiffeC[7][4] + 1, P1SchiffeC[7][5]] = 24;
+                            if (P1SchiffeC[7][5] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[7][4] + 1, P1SchiffeC[7][5] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[7][4] + 1, P1SchiffeC[7][5] + 1] = 24;
+                            }
+                            if (P1SchiffeC[7][5] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[7][4] + 1, P1SchiffeC[7][5] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[7][4] + 1, P1SchiffeC[7][5] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 2:
+                        if (P1SchiffeC[7][1] + 1 > 0)
+                        {
+                            P1board[P1SchiffeC[7][0], P1SchiffeC[7][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[7][0], P1SchiffeC[7][1] + 1] = 24;
+                            if (P1SchiffeC[7][0] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[7][0] + 1, P1SchiffeC[7][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[7][0] + 1, P1SchiffeC[7][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[7][0] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[7][0] - 1, P1SchiffeC[7][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[7][0] - 1, P1SchiffeC[7][1] + 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[7][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[7][0] + 1, P1SchiffeC[7][1]] = 24;
+                            P1board[P1SchiffeC[7][2] + 1, P1SchiffeC[7][3]] = 24;
+                            P1board[P1SchiffeC[7][4] + 1, P1SchiffeC[7][5]] = 24;
+                            P1boardHidden[P1SchiffeC[7][0] + 1, P1SchiffeC[7][1]] = 24;
+                            P1boardHidden[P1SchiffeC[7][2] + 1, P1SchiffeC[7][3]] = 24;
+                            P1boardHidden[P1SchiffeC[7][4] + 1, P1SchiffeC[7][5]] = 24;
+                        }
+                        if (P1SchiffeC[7][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[7][0] - 1, P1SchiffeC[7][1]] = 24;
+                            P1board[P1SchiffeC[7][2] - 1, P1SchiffeC[7][3]] = 24;
+                            P1board[P1SchiffeC[7][4] - 1, P1SchiffeC[7][5]] = 24;
+                            P1boardHidden[P1SchiffeC[7][0] - 1, P1SchiffeC[7][1]] = 24;
+                            P1boardHidden[P1SchiffeC[7][2] - 1, P1SchiffeC[7][3]] = 24;
+                            P1boardHidden[P1SchiffeC[7][4] - 1, P1SchiffeC[7][5]] = 24;
+                        }
+                        if (P1SchiffeC[7][5] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[7][4], P1SchiffeC[7][5] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[7][4], P1SchiffeC[7][5] - 1] = 24;
+                            if (P1SchiffeC[7][4] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[7][4] + 1, P1SchiffeC[7][5] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[7][4] + 1, P1SchiffeC[7][5] - 1] = 24;
+                            }
+                            if (P1SchiffeC[7][4] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[7][4] - 1, P1SchiffeC[7][5] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[7][4] - 1, P1SchiffeC[7][5] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 3:
+                        if (P1SchiffeC[7][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[7][0], P1SchiffeC[7][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[7][0], P1SchiffeC[7][1] - 1] = 24;
+                            if (P1SchiffeC[7][0] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[7][0] + 1, P1SchiffeC[7][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[7][0] + 1, P1SchiffeC[7][1] - 1] = 24;
+                            }
+                            if (P1SchiffeC[7][0] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[7][0] - 1, P1SchiffeC[7][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[7][0] - 1, P1SchiffeC[7][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[7][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[7][0] + 1, P1SchiffeC[7][1]] = 24;
+                            P1board[P1SchiffeC[7][2] + 1, P1SchiffeC[7][3]] = 24;
+                            P1board[P1SchiffeC[7][4] + 1, P1SchiffeC[7][5]] = 24;
+                            P1boardHidden[P1SchiffeC[7][0] + 1, P1SchiffeC[7][1]] = 24;
+                            P1boardHidden[P1SchiffeC[7][2] + 1, P1SchiffeC[7][3]] = 24;
+                            P1boardHidden[P1SchiffeC[7][4] + 1, P1SchiffeC[7][5]] = 24;
+                        }
+                        if (P1SchiffeC[7][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[7][0] - 1, P1SchiffeC[7][1]] = 24;
+                            P1board[P1SchiffeC[7][2] - 1, P1SchiffeC[7][3]] = 24;
+                            P1board[P1SchiffeC[7][4] - 1, P1SchiffeC[7][5]] = 24;
+                            P1boardHidden[P1SchiffeC[7][0] - 1, P1SchiffeC[7][1]] = 24;
+                            P1boardHidden[P1SchiffeC[7][2] - 1, P1SchiffeC[7][3]] = 24;
+                            P1boardHidden[P1SchiffeC[7][4] - 1, P1SchiffeC[7][5]] = 24;
+                        }
+                        if (P1SchiffeC[7][5] + 1 > 0)
+                        {
+                            P1board[P1SchiffeC[7][4], P1SchiffeC[7][5] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[7][4], P1SchiffeC[7][5] + 1] = 24;
+                            if (P1SchiffeC[7][4] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[7][4] + 1, P1SchiffeC[7][5] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[7][4] + 1, P1SchiffeC[7][5] + 1] = 24;
+                            }
+                            if (P1SchiffeC[7][4] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[7][4] - 1, P1SchiffeC[7][5] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[7][5] - 1, P1SchiffeC[7][5] + 1] = 24;
+                            }
+                        }
+                        break;
+                }
             }
             if (P1Schiffe[8][0] == null && P1Schiffe[8][1] == null && P1Schiffe[8][2] == null && P1Schiffe[8][3] == null && P1Schiffe[8][4] == null && P1Schiffe[8][5] == null && P1Schiffe[11][8] == 0)
             {
                 P1Schiffe[10][2]--;
                 P1Schiffe[11][8]++;
+                switch (P1Schiffe[12][8])
+                {
+                    case 0:
+                        if (P1SchiffeC[8][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[8][0] + 1, P1SchiffeC[8][1]] = 24;
+                            P1boardHidden[P1SchiffeC[8][0] + 1, P1SchiffeC[8][1]] = 24;
+                            if (P1SchiffeC[8][1] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[8][0] + 1, P1SchiffeC[8][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[8][0] + 1, P1SchiffeC[8][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[8][1] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[8][0] + 1, P1SchiffeC[8][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[8][0] + 1, P1SchiffeC[8][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[8][1] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[8][0], P1SchiffeC[8][1] + 1] = 24;
+                            P1board[P1SchiffeC[8][2], P1SchiffeC[8][3] + 1] = 24;
+                            P1board[P1SchiffeC[8][4], P1SchiffeC[8][5] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[8][0], P1SchiffeC[8][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[8][2], P1SchiffeC[8][3] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[8][4], P1SchiffeC[8][5] + 1] = 24;
+                        }
+                        if (P1SchiffeC[8][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[8][0], P1SchiffeC[8][1] - 1] = 24;
+                            P1board[P1SchiffeC[8][2], P1SchiffeC[8][3] - 1] = 24;
+                            P1board[P1SchiffeC[8][4], P1SchiffeC[8][5] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[8][0], P1SchiffeC[8][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[8][2], P1SchiffeC[8][3] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[8][4], P1SchiffeC[8][5] - 1] = 24;
+                        }
+                        if (P1SchiffeC[8][4] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[8][4] - 1, P1SchiffeC[8][5]] = 24;
+                            P1boardHidden[P1SchiffeC[8][4] - 1, P1SchiffeC[8][5]] = 24;
+                            if (P1SchiffeC[8][5] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[8][4] - 1, P1SchiffeC[8][5] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[8][4] - 1, P1SchiffeC[8][5] + 1] = 24;
+                            }
+                            if (P1SchiffeC[8][5] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[8][4] - 1, P1SchiffeC[8][5] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[8][4] - 1, P1SchiffeC[8][5] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 1:
+                        if (P1SchiffeC[8][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[8][0] - 1, P1SchiffeC[8][1]] = 24;
+                            P1boardHidden[P1SchiffeC[8][0] - 1, P1SchiffeC[8][1]] = 24;
+                            if (P1SchiffeC[8][1] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[8][0] - 1, P1SchiffeC[8][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[8][0] - 1, P1SchiffeC[8][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[8][1] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[8][0] - 1, P1SchiffeC[8][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[8][0] - 1, P1SchiffeC[8][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[8][1] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[8][0], P1SchiffeC[8][1] + 1] = 24;
+                            P1board[P1SchiffeC[8][2], P1SchiffeC[8][3] + 1] = 24;
+                            P1board[P1SchiffeC[8][4], P1SchiffeC[8][5] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[8][0], P1SchiffeC[8][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[8][2], P1SchiffeC[8][3] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[8][4], P1SchiffeC[8][5] + 1] = 24;
+                        }
+                        if (P1SchiffeC[8][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[8][0], P1SchiffeC[8][1] - 1] = 24;
+                            P1board[P1SchiffeC[8][2], P1SchiffeC[8][3] - 1] = 24;
+                            P1board[P1SchiffeC[8][4], P1SchiffeC[8][5] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[8][0], P1SchiffeC[8][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[8][2], P1SchiffeC[8][3] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[8][4], P1SchiffeC[8][5] - 1] = 24;
+                        }
+                        if (P1SchiffeC[8][4] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[8][4] + 1, P1SchiffeC[8][5]] = 24;
+                            P1boardHidden[P1SchiffeC[8][4] + 1, P1SchiffeC[8][5]] = 24;
+                            if (P1SchiffeC[8][5] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[8][4] + 1, P1SchiffeC[8][5] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[8][4] + 1, P1SchiffeC[8][5] + 1] = 24;
+                            }
+                            if (P1SchiffeC[8][5] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[8][4] + 1, P1SchiffeC[8][5] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[8][4] + 1, P1SchiffeC[8][5] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 2:
+                        if (P1SchiffeC[8][1] + 1 > 0)
+                        {
+                            P1board[P1SchiffeC[8][0], P1SchiffeC[8][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[8][0], P1SchiffeC[8][1] + 1] = 24;
+                            if (P1SchiffeC[8][0] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[8][0] + 1, P1SchiffeC[8][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[8][0] + 1, P1SchiffeC[8][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[8][0] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[8][0] - 1, P1SchiffeC[8][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[8][0] - 1, P1SchiffeC[8][1] + 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[8][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[8][0] + 1, P1SchiffeC[8][1]] = 24;
+                            P1board[P1SchiffeC[8][2] + 1, P1SchiffeC[8][3]] = 24;
+                            P1board[P1SchiffeC[8][4] + 1, P1SchiffeC[8][5]] = 24;
+                            P1boardHidden[P1SchiffeC[8][0] + 1, P1SchiffeC[8][1]] = 24;
+                            P1boardHidden[P1SchiffeC[8][2] + 1, P1SchiffeC[8][3]] = 24;
+                            P1boardHidden[P1SchiffeC[8][4] + 1, P1SchiffeC[8][5]] = 24;
+                        }
+                        if (P1SchiffeC[8][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[8][0] - 1, P1SchiffeC[8][1]] = 24;
+                            P1board[P1SchiffeC[8][2] - 1, P1SchiffeC[8][3]] = 24;
+                            P1board[P1SchiffeC[8][4] - 1, P1SchiffeC[8][5]] = 24;
+                            P1boardHidden[P1SchiffeC[8][0] - 1, P1SchiffeC[8][1]] = 24;
+                            P1boardHidden[P1SchiffeC[8][2] - 1, P1SchiffeC[8][3]] = 24;
+                            P1boardHidden[P1SchiffeC[8][4] - 1, P1SchiffeC[8][5]] = 24;
+                        }
+                        if (P1SchiffeC[8][5] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[8][4], P1SchiffeC[8][5] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[8][4], P1SchiffeC[8][5] - 1] = 24;
+                            if (P1SchiffeC[8][4] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[8][4] + 1, P1SchiffeC[8][5] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[8][4] + 1, P1SchiffeC[8][5] - 1] = 24;
+                            }
+                            if (P1SchiffeC[8][4] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[8][4] - 1, P1SchiffeC[8][5] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[8][4] - 1, P1SchiffeC[8][5] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 3:
+                        if (P1SchiffeC[8][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[8][0], P1SchiffeC[8][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[8][0], P1SchiffeC[8][1] - 1] = 24;
+                            if (P1SchiffeC[8][0] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[8][0] + 1, P1SchiffeC[8][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[8][0] + 1, P1SchiffeC[8][1] - 1] = 24;
+                            }
+                            if (P1SchiffeC[8][0] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[8][0] - 1, P1SchiffeC[8][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[8][0] - 1, P1SchiffeC[8][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[8][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[8][0] + 1, P1SchiffeC[8][1]] = 24;
+                            P1board[P1SchiffeC[8][2] + 1, P1SchiffeC[8][3]] = 24;
+                            P1board[P1SchiffeC[8][4] + 1, P1SchiffeC[8][5]] = 24;
+                            P1boardHidden[P1SchiffeC[8][0] + 1, P1SchiffeC[8][1]] = 24;
+                            P1boardHidden[P1SchiffeC[8][2] + 1, P1SchiffeC[8][3]] = 24;
+                            P1boardHidden[P1SchiffeC[8][4] + 1, P1SchiffeC[8][5]] = 24;
+                        }
+                        if (P1SchiffeC[8][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[8][0] - 1, P1SchiffeC[8][1]] = 24;
+                            P1board[P1SchiffeC[8][2] - 1, P1SchiffeC[8][3]] = 24;
+                            P1board[P1SchiffeC[8][4] - 1, P1SchiffeC[8][5]] = 24;
+                            P1boardHidden[P1SchiffeC[8][0] - 1, P1SchiffeC[8][1]] = 24;
+                            P1boardHidden[P1SchiffeC[8][2] - 1, P1SchiffeC[8][3]] = 24;
+                            P1boardHidden[P1SchiffeC[8][4] - 1, P1SchiffeC[8][5]] = 24;
+                        }
+                        if (P1SchiffeC[8][5] + 1 > 0)
+                        {
+                            P1board[P1SchiffeC[8][4], P1SchiffeC[8][5] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[8][4], P1SchiffeC[8][5] + 1] = 24;
+                            if (P1SchiffeC[8][4] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[8][4] + 1, P1SchiffeC[8][5] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[8][4] + 1, P1SchiffeC[8][5] + 1] = 24;
+                            }
+                            if (P1SchiffeC[8][4] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[8][4] - 1, P1SchiffeC[8][5] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[8][4] - 1, P1SchiffeC[8][5] + 1] = 24;
+                            }
+                        }
+                        break;
+                }
             }
             if (P1Schiffe[9][0] == null && P1Schiffe[9][1] == null && P1Schiffe[9][2] == null && P1Schiffe[9][3] == null && P1Schiffe[9][5] == null && P1Schiffe[9][5] == null && P1Schiffe[9][6] == null && P1Schiffe[9][7] == null && P1Schiffe[11][9] == 0)
             {
                 P1Schiffe[10][3]--;
                 P1Schiffe[11][8]++;
+                switch (P1Schiffe[12][8])
+                {
+                    case 0:
+                        if (P1SchiffeC[9][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[9][0] + 1, P1SchiffeC[9][1]] = 24;
+                            P1boardHidden[P1SchiffeC[9][0] + 1, P1SchiffeC[9][1]] = 24;
+                            if (P1SchiffeC[9][1] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[9][0] + 1, P1SchiffeC[9][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[9][0] + 1, P1SchiffeC[9][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[9][1] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[9][0] + 1, P1SchiffeC[9][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[9][0] + 1, P1SchiffeC[9][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[9][1] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[9][0], P1SchiffeC[9][1] + 1] = 24;
+                            P1board[P1SchiffeC[9][2], P1SchiffeC[9][3] + 1] = 24;
+                            P1board[P1SchiffeC[9][4], P1SchiffeC[9][5] + 1] = 24;
+                            P1board[P1SchiffeC[9][6], P1SchiffeC[9][7] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][0], P1SchiffeC[9][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][2], P1SchiffeC[9][3] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][4], P1SchiffeC[9][5] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][6], P1SchiffeC[9][7] + 1] = 24;
+                        }
+                        if (P1SchiffeC[9][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[9][0], P1SchiffeC[9][1] - 1] = 24;
+                            P1board[P1SchiffeC[9][2], P1SchiffeC[9][3] - 1] = 24;
+                            P1board[P1SchiffeC[9][4], P1SchiffeC[9][5] - 1] = 24;
+                            P1board[P1SchiffeC[9][6], P1SchiffeC[9][7] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][0], P1SchiffeC[9][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][2], P1SchiffeC[9][3] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][4], P1SchiffeC[9][5] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][6], P1SchiffeC[9][7] - 1] = 24;
+                        }
+                        if (P1SchiffeC[9][6] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[9][6] - 1, P1SchiffeC[9][7]] = 24;
+                            P1boardHidden[P1SchiffeC[9][6] - 1, P1SchiffeC[9][7]] = 24;
+                            if (P1SchiffeC[9][7] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[9][6] - 1, P1SchiffeC[9][7] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[9][6] - 1, P1SchiffeC[9][7] + 1] = 24;
+                            }
+                            if (P1SchiffeC[9][7] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[9][6] - 1, P1SchiffeC[9][7] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[9][6] - 1, P1SchiffeC[9][7] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 1:
+                        if (P1SchiffeC[9][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[9][0] - 1, P1SchiffeC[9][1]] = 24;
+                            P1boardHidden[P1SchiffeC[9][0] - 1, P1SchiffeC[9][1]] = 24;
+                            if (P1SchiffeC[9][1] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[9][0] - 1, P1SchiffeC[9][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[9][0] - 1, P1SchiffeC[9][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[9][1] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[9][0] - 1, P1SchiffeC[9][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[9][0] - 1, P1SchiffeC[9][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[9][1] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[9][0], P1SchiffeC[9][1] + 1] = 24;
+                            P1board[P1SchiffeC[9][2], P1SchiffeC[9][3] + 1] = 24;
+                            P1board[P1SchiffeC[9][4], P1SchiffeC[9][5] + 1] = 24;
+                            P1board[P1SchiffeC[9][6], P1SchiffeC[9][7] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][0], P1SchiffeC[9][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][2], P1SchiffeC[9][3] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][4], P1SchiffeC[9][5] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][6], P1SchiffeC[9][7] + 1] = 24;
+                        }
+                        if (P1SchiffeC[9][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[9][0], P1SchiffeC[9][1] - 1] = 24;
+                            P1board[P1SchiffeC[9][2], P1SchiffeC[9][3] - 1] = 24;
+                            P1board[P1SchiffeC[9][4], P1SchiffeC[9][5] - 1] = 24;
+                            P1board[P1SchiffeC[9][6], P1SchiffeC[9][7] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][0], P1SchiffeC[9][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][2], P1SchiffeC[9][3] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][4], P1SchiffeC[9][5] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][6], P1SchiffeC[9][7] - 1] = 24;
+                        }
+                        if (P1SchiffeC[9][6] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[9][6] + 1, P1SchiffeC[9][7]] = 24;
+                            P1boardHidden[P1SchiffeC[9][6] + 1, P1SchiffeC[9][7]] = 24;
+                            if (P1SchiffeC[9][7] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[9][6] + 1, P1SchiffeC[9][7] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[9][6] + 1, P1SchiffeC[9][7] + 1] = 24;
+                            }
+                            if (P1SchiffeC[9][7] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[9][6] + 1, P1SchiffeC[9][7] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[9][6] + 1, P1SchiffeC[9][7] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 2:
+                        if (P1SchiffeC[9][1] + 1 > 0)
+                        {
+                            P1board[P1SchiffeC[9][0], P1SchiffeC[9][1] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][0], P1SchiffeC[9][1] + 1] = 24;
+                            if (P1SchiffeC[9][0] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[9][0] + 1, P1SchiffeC[9][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[9][0] + 1, P1SchiffeC[9][1] + 1] = 24;
+                            }
+                            if (P1SchiffeC[9][0] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[9][0] - 1, P1SchiffeC[9][1] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[9][0] - 1, P1SchiffeC[9][1] + 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[9][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[9][0] + 1, P1SchiffeC[9][1]] = 24;
+                            P1board[P1SchiffeC[9][2] + 1, P1SchiffeC[9][3]] = 24;
+                            P1board[P1SchiffeC[9][4] + 1, P1SchiffeC[9][5]] = 24;
+                            P1board[P1SchiffeC[9][6] + 1, P1SchiffeC[9][7]] = 24;
+                            P1boardHidden[P1SchiffeC[9][0] + 1, P1SchiffeC[9][1]] = 24;
+                            P1boardHidden[P1SchiffeC[9][2] + 1, P1SchiffeC[9][3]] = 24;
+                            P1boardHidden[P1SchiffeC[9][4] + 1, P1SchiffeC[9][5]] = 24;
+                            P1boardHidden[P1SchiffeC[9][6] + 1, P1SchiffeC[9][7]] = 24;
+                        }
+                        if (P1SchiffeC[9][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[9][0] - 1, P1SchiffeC[9][1]] = 24;
+                            P1board[P1SchiffeC[9][2] - 1, P1SchiffeC[9][3]] = 24;
+                            P1board[P1SchiffeC[9][4] - 1, P1SchiffeC[9][5]] = 24;
+                            P1board[P1SchiffeC[9][6] - 1, P1SchiffeC[9][7]] = 24;
+                            P1boardHidden[P1SchiffeC[9][0] - 1, P1SchiffeC[9][1]] = 24;
+                            P1boardHidden[P1SchiffeC[9][2] - 1, P1SchiffeC[9][3]] = 24;
+                            P1boardHidden[P1SchiffeC[9][4] - 1, P1SchiffeC[9][5]] = 24;
+                            P1boardHidden[P1SchiffeC[9][6] - 1, P1SchiffeC[9][7]] = 24;
+                        }
+                        if (P1SchiffeC[9][7] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[9][6], P1SchiffeC[9][7] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][6], P1SchiffeC[9][7] - 1] = 24;
+                            if (P1SchiffeC[9][6] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[9][6] + 1, P1SchiffeC[9][7] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[9][6] + 1, P1SchiffeC[9][7] - 1] = 24;
+                            }
+                            if (P1SchiffeC[9][6] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[9][6] - 1, P1SchiffeC[9][7] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[9][6] - 1, P1SchiffeC[9][7] - 1] = 24;
+                            }
+                        }
+                        break;
+                    case 3:
+                        if (P1SchiffeC[9][1] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[9][0], P1SchiffeC[9][1] - 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][0], P1SchiffeC[9][1] - 1] = 24;
+                            if (P1SchiffeC[9][0] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[9][0] + 1, P1SchiffeC[9][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[9][0] + 1, P1SchiffeC[9][1] - 1] = 24;
+                            }
+                            if (P1SchiffeC[9][0] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[9][0] - 1, P1SchiffeC[9][1] - 1] = 24;
+                                P1boardHidden[P1SchiffeC[9][0] - 1, P1SchiffeC[9][1] - 1] = 24;
+                            }
+                        }
+                        if (P1SchiffeC[9][0] + 1 < 11)
+                        {
+                            P1board[P1SchiffeC[9][0] + 1, P1SchiffeC[9][1]] = 24;
+                            P1board[P1SchiffeC[9][2] + 1, P1SchiffeC[9][3]] = 24;
+                            P1board[P1SchiffeC[9][4] + 1, P1SchiffeC[9][5]] = 24;
+                            P1board[P1SchiffeC[9][6] + 1, P1SchiffeC[9][7]] = 24;
+                            P1boardHidden[P1SchiffeC[9][0] + 1, P1SchiffeC[9][1]] = 24;
+                            P1boardHidden[P1SchiffeC[9][2] + 1, P1SchiffeC[9][3]] = 24;
+                            P1boardHidden[P1SchiffeC[9][4] + 1, P1SchiffeC[9][5]] = 24;
+                            P1boardHidden[P1SchiffeC[9][6] + 1, P1SchiffeC[9][7]] = 24;
+                        }
+                        if (P1SchiffeC[9][0] - 1 > 0)
+                        {
+                            P1board[P1SchiffeC[9][0] - 1, P1SchiffeC[9][1]] = 24;
+                            P1board[P1SchiffeC[9][2] - 1, P1SchiffeC[9][3]] = 24;
+                            P1board[P1SchiffeC[9][4] - 1, P1SchiffeC[9][5]] = 24;
+                            P1board[P1SchiffeC[9][6] - 1, P1SchiffeC[9][7]] = 24;
+                            P1boardHidden[P1SchiffeC[9][0] - 1, P1SchiffeC[9][1]] = 24;
+                            P1boardHidden[P1SchiffeC[9][2] - 1, P1SchiffeC[9][3]] = 24;
+                            P1boardHidden[P1SchiffeC[9][4] - 1, P1SchiffeC[9][5]] = 24;
+                            P1boardHidden[P1SchiffeC[9][6] - 1, P1SchiffeC[9][7]] = 24;
+                        }
+                        if (P1SchiffeC[9][7] + 1 > 0)
+                        {
+                            P1board[P1SchiffeC[9][6], P1SchiffeC[9][7] + 1] = 24;
+                            P1boardHidden[P1SchiffeC[9][6], P1SchiffeC[9][7] + 1] = 24;
+                            if (P1SchiffeC[9][6] + 1 < 11)
+                            {
+                                P1board[P1SchiffeC[9][6] + 1, P1SchiffeC[9][7] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[9][6] + 1, P1SchiffeC[9][7] + 1] = 24;
+                            }
+                            if (P1SchiffeC[9][6] - 1 > 0)
+                            {
+                                P1board[P1SchiffeC[9][6] - 1, P1SchiffeC[9][7] + 1] = 24;
+                                P1boardHidden[P1SchiffeC[9][6] - 1, P1SchiffeC[9][7] + 1] = 24;
+                            }
+                        }
+                        break;
+                }
             }
         }
 
@@ -1389,7 +3761,7 @@ namespace SVgerman
                         {
                             P2board[position[0], position[1] - i] = 1;
                             if (position[0] - 1 > 0) P2board[position[0] - 1, position[1] - i] = 25;
-                            if (position[0] + 1 < 11) P2board[position[0] + 1, position[0] - i] = 25;
+                            if (position[0] + 1 < 11) P2board[position[0] + 1, position[1] - i] = 25;
                             P2Schiffe[r][temp] = position[0];
                             P2Schiffe[r][temp + 1] = position[1] - i;
                             temp = temp + 2;

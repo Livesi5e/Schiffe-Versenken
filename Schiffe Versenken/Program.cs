@@ -172,6 +172,7 @@ class UI
                 "\t- Added an icon for the game (still WIP tho)\n" +
                 "\t- Added the beginning for multiple Language support (English may be supportet in future versions)\n" +
                 "\t- You can now see the ammount of ships present on the board beneath it\n" +
+                "\t- After destroying a Ship all surrounding Squares will be marked as missed\n" +
                 "\n\tBugfixes:\n" +
                 "\t- Fixed a bug, which crashed the game when trying to place a ship in I,8 or lower\n" +
                 "----------------\n" +
