@@ -24,7 +24,7 @@
             /*id = 17*/"Herzlichen Glückwunsch Spieler 1! Du hast gewonnen!\n",
             /*id = 18*/"Herzlichen Glückwunsch Spieler 2! Du hast gewonnen!\n",
             /*id = 19*/"Spieler 1 darf nun die Schiffe platzieren.\nBitte drück \"Enter\", sobald Spieler 2 den Bildschirm nicht mehr sehen kann",
-            /*id = 20*/"Dies sind deine Schiffe. Drücke\"Enter\" um fortzufahren",
+            /*id = 20*/"Dies sind deine Schiffe. Drücke \"Enter\" um fortzufahren",
             /*id = 21*/"Spieler 2 darf nun die Schiffe platzieren.\nDrücke \"Enter\" sobald Spieler 1 den Bildschirm nicht mehr sieht",
             /*id = 22*/"Spieler 1 darf nun schießen.\nDrücke \"Enter\" sobald Spieler 2 den Bildschirm nicht mehr sieht",
             /*id = 23*/"\nUm fortzufahren, drücke \"Enter\"",
