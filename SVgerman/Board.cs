@@ -404,7 +404,7 @@ namespace SVgerman
                         default:
                             break;
                     }
-                    Console.Write(d.col(P2board[i, o]));
+                    Console.Write(d.lett(P2board[i, o]));
                     if (P2board[i, o] == 13) Console.Write('0');
                     Console.Write(" ");
                     Console.ResetColor();
@@ -740,47 +740,114 @@ namespace SVgerman
                 P2boardHidden[target[0], target[1]] = 24;
                 P2board[target[0], target[1]] = 24;
             }
-            checkS();
+            checkSP2();
         }
 
-        void checkS()
+        void checkSP2()
         {
-            int temp = 0;
-            if (P2Schiffe[0][0] != null && P2Schiffe[0][1] != null) 
+            if (P2Schiffe[0][0] == null && P2Schiffe[0][1] == null && P2Schiffe[11][0] == 0) 
             {
-                if (P2Schiffe[11][0] == 0)
-                {
-                    P2Schiffe[11][0] = 1;
-                }
-                temp++;
+                P2Schiffe[10][0]--;
+                P2Schiffe[11][0]++;
             }
-            if (P2Schiffe[1][0] != null && P2Schiffe[1][1] != null)
+            if (P2Schiffe[1][0] == null && P2Schiffe[1][1] == null && P2Schiffe[11][1] == 0)
             {
-                if (P2Schiffe[11][1] == 0)
-                {
-                    P2Schiffe[11][1] = 1;
-                }
-                temp++;
+                P2Schiffe[10][0]--;
+                P2Schiffe[11][1]++;
             }
-            if (P2Schiffe[2][0] != null && P2Schiffe[2][1] != null)
+            if (P2Schiffe[2][0] == null && P2Schiffe[2][1] == null && P2Schiffe[11][2] == 0)
             {
-                if (P2Schiffe[11][2] == 0)
-                {
-                    P2Schiffe[11][2] = 1;
-                }
-                temp++;
+                P2Schiffe[10][0]--;
+                P2Schiffe[11][2]++;
             }
-            if (P2Schiffe[3][0] != null && P2Schiffe[3][1] != null)
+            if (P2Schiffe[3][0] == null && P2Schiffe[3][1] == null && P2Schiffe[11][3] == 0)
             {
-                if (P2Schiffe[11][3] == 0)
-                {
-                    P2Schiffe[11][3] = 1;
-                }
-                temp++;
+                P2Schiffe[10][0]--;
+                P2Schiffe[11][3]++;
             }
-            P2Schiffe[10][0] = temp;
-            temp = 0;
-            if (P2Schiffe[4][0] != null && P2Schiffe[4][1] != null && P2Schiffe[4][2] != null) temp++;
+            if (P2Schiffe[4][0] == null && P2Schiffe[4][1] == null && P2Schiffe[4][2] == null && P2Schiffe[4][3] == null && P2Schiffe[11][4] == 0)
+            {
+                P2Schiffe[10][1]--;
+                P2Schiffe[11][4]++;
+            }
+            if (P2Schiffe[5][0] == null && P2Schiffe[5][1] == null && P2Schiffe[5][2] == null && P2Schiffe[5][3] == null && P2Schiffe[11][5] == 0)
+            {
+                P2Schiffe[10][1]--;
+                P2Schiffe[11][5]++;
+            }
+            if (P2Schiffe[6][0] == null && P2Schiffe[6][1] == null && P2Schiffe[6][2] == null && P2Schiffe[6][3] == null && P2Schiffe[11][6] == 0)
+            {
+                P2Schiffe[10][1]--;
+                P2Schiffe[11][6]++;
+            }
+            if (P2Schiffe[7][0] == null && P2Schiffe[7][1] == null && P2Schiffe[7][2] == null && P2Schiffe[7][3] == null && P2Schiffe[7][4] == null && P2Schiffe[7][5] == null && P2Schiffe[11][7] == 0)
+            {
+                P2Schiffe[10][2]--;
+                P2Schiffe[11][7]++;
+            }
+            if (P2Schiffe[8][0] == null && P2Schiffe[8][1] == null && P2Schiffe[8][2] == null && P2Schiffe[8][3] == null && P2Schiffe[8][4] == null && P2Schiffe[8][5] == null && P2Schiffe[11][8] == 0)
+            {
+                P2Schiffe[10][2]--;
+                P2Schiffe[11][8]++;
+            }
+            if (P2Schiffe[9][0] == null && P2Schiffe[9][1] == null && P2Schiffe[9][2] == null && P2Schiffe[9][3] == null && P2Schiffe[9][5] == null && P2Schiffe[9][5] == null && P2Schiffe[9][6] == null && P2Schiffe[9][7] == null && P2Schiffe[11][9] == 0)
+            {
+                P2Schiffe[10][3]--;
+                P2Schiffe[11][8]++;
+            }
+        }
+        void checkSP1()
+        {
+            if (P1Schiffe[0][0] == null && P1Schiffe[0][1] == null && P1Schiffe[11][0] == 0)
+            {
+                P1Schiffe[10][0]--;
+                P1Schiffe[11][0]++;
+            }
+            if (P1Schiffe[1][0] == null && P1Schiffe[1][1] == null && P1Schiffe[11][1] == 0)
+            {
+                P1Schiffe[10][0]--;
+                P1Schiffe[11][1]++;
+            }
+            if (P1Schiffe[2][0] == null && P1Schiffe[2][1] == null && P1Schiffe[11][2] == 0)
+            {
+                P1Schiffe[10][0]--;
+                P1Schiffe[11][2]++;
+            }
+            if (P1Schiffe[3][0] == null && P1Schiffe[3][1] == null && P1Schiffe[11][3] == 0)
+            {
+                P1Schiffe[10][0]--;
+                P1Schiffe[11][3]++;
+            }
+            if (P1Schiffe[4][0] == null && P1Schiffe[4][1] == null && P1Schiffe[4][2] == null && P1Schiffe[4][3] == null && P1Schiffe[11][4] == 0)
+            {
+                P1Schiffe[10][1]--;
+                P1Schiffe[11][4]++;
+            }
+            if (P1Schiffe[5][0] == null && P1Schiffe[5][1] == null && P1Schiffe[5][2] == null && P1Schiffe[5][3] == null && P1Schiffe[11][5] == 0)
+            {
+                P1Schiffe[10][1]--;
+                P1Schiffe[11][5]++;
+            }
+            if (P1Schiffe[6][0] == null && P1Schiffe[6][1] == null && P1Schiffe[6][2] == null && P1Schiffe[6][3] == null && P1Schiffe[11][6] == 0)
+            {
+                P1Schiffe[10][1]--;
+                P1Schiffe[11][6]++;
+            }
+            if (P1Schiffe[7][0] == null && P1Schiffe[7][1] == null && P1Schiffe[7][2] == null && P1Schiffe[7][3] == null && P1Schiffe[7][4] == null && P1Schiffe[7][5] == null && P1Schiffe[11][7] == 0)
+            {
+                P1Schiffe[10][2]--;
+                P1Schiffe[11][7]++;
+            }
+            if (P1Schiffe[8][0] == null && P1Schiffe[8][1] == null && P1Schiffe[8][2] == null && P1Schiffe[8][3] == null && P1Schiffe[8][4] == null && P1Schiffe[8][5] == null && P1Schiffe[11][8] == 0)
+            {
+                P1Schiffe[10][2]--;
+                P1Schiffe[11][8]++;
+            }
+            if (P1Schiffe[9][0] == null && P1Schiffe[9][1] == null && P1Schiffe[9][2] == null && P1Schiffe[9][3] == null && P1Schiffe[9][5] == null && P1Schiffe[9][5] == null && P1Schiffe[9][6] == null && P1Schiffe[9][7] == null && P1Schiffe[11][9] == 0)
+            {
+                P1Schiffe[10][3]--;
+                P1Schiffe[11][8]++;
+            }
         }
 
         int[] target = new int[2];                          //Speichert die Koordinaten des Ziels als int[]
@@ -993,6 +1060,12 @@ namespace SVgerman
                             P2Schiffe[r][temp + 1] = position[1] + i;
                             temp = temp + 2;
                         }
+                        if (position[1] + l < 11)
+                        {
+                            P2board[position[0], position[1] + l] = 25;
+                            if (position[0] - 1 > 0) P2board[position[0] - 1, position[1] + l] = 25;
+                            if (position[0] + 1 < 11) P2board[position[0] + 1, position[1] + l] = 25;
+                        }
                         P2Schiffe[10][l - 1]++;
                         input = false;
                         break;
@@ -1071,6 +1144,7 @@ namespace SVgerman
                 P1boardHidden[target[0], target[1]] = 24;
                 P1board[target[0], target[1]] = 24;
             }
+            checkSP1();
         }
 
         //Diese Funktion returnt ein true, wenn im Board von Spieler 2 keine Schiffe mehr zu finden sind
@@ -1167,6 +1241,7 @@ namespace SVgerman
                 P1boardHidden[target[0], target[1]] = 24;
                 P1board[target[0], target[1]] = 24;
             }
+            checkSP1();
         }
 
         public void setP2Board(int[,] i)

@@ -18,8 +18,6 @@ class UI
             lang = Console.ReadLine();
             Gamestate.lang = lang;
             reset();
-            Gamestate.Player2outhP1out();
-            Gamestate.Player1outhP2out();
             Console.WriteLine(d.text(0, lang));
             Console.WriteLine(d.text(1, lang));
             end = Console.ReadLine();                                                       //Hier entscheidet der User, ob das Spiel beendet wird
