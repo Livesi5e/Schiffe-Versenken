@@ -87,7 +87,7 @@ class UI
                 Console.WriteLine(d.text(6, lang));
                 Gamestate.PlaceP1(1, 0);
                 reset();
-                for (int i = 0; i < 9; i++)
+                for (int i = 0; i < 4; i++)
                 {
                     Gamestate.Player1out();
                     Console.WriteLine(d.text(i + 7, lang));
@@ -107,7 +107,7 @@ class UI
                 Console.WriteLine(d.text(6, lang));
                 Gamestate.PlaceP2(1, 0);
                 reset();
-                for (int i = 0; i < 9; i++)
+                for (int i = 0; i < 4; i++)
                 {
                     Gamestate.Player2out();
                     Console.WriteLine(d.text(i + 7, lang));
@@ -126,7 +126,7 @@ class UI
                     Gamestate.Player2outhP1out();
                     Console.WriteLine(d.text(16, lang));
                     Gamestate.P1shoot();
-                    if (Gamestate.CheckWinP1()) { won = true; break; }
+                    //if (Gamestate.CheckWinP1()) { won = true; break; }
                     reset();
                     Gamestate.Player2outhP1out();
                     Console.WriteLine(d.text(23, lang));
@@ -138,7 +138,7 @@ class UI
                     Gamestate.Player1outhP2out();
                     Console.WriteLine(d.text(16, lang));
                     Gamestate.P2shoot();
-                    if (Gamestate.CheckWinP2()) break;
+                    //if (Gamestate.CheckWinP2()) break;
                     reset();
                     Gamestate.Player1outhP2out();
                     Console.WriteLine(d.text(23, lang));
@@ -156,6 +156,7 @@ class UI
                 }
                 Console.WriteLine(d.text(23, lang));
                 Console.ReadLine();
+                reset();
             }
         }
         if(end == "changelog")

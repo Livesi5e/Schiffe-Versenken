@@ -78,7 +78,21 @@ namespace SVgerman
             new int?[] { 0, 0, 0, 0, 0, 0},
             new int?[] { 0, 0, 0, 0, 0, 0, 0, 0},
             new int?[] { 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+            new int?[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            new int?[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        };
+
+        int[][] P1SchiffeC ={
+            new int[] { 0, 0},
+            new int[] { 0, 0},
+            new int[] { 0, 0},
+            new int[] { 0, 0},
+            new int[] { 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0, 0, 0, 0, 0},
         };
 
         public int?[][] P2Schiffe = {
@@ -93,7 +107,21 @@ namespace SVgerman
             new int?[] { 0, 0, 0, 0, 0, 0},
             new int?[] { 0, 0, 0, 0, 0, 0, 0, 0},
             new int?[] { 0, 0, 0, 0},
-            new int?[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+            new int?[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            new int?[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        };
+
+        int[][] P2SchiffeC ={
+            new int[] { 0, 0},
+            new int[] { 0, 0},
+            new int[] { 0, 0},
+            new int[] { 0, 0},
+            new int[] { 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0, 0, 0},
+            new int[] { 0, 0, 0, 0, 0, 0, 0, 0},
         };
 
         //Dies printed das Board von Spieler 1 in die Konsole
@@ -451,6 +479,7 @@ namespace SVgerman
                             if (position[1] + 1 < 11) P1board[position[0] - l, position[1] + 1] = 25;
                         }
                         P1Schiffe[10][l - 1]++;
+                        P1Schiffe[12][r] = 0;
                         input = false;
                         break;
                     case "down":                                        //Um das Schiff nach "unten" zu platzieren wird die y-Koordinate um 1 addiert
@@ -473,9 +502,10 @@ namespace SVgerman
                         {
                             P1board[position[0] + l, position[1]] = 25;
                             if (position[1] - 1 > 0) P1board[position[0] + l, position[1] - 1] = 25;
-                            if (position[0] + 1 < 11) P1board[position[0] + l, position[1] + 1] = 25;
+                            if (position[1] + 1 < 11) P1board[position[0] + l, position[1] + 1] = 25;
                         }
                         P1Schiffe[10][l - 1]++;
+                        P1Schiffe[12][r] = 1;
                         input = false;
                         break;
                     case "left":                                        //Um das Schiff nach "links" zu platzieren wird die x-Koordinate um 1 subtrahiert
@@ -501,6 +531,7 @@ namespace SVgerman
                             if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] - l] = 25;
                         }
                         P1Schiffe[10][l - 1]++;
+                        P1Schiffe[12][r] = 2;
                         input = false;
                         break;
                     case "right":                                       //Um das Schiff nach "rechts" zu platzieren wird die x-Koordinate um 1 addiert
@@ -525,6 +556,7 @@ namespace SVgerman
                             if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] + l] = 25;
                         }
                         P1Schiffe[10][l - 1]++;
+                        P1Schiffe[12][r] = 3;
                         input = false;
                         break;
                     default:                                            //Falls keine Richtung angegeben wurde oder eine nicht existierende Richtung angegeben wurde, wird eine neue Richtung abgefragt und noch mal gecheckt
@@ -535,7 +567,10 @@ namespace SVgerman
                         break;
                 }
             }
-
+            for (int i = 0; i < P1SchiffeC[r].Length; i++)
+            {
+                P1SchiffeC[r][i] = (int)P1Schiffe[r][i];
+            }
         }
 
         //Eine Funtion, die einen int[] returnt, welche die Koordinaten für das zu platzierende Schiff beinhaltet
@@ -710,7 +745,7 @@ namespace SVgerman
         {
             bool found = false;
             int[] target = Shootget();                      //Die Position, wohin der Spieler schießen möchte wird abgegriffen
-            while (P2boardHidden[target[0], target[1]] == 1 || P2boardHidden[target[0], target[1]] == 2)       //Es wird auf dem Board des Spielers 2, welches Spieler 1 sieht gecheckt, ob die Koordinate entweder die ID für einen Treffer oder ein Miss beinhaltet
+            while (P2boardHidden[target[0], target[1]] == 1 || P2boardHidden[target[0], target[1]] == 24)       //Es wird auf dem Board des Spielers 2, welches Spieler 1 sieht gecheckt, ob die Koordinate entweder die ID für einen Treffer oder ein Miss beinhaltet
             {
                 Console.WriteLine(d.text(30, lang));
                 target = Shootget();                        //Sollte dies der Fall sein, wird eine neue Koordinate abgefragt
@@ -721,7 +756,7 @@ namespace SVgerman
                 P2board[target[0], target[1]] = 2;
                 while (found == false) 
                 {
-                    for (int i = 0; i < P2Schiffe.Length - 1; i++)
+                    for (int i = 0; i < P2Schiffe.Length - 3; i++)
                     {
                         for (int o = 0; o < P2Schiffe[i].Length ; o = o + 2)
                         {
@@ -730,8 +765,10 @@ namespace SVgerman
                                 found = true;
                                 P2Schiffe[i][o] = null;
                                 P2Schiffe[i][o + 1] = null;
+                                break;
                             }
                         }
+                        if (found) break;
                     }
                 }
             }
@@ -749,21 +786,181 @@ namespace SVgerman
             {
                 P2Schiffe[10][0]--;
                 P2Schiffe[11][0]++;
+                if (P2SchiffeC[0][0] - 1 > 0)
+                {
+                    P1board[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1]] = 24;
+                    P1boardHidden[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1]] = 24;
+                    if (P2SchiffeC[0][1] + 1 < 11)
+                    {
+                        P1board[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1] + 1] = 24;
+                        P1boardHidden[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1] + 1] = 24;
+                    }
+                    if (P2SchiffeC[0][1] - 1 > 0)
+                    {
+                        P1board[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1] - 1] = 24;
+                        P1boardHidden[P2SchiffeC[0][0] - 1, P2SchiffeC[0][1] - 1] = 24;
+                    }
+                }
+                if (P2SchiffeC[0][1] + 1 < 11)
+                {
+                    P1board[P2SchiffeC[0][0], P2SchiffeC[0][1] + 1] = 24;
+                    P1boardHidden[P2SchiffeC[0][0], P2SchiffeC[0][1] + 1] = 24;
+                }
+                if (P2SchiffeC[0][1] - 1 > 0)
+                {
+                    P1board[P2SchiffeC[0][0], P2SchiffeC[0][1] - 1] = 24;
+                    P1boardHidden[P2SchiffeC[0][0], P2SchiffeC[0][1] - 1] = 24;
+                }
+                if (P2SchiffeC[0][0] + 1 < 11)
+                {
+                    P1board[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1]] = 24;
+                    P1boardHidden[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1]] = 24;
+                    if (P2SchiffeC[0][1] + 1 < 11)
+                    {
+                        P1board[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1] + 1] = 24;
+                        P1boardHidden[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1] + 1] = 24;
+                    }
+                    if (P2SchiffeC[0][1] - 1 > 0)
+                    {
+                        P1board[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1] - 1] = 24;
+                        P1boardHidden[P2SchiffeC[0][0] + 1, P2SchiffeC[0][1] - 1] = 24;
+                    }
+                }
             }
             if (P2Schiffe[1][0] == null && P2Schiffe[1][1] == null && P2Schiffe[11][1] == 0)
             {
                 P2Schiffe[10][0]--;
                 P2Schiffe[11][1]++;
+                if (P2SchiffeC[1][0] - 1 > 0)
+                {
+                    P1board[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1]] = 24;
+                    P1boardHidden[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1]] = 24;
+                    if (P2SchiffeC[1][1] + 1 < 11)
+                    {
+                        P1board[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1] + 1] = 24;
+                        P1boardHidden[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1] + 1] = 24;
+                    }
+                    if (P2SchiffeC[1][1] - 1 > 0)
+                    {
+                        P1board[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1] - 1] = 24;
+                        P1boardHidden[P2SchiffeC[1][0] - 1, P2SchiffeC[1][1] - 1] = 24;
+                    }
+                }
+                if (P2SchiffeC[1][1] + 1 < 11)
+                {
+                    P1board[P2SchiffeC[1][0], P2SchiffeC[1][1] + 1] = 24;
+                    P1boardHidden[P2SchiffeC[1][0], P2SchiffeC[1][1] + 1] = 24;
+                }
+                if (P2SchiffeC[1][1] - 1 > 0)
+                {
+                    P1board[P2SchiffeC[1][0], P2SchiffeC[1][1] - 1] = 24;
+                    P1boardHidden[P2SchiffeC[1][0], P2SchiffeC[1][1] - 1] = 24;
+                }
+                if (P2SchiffeC[1][0] + 1 < 11)
+                {
+                    P1board[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1]] = 24;
+                    P1boardHidden[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1]] = 24;
+                    if (P2SchiffeC[1][1] + 1 < 11)
+                    {
+                        P1board[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1] + 1] = 24;
+                        P1boardHidden[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1] + 1] = 24;
+                    }
+                    if (P2SchiffeC[1][1] - 1 > 0)
+                    {
+                        P1board[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1] - 1] = 24;
+                        P1boardHidden[P2SchiffeC[1][0] + 1, P2SchiffeC[1][1] - 1] = 24;
+                    }
+                }
             }
             if (P2Schiffe[2][0] == null && P2Schiffe[2][1] == null && P2Schiffe[11][2] == 0)
             {
                 P2Schiffe[10][0]--;
                 P2Schiffe[11][2]++;
+                if (P2SchiffeC[2][0] - 1 > 0)
+                {
+                    P1board[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1]] = 24;
+                    P1boardHidden[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1]] = 24;
+                    if (P2SchiffeC[2][1] + 1 < 11)
+                    {
+                        P1board[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1] + 1] = 24;
+                        P1boardHidden[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1] + 1] = 24;
+                    }
+                    if (P2SchiffeC[2][1] - 1 > 0)
+                    {
+                        P1board[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1] - 1] = 24;
+                        P1boardHidden[P2SchiffeC[2][0] - 1, P2SchiffeC[2][1] - 1] = 24;
+                    }
+                }
+                if (P2SchiffeC[2][1] + 1 < 11)
+                {
+                    P1board[P2SchiffeC[2][0], P2SchiffeC[2][1] + 1] = 24;
+                    P1boardHidden[P2SchiffeC[2][0], P2SchiffeC[2][1] + 1] = 24;
+                }
+                if (P2SchiffeC[2][1] - 1 > 0)
+                {
+                    P1board[P2SchiffeC[2][0], P2SchiffeC[2][1] - 1] = 24;
+                    P1boardHidden[P2SchiffeC[2][0], P2SchiffeC[2][1] - 1] = 24;
+                }
+                if (P2SchiffeC[2][0] + 1 < 11)
+                {
+                    P1board[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1]] = 24;
+                    P1boardHidden[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1]] = 24;
+                    if (P2SchiffeC[2][1] + 1 < 11)
+                    {
+                        P1board[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1] + 1] = 24;
+                        P1boardHidden[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1] + 1] = 24;
+                    }
+                    if (P2SchiffeC[2][1] - 1 > 0)
+                    {
+                        P1board[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1] - 1] = 24;
+                        P1boardHidden[P2SchiffeC[2][0] + 1, P2SchiffeC[2][1] - 1] = 24;
+                    }
+                }
             }
             if (P2Schiffe[3][0] == null && P2Schiffe[3][1] == null && P2Schiffe[11][3] == 0)
             {
                 P2Schiffe[10][0]--;
                 P2Schiffe[11][3]++;
+                if (P2SchiffeC[3][0] - 1 > 0)
+                {
+                    P1board[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1]] = 24;
+                    P1boardHidden[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1]] = 24;
+                    if (P2SchiffeC[3][1] + 1 < 11)
+                    {
+                        P1board[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1] + 1] = 24;
+                        P1boardHidden[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1] + 1] = 24;
+                    }
+                    if (P2SchiffeC[3][1] - 1 > 0)
+                    {
+                        P1board[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1] - 1] = 24;
+                        P1boardHidden[P2SchiffeC[3][0] - 1, P2SchiffeC[3][1] - 1] = 24;
+                    }
+                }
+                if (P2SchiffeC[3][1] + 1 < 11)
+                {
+                    P1board[P2SchiffeC[3][0], P2SchiffeC[3][1] + 1] = 24;
+                    P1boardHidden[P2SchiffeC[3][0], P2SchiffeC[3][1] + 1] = 24;
+                }
+                if (P2SchiffeC[3][1] - 1 > 0)
+                {
+                    P1board[P2SchiffeC[3][0], P2SchiffeC[3][1] - 1] = 24;
+                    P1boardHidden[P2SchiffeC[3][0], P2SchiffeC[3][1] - 1] = 24;
+                }
+                if (P2SchiffeC[3][0] + 1 < 11)
+                {
+                    P1board[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1]] = 24;
+                    P1boardHidden[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1]] = 24;
+                    if (P2SchiffeC[3][1] + 1 < 11)
+                    {
+                        P1board[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1] + 1] = 24;
+                        P1boardHidden[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1] + 1] = 24;
+                    }
+                    if (P2SchiffeC[3][1] - 1 > 0)
+                    {
+                        P1board[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1] - 1] = 24;
+                        P1boardHidden[P2SchiffeC[3][0] + 1, P2SchiffeC[3][1] - 1] = 24;
+                    }
+                }
             }
             if (P2Schiffe[4][0] == null && P2Schiffe[4][1] == null && P2Schiffe[4][2] == null && P2Schiffe[4][3] == null && P2Schiffe[11][4] == 0)
             {
@@ -802,21 +999,181 @@ namespace SVgerman
             {
                 P1Schiffe[10][0]--;
                 P1Schiffe[11][0]++;
+                if (P1SchiffeC[0][0] - 1 > 0)
+                {
+                    P1board[P1SchiffeC[0][0] - 1, P1SchiffeC[0][1]] = 24;
+                    P1boardHidden[P1SchiffeC[0][0] - 1, P1SchiffeC[0][1]] = 24;
+                    if (P1SchiffeC[0][1] + 1 < 11)
+                    {
+                        P1board[P1SchiffeC[0][0] - 1, P1SchiffeC[0][1] + 1] = 24;
+                        P1boardHidden[P1SchiffeC[0][0] - 1, P1SchiffeC[0][1] + 1] = 24;
+                    }
+                    if (P1SchiffeC[0][1] - 1 > 0)
+                    {
+                        P1board[P1SchiffeC[0][0] - 1, P1SchiffeC[0][1] - 1] = 24;
+                        P1boardHidden[P1SchiffeC[0][0] - 1, P1SchiffeC[0][1] - 1] = 24;
+                    }
+                }
+                if (P1SchiffeC[0][1] + 1 < 11)
+                {
+                    P1board[P1SchiffeC[0][0], P1SchiffeC[0][1] + 1] = 24;
+                    P1boardHidden[P1SchiffeC[0][0], P1SchiffeC[0][1] + 1] = 24;
+                }
+                if (P1SchiffeC[0][1] - 1 > 0)
+                {
+                    P1board[P1SchiffeC[0][0], P1SchiffeC[0][1] - 1] = 24;
+                    P1boardHidden[P1SchiffeC[0][0], P1SchiffeC[0][1] - 1] = 24;
+                }
+                if (P1SchiffeC[0][0] + 1 < 11)
+                {
+                    P1board[P1SchiffeC[0][0] + 1, P1SchiffeC[0][1]] = 24;
+                    P1boardHidden[P1SchiffeC[0][0] + 1, P1SchiffeC[0][1]] = 24;
+                    if (P1SchiffeC[0][1] + 1 < 11)
+                    {
+                        P1board[P1SchiffeC[0][0] + 1, P1SchiffeC[0][1] + 1] = 24;
+                        P1boardHidden[P1SchiffeC[0][0] + 1, P1SchiffeC[0][1] + 1] = 24;
+                    }
+                    if (P1SchiffeC[0][1] - 1 > 0)
+                    {
+                        P1board[P1SchiffeC[0][0] + 1, P1SchiffeC[0][1] - 1] = 24;
+                        P1boardHidden[P1SchiffeC[0][0] + 1, P1SchiffeC[0][1] - 1] = 24;
+                    }
+                }
             }
             if (P1Schiffe[1][0] == null && P1Schiffe[1][1] == null && P1Schiffe[11][1] == 0)
             {
                 P1Schiffe[10][0]--;
                 P1Schiffe[11][1]++;
+                if (P1SchiffeC[1][0] - 1 > 0)
+                {
+                    P1board[P1SchiffeC[1][0] - 1, P1SchiffeC[1][1]] = 24;
+                    P1boardHidden[P1SchiffeC[1][0] - 1, P1SchiffeC[1][1]] = 24;
+                    if (P1SchiffeC[1][1] + 1 < 11)
+                    {
+                        P1board[P1SchiffeC[1][0] - 1, P1SchiffeC[1][1] + 1] = 24;
+                        P1boardHidden[P1SchiffeC[1][0] - 1, P1SchiffeC[1][1] + 1] = 24;
+                    }
+                    if (P1SchiffeC[1][1] - 1 > 0)
+                    {
+                        P1board[P1SchiffeC[1][0] - 1, P1SchiffeC[1][1] - 1] = 24;
+                        P1boardHidden[P1SchiffeC[1][0] - 1, P1SchiffeC[1][1] - 1] = 24;
+                    }
+                }
+                if (P1SchiffeC[1][1] + 1 < 11)
+                {
+                    P1board[P1SchiffeC[1][0], P1SchiffeC[1][1] + 1] = 24;
+                    P1boardHidden[P1SchiffeC[1][0], P1SchiffeC[1][1] + 1] = 24;
+                }
+                if (P1SchiffeC[1][1] - 1 > 0)
+                {
+                    P1board[P1SchiffeC[1][0], P1SchiffeC[1][1] - 1] = 24;
+                    P1boardHidden[P1SchiffeC[1][0], P1SchiffeC[1][1] - 1] = 24;
+                }
+                if (P1SchiffeC[1][0] + 1 < 11)
+                {
+                    P1board[P1SchiffeC[1][0] + 1, P1SchiffeC[1][1]] = 24;
+                    P1boardHidden[P1SchiffeC[1][0] + 1, P1SchiffeC[1][1]] = 24;
+                    if (P1SchiffeC[1][1] + 1 < 11)
+                    {
+                        P1board[P1SchiffeC[1][0] + 1, P1SchiffeC[1][1] + 1] = 24;
+                        P1boardHidden[P1SchiffeC[1][0] + 1, P1SchiffeC[1][1] + 1] = 24;
+                    }
+                    if (P1SchiffeC[1][1] - 1 > 0)
+                    {
+                        P1board[P1SchiffeC[1][0] + 1, P1SchiffeC[1][1] - 1] = 24;
+                        P1boardHidden[P1SchiffeC[1][0] + 1, P1SchiffeC[1][1] - 1] = 24;
+                    }
+                }
             }
             if (P1Schiffe[2][0] == null && P1Schiffe[2][1] == null && P1Schiffe[11][2] == 0)
             {
                 P1Schiffe[10][0]--;
                 P1Schiffe[11][2]++;
+                if (P1SchiffeC[2][0] - 1 > 0)
+                {
+                    P1board[P1SchiffeC[2][0] - 1, P1SchiffeC[2][1]] = 24;
+                    P1boardHidden[P1SchiffeC[2][0] - 1, P1SchiffeC[2][1]] = 24;
+                    if (P1SchiffeC[2][1] + 1 < 11)
+                    {
+                        P1board[P1SchiffeC[2][0] - 1, P1SchiffeC[2][1] + 1] = 24;
+                        P1boardHidden[P1SchiffeC[2][0] - 1, P1SchiffeC[2][1] + 1] = 24;
+                    }
+                    if (P1SchiffeC[2][1] - 1 > 0)
+                    {
+                        P1board[P1SchiffeC[2][0] - 1, P1SchiffeC[2][1] - 1] = 24;
+                        P1boardHidden[P1SchiffeC[2][0] - 1, P1SchiffeC[2][1] - 1] = 24;
+                    }
+                }
+                if (P1SchiffeC[2][1] + 1 < 11)
+                {
+                    P1board[P1SchiffeC[2][0], P1SchiffeC[2][1] + 1] = 24;
+                    P1boardHidden[P1SchiffeC[2][0], P1SchiffeC[2][1] + 1] = 24;
+                }
+                if (P1SchiffeC[2][1] - 1 > 0)
+                {
+                    P1board[P1SchiffeC[2][0], P1SchiffeC[2][1] - 1] = 24;
+                    P1boardHidden[P1SchiffeC[2][0], P1SchiffeC[2][1] - 1] = 24;
+                }
+                if (P1SchiffeC[2][0] + 1 < 11)
+                {
+                    P1board[P1SchiffeC[2][0] + 1, P1SchiffeC[2][1]] = 24;
+                    P1boardHidden[P1SchiffeC[2][0] + 1, P1SchiffeC[2][1]] = 24;
+                    if (P1SchiffeC[2][1] + 1 < 11)
+                    {
+                        P1board[P1SchiffeC[2][0] + 1, P1SchiffeC[2][1] + 1] = 24;
+                        P1boardHidden[P1SchiffeC[2][0] + 1, P1SchiffeC[2][1] + 1] = 24;
+                    }
+                    if (P1SchiffeC[2][1] - 1 > 0)
+                    {
+                        P1board[P1SchiffeC[2][0] + 1, P1SchiffeC[2][1] - 1] = 24;
+                        P1boardHidden[P1SchiffeC[2][0] + 1, P1SchiffeC[2][1] - 1] = 24;
+                    }
+                }
             }
             if (P1Schiffe[3][0] == null && P1Schiffe[3][1] == null && P1Schiffe[11][3] == 0)
             {
                 P1Schiffe[10][0]--;
                 P1Schiffe[11][3]++;
+                if (P1SchiffeC[3][0] - 1 > 0)
+                {
+                    P1board[P1SchiffeC[3][0] - 1, P1SchiffeC[3][1]] = 24;
+                    P1boardHidden[P1SchiffeC[3][0] - 1, P1SchiffeC[3][1]] = 24;
+                    if (P1SchiffeC[3][1] + 1 < 11)
+                    {
+                        P1board[P1SchiffeC[3][0] - 1, P1SchiffeC[3][1] + 1] = 24;
+                        P1boardHidden[P1SchiffeC[3][0] - 1, P1SchiffeC[3][1] + 1] = 24;
+                    }
+                    if (P1SchiffeC[3][1] - 1 > 0)
+                    {
+                        P1board[P1SchiffeC[3][0] - 1, P1SchiffeC[3][1] - 1] = 24;
+                        P1boardHidden[P1SchiffeC[3][0] - 1, P1SchiffeC[3][1] - 1] = 24;
+                    }
+                }
+                if (P1SchiffeC[3][1] + 1 < 11)
+                {
+                    P1board[P1SchiffeC[3][0], P1SchiffeC[3][1] + 1] = 24;
+                    P1boardHidden[P1SchiffeC[3][0], P1SchiffeC[3][1] + 1] = 24;
+                }
+                if (P1SchiffeC[3][1] - 1 > 0)
+                {
+                    P1board[P1SchiffeC[3][0], P1SchiffeC[3][1] - 1] = 24;
+                    P1boardHidden[P1SchiffeC[3][0], P1SchiffeC[3][1] - 1] = 24;
+                }
+                if (P1SchiffeC[3][0] + 1 < 11)
+                {
+                    P1board[P1SchiffeC[3][0] + 1, P1SchiffeC[3][1]] = 24;
+                    P1boardHidden[P1SchiffeC[3][0] + 1, P1SchiffeC[3][1]] = 24;
+                    if (P1SchiffeC[3][1] + 1 < 11)
+                    {
+                        P1board[P1SchiffeC[3][0] + 1, P1SchiffeC[3][1] + 1] = 24;
+                        P1boardHidden[P1SchiffeC[3][0] + 1, P1SchiffeC[3][1] + 1] = 24;
+                    }
+                    if (P1SchiffeC[3][1] - 1 > 0)
+                    {
+                        P1board[P1SchiffeC[3][0] + 1, P1SchiffeC[3][1] - 1] = 24;
+                        P1boardHidden[P1SchiffeC[3][0] + 1, P1SchiffeC[3][1] - 1] = 24;
+                    }
+                }
             }
             if (P1Schiffe[4][0] == null && P1Schiffe[4][1] == null && P1Schiffe[4][2] == null && P1Schiffe[4][3] == null && P1Schiffe[11][4] == 0)
             {
@@ -972,7 +1329,7 @@ namespace SVgerman
                     case "up":                                          //Um das Schiff nach "oben" zu platzieren wird die y-Koordinate um 1 subtrahiert.
                         if (position[0] + 1 < 11)
                         {
-                            P1board[position[0] + 1, position[1]] = 25;
+                            P2board[position[0] + 1, position[1]] = 25;
                             if (position[1] - 1 > 0) P2board[position[0] + 1, position[1] - 1] = 25;
                             if (position[1] + 1 < 11) P2board[position[0] + 1, position[1] + 1] = 25;
                         }
@@ -992,6 +1349,7 @@ namespace SVgerman
                             if (position[1] + 1 < 11) P2board[position[0] - l, position[1] + 1] = 25;
                         }
                         P2Schiffe[10][l - 1]++;
+                        P2Schiffe[12][r] = 0;
                         input = false;
                         break;
                     case "down":                                        //Um das Schiff nach "unten" zu platzieren wird die y-Koordinate um 1 addiert
@@ -1017,6 +1375,7 @@ namespace SVgerman
                             if (position[1] + 1 < 11) P2board[position[0] + l, position[1] + 1] = 25;
                         }
                         P2Schiffe[10][l - 1]++;
+                        P2Schiffe[12][r] = 1;
                         input = false;
                         break;
                     case "left":                                        //Um das Schiff nach "links" zu platzieren wird die x-Koordinate um 1 subtrahiert
@@ -1042,6 +1401,7 @@ namespace SVgerman
                             if (position[0] + 1 < 11) P2board[position[0] + 1, position[1] - l] = 25;
                         }
                         P2Schiffe[10][l - 1]++;
+                        P2Schiffe[12][r] = 2;
                         input = false;
                         break;
                     case "right":                                       //Um das Schiff nach "rechts" zu platzieren wird die x-Koordinate um 1 addiert
@@ -1067,6 +1427,7 @@ namespace SVgerman
                             if (position[0] + 1 < 11) P2board[position[0] + 1, position[1] + l] = 25;
                         }
                         P2Schiffe[10][l - 1]++;
+                        P2Schiffe[12][r] = 3;
                         input = false;
                         break;
                     default:                                            //Falls keine Richtung angegeben wurde oder eine nicht existierende Richtung angegeben wurde, wird eine neue Richtung abgefragt und noch mal gecheckt
@@ -1077,7 +1438,10 @@ namespace SVgerman
                         break;
                 }
             }
-        }
+            for (int i = 0; i < P2SchiffeC[r].Length; i++)
+            {
+                P2SchiffeC[r][i] = (int)P2Schiffe[r][i];
+            }        }
 
         int[] P2checkO(int[] p, int l, string di)
         {
@@ -1086,7 +1450,7 @@ namespace SVgerman
                 switch (di)                                  //Basierend auf der Orientierung wird in eine andere Richtung geguckt
                 {
                     case "up":
-                        if (P2board[p[0] - i, p[1]] == 1)   //Die Koordinate wird um die Loopanzahl versetzt und geguck, ob die ID dort einem anderem Schiff entspricht
+                        if (P2board[p[0] - i, p[1]] == 1 || P2board[p[0] - i, p[1]] == 25)   //Die Koordinate wird um die Loopanzahl versetzt und geguck, ob die ID dort einem anderem Schiff entspricht
                         {
                             Console.WriteLine(d.text(29, lang));
                             p = get();                      //Wenn dies der Fall ist, wird ein neuer Punkt angefragt
@@ -1095,7 +1459,7 @@ namespace SVgerman
                         }
                         break;
                     case "down":
-                        if (P2board[p[0] + i, p[1]] == 1)
+                        if (P2board[p[0] + i, p[1]] == 1 || P2board[p[0] + i, p[1]] == 25)
                         {
                             Console.WriteLine(d.text(29, lang));
                             p = get();
@@ -1104,7 +1468,7 @@ namespace SVgerman
                         }
                         break;
                     case "left":
-                        if (P2board[p[0], p[1] - i] == 1)
+                        if (P2board[p[0], p[1] - i] == 1 || P2board[p[0], p[1] - i] == 25)
                         {
                             Console.WriteLine(d.text(29, lang));
                             p = get();
@@ -1113,7 +1477,7 @@ namespace SVgerman
                         }
                         break;
                     case "right":
-                        if (P2board[p[0], p[1] + i] == 1)
+                        if (P2board[p[0], p[1] + i] == 1 || P2board[p[0], p[1] + i] == 25)
                         {
                             Console.WriteLine(d.text(29, lang));
                             p = get();
@@ -1128,8 +1492,9 @@ namespace SVgerman
 
         public void P2shoot()
         {
+            bool found = false;
             int[] target = Shootget();                      //Die Position, wohin der Spieler schießen möchte wird abgegriffen
-            while (P1boardHidden[target[0], target[1]] == 1 || P1boardHidden[target[0], target[1]] == 2)       //Es wird auf dem Board des Spielers 2, welches Spieler 1 sieht gecheckt, ob die Koordinate entweder die ID für einen Treffer oder ein Miss beinhaltet
+            while (P1boardHidden[target[0], target[1]] == 1 || P1boardHidden[target[0], target[1]] == 24)       //Es wird auf dem Board des Spielers 2, welches Spieler 1 sieht gecheckt, ob die Koordinate entweder die ID für einen Treffer oder ein Miss beinhaltet
             {
                 Console.WriteLine(d.text(30, lang));
                 target = Shootget();                        //Sollte dies der Fall sein, wird eine neue Koordinate abgefragt
@@ -1138,6 +1503,23 @@ namespace SVgerman
             {
                 P1boardHidden[target[0], target[1]] = 1;    //Wenn ja, dann wird beim Board des Gegners das Schiff als zerstört geändert und bei dem eigenen wird ein Schiff angezeigt
                 P1board[target[0], target[1]] = 2;
+                while (found == false)
+                {
+                    for (int i = 0; i < P1Schiffe.Length - 3; i++)
+                    {
+                        for (int o = 0; o < P1Schiffe[i].Length; o = o + 2)
+                        {
+                            if (P1Schiffe[i][o] == target[0] && P1Schiffe[i][o + 1] == target[1])
+                            {
+                                found = true;
+                                P1Schiffe[i][o] = null;
+                                P1Schiffe[i][o + 1] = null;
+                                break;
+                            }
+                        }
+                        if (found) break;
+                    }
+                }
             }
             else                                            //Ansonsten wird bei beiden Boards ein Miss markiert
             {
@@ -1195,6 +1577,7 @@ namespace SVgerman
                         P2Schiffe[r][temp + 1] = positions[1];
                         temp = temp + 2;
                     }
+                    P2Schiffe[12][r] = 0;
                     break;
                 case 1:
                     for (int i = 0; i < l; i++)
@@ -1204,6 +1587,7 @@ namespace SVgerman
                         P2Schiffe[r][temp + 1] = positions[1];
                         temp = temp + 2;
                     }
+                    P2Schiffe[12][r] = 1;
                     break;
                 case 2:
                     for (int i = 0; i < l; i++)
@@ -1213,6 +1597,7 @@ namespace SVgerman
                         P2Schiffe[r][temp + 1] = positions[1] - i;
                         temp = temp + 2;
                     }
+                    P2Schiffe[12][r] = 2;
                     break;
                 case 3:
                     for (int i = 0; i < l; i++)
@@ -1222,9 +1607,14 @@ namespace SVgerman
                         P2Schiffe[r][temp + 1] = positions[1] + i;
                         temp = temp + 2;
                     }
+                    P2Schiffe[12][r] = 3;
                     break;
             }
             P2Schiffe[10][l - 1]++;
+            for (int i = 0; i < P2SchiffeC[r].Length; i++)
+            {
+                P2SchiffeC[r][i] = (int)P2Schiffe[r][i];
+            }
         }
 
 
