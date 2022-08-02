@@ -66,32 +66,34 @@ namespace SVgerman
         { 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         };
 
-        public int[][] P1Schiffe = { 
-            new int[] { 0, 0},
-            new int[] { 0, 0},
-            new int[] { 0, 0},
-            new int[] { 0, 0},
-            new int[] { 0, 0, 0, 0},
-            new int[] { 0, 0, 0, 0},
-            new int[] { 0, 0, 0, 0},
-            new int[] { 0, 0, 0, 0, 0, 0},
-            new int[] { 0, 0, 0, 0, 0, 0},
-            new int[] { 0, 0, 0, 0, 0, 0, 0, 0},
-            new int[] { 0, 0, 0, 0}
+        public int?[][] P1Schiffe = { 
+            new int?[] { 0, 0},
+            new int?[] { 0, 0},
+            new int?[] { 0, 0},
+            new int?[] { 0, 0},
+            new int?[] { 0, 0, 0, 0},
+            new int?[] { 0, 0, 0, 0},
+            new int?[] { 0, 0, 0, 0},
+            new int?[] { 0, 0, 0, 0, 0, 0},
+            new int?[] { 0, 0, 0, 0, 0, 0},
+            new int?[] { 0, 0, 0, 0, 0, 0, 0, 0},
+            new int?[] { 0, 0, 0, 0},
+            new int?[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         };
 
-        public int[][] P2Schiffe = {
-            new int[] { 0, 0},
-            new int[] { 0, 0},
-            new int[] { 0, 0},
-            new int[] { 0, 0},
-            new int[] { 0, 0, 0, 0},
-            new int[] { 0, 0, 0, 0},
-            new int[] { 0, 0, 0, 0},
-            new int[] { 0, 0, 0, 0, 0, 0},
-            new int[] { 0, 0, 0, 0, 0, 0},
-            new int[] { 0, 0, 0, 0, 0, 0, 0, 0},
-            new int[] { 0, 0, 0, 0}
+        public int?[][] P2Schiffe = {
+            new int?[] { 0, 0},
+            new int?[] { 0, 0},
+            new int?[] { 0, 0},
+            new int?[] { 0, 0},
+            new int?[] { 0, 0, 0, 0},
+            new int?[] { 0, 0, 0, 0},
+            new int?[] { 0, 0, 0, 0},
+            new int?[] { 0, 0, 0, 0, 0, 0},
+            new int?[] { 0, 0, 0, 0, 0, 0},
+            new int?[] { 0, 0, 0, 0, 0, 0, 0, 0},
+            new int?[] { 0, 0, 0, 0},
+            new int?[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         };
 
         //Dies printed das Board von Spieler 1 in die Konsole
@@ -128,13 +130,13 @@ namespace SVgerman
                             break;
                     }
                     Console.Write(d.lett(P1board[i, o]));               //Hier wird nach der ID an der Stelle [x|y] der zugehörige Buchstabe geprinted
-                    if (P1board[i, o] == 13) Console.Write('c');
+                    if (P1board[i, o] == 13) Console.Write('0');
                     Console.Write(" ");                                         //Aus Schönheitsgründen wird ein Leerzeichen zwischen den Buchstaben platziert
                     Console.ResetColor();                                       //Farbe wird geresettet für den nächsten Loop
                 }
                 Console.Write("\n");                                            //Nächste Zeile wird gestartet für den nächsten x-Koordinatenloop
             }
-            Console.WriteLine("\n" + P1Schiffe[10][0] + " " + d.text(33, lang) + P1Schiffe[10][1] + " " + d.text(34, lang) + P1Schiffe[10][2] + " " + d.text(35, lang) + P1Schiffe[10][3] + " " + d.text(36, lang));
+            Console.WriteLine("\n" + P1Schiffe[10][0] + " " + d.text(33, lang) + "\n" + P1Schiffe[10][1] + " " + d.text(34, lang) + "\n" + P1Schiffe[10][2] + " " + d.text(35, lang) + "\n" + P1Schiffe[10][3] + " " + d.text(36, lang) + "\n");
         }
 
         //Dies printed das Board von Spieler 2 in die Konsole
@@ -177,7 +179,7 @@ namespace SVgerman
                 }
                 Console.Write("\n");
             }
-            Console.WriteLine("\n" + P2Schiffe[10][0] + " " + d.text(33, lang) + P2Schiffe[10][1] + " " + d.text(34, lang) + P2Schiffe[10][2] + " " + d.text(35, lang));
+            Console.WriteLine("\n" + P2Schiffe[10][0] + " " + d.text(33, lang) + "\n" + P2Schiffe[10][1] + " " + d.text(34, lang) + "\n" + P2Schiffe[10][2] + " " + d.text(35, lang) + "\n" + P2Schiffe[10][3] + " " + d.text(36, lang) + "\n");
         }
 
         //Dies printed die Sicht von Spieler 2 auf das Board von Spieler 1 in die Konsole
@@ -219,6 +221,7 @@ namespace SVgerman
                 }
                 Console.Write("\n");
             }
+            Console.WriteLine("\n" + P1Schiffe[10][0] + " " + d.text(33, lang) + "\n" + P1Schiffe[10][1] + " " + d.text(34, lang) + "\n" + P1Schiffe[10][2] + " " + d.text(35, lang) + "\n" + P1Schiffe[10][3] + " " + d.text(36, lang) + "\n");
         }
 
         //Dies printed die Sicht von Spieler 1 auf das Board von Spieler 2 in die Konsole
@@ -261,6 +264,7 @@ namespace SVgerman
                 }
                 Console.Write("\n");
             }
+            Console.WriteLine("\n" + P2Schiffe[10][0] + " " + d.text(33, lang) + "\n" + P2Schiffe[10][1] + " " + d.text(34, lang) + "\n" + P2Schiffe[10][2] + " " + d.text(35, lang) + "\n" + P2Schiffe[10][3] + " " + d.text(36, lang) + "\n");
         }
 
         //Dies printed beide Boards die Spieler 1 sehen kann nebeneinander aus. Zuerst das von Spieler 2 und dann sein eigenes
@@ -334,6 +338,7 @@ namespace SVgerman
                 }
                 Console.Write("\n");
             }
+            Console.WriteLine("\n" + P2Schiffe[10][0] + " " + d.text(33, lang) + "\t\t\t" + P1Schiffe[10][0] + " " + d.text(33, lang) + "\n" + P2Schiffe[10][1] + " " + d.text(34, lang) + "\t\t\t" + P1Schiffe[10][1] + " " + d.text(34, lang) + "\n" + P2Schiffe[10][2] + " " + d.text(35, lang) + "\t\t\t" + P1Schiffe[10][2] + " " + d.text(35, lang) + "\n" + P2Schiffe[10][3] + " " + d.text(36, lang) + "\t\t\t" + P1Schiffe[10][3] + " " + d.text(36, lang) + "\n");
         }
 
         public void Player1outhP2out()
@@ -406,6 +411,7 @@ namespace SVgerman
                 }
                 Console.Write("\n");
             }
+            Console.WriteLine("\n" + P1Schiffe[10][0] + " " + d.text(33, lang) + "\t\t\t" + P2Schiffe[10][0] + " " + d.text(33, lang) + "\n" + P1Schiffe[10][1] + " " + d.text(34, lang) + "\t\t\t" + P2Schiffe[10][1] + " " + d.text(34, lang) + "\n" + P1Schiffe[10][2] + " " + d.text(35, lang) + "\t\t\t" + P2Schiffe[10][2] + " " + d.text(35, lang) + "\n" + P1Schiffe[10][3] + " " + d.text(36, lang) + "\t\t\t" + P2Schiffe[10][3] + " " + d.text(36, lang) + "\n");
         }
 
         public string[] sub;                                            //Der Array an User-Inputs [0] = y-Koordinate, [1] = x-Koordinate, [2] = Orientierung
@@ -444,6 +450,7 @@ namespace SVgerman
                             if (position[1] - 1 > 0) P1board[position[0] - l, position[1] - 1] = 25;
                             if (position[1] + 1 < 11) P1board[position[0] - l, position[1] + 1] = 25;
                         }
+                        P1Schiffe[10][l - 1]++;
                         input = false;
                         break;
                     case "down":                                        //Um das Schiff nach "unten" zu platzieren wird die y-Koordinate um 1 addiert
@@ -468,6 +475,7 @@ namespace SVgerman
                             if (position[1] - 1 > 0) P1board[position[0] + l, position[1] - 1] = 25;
                             if (position[0] + 1 < 11) P1board[position[0] + l, position[1] + 1] = 25;
                         }
+                        P1Schiffe[10][l - 1]++;
                         input = false;
                         break;
                     case "left":                                        //Um das Schiff nach "links" zu platzieren wird die x-Koordinate um 1 subtrahiert
@@ -492,6 +500,7 @@ namespace SVgerman
                             if (position[0] - 1 > 0) P1board[position[0] - 1, position[1] - l] = 25;
                             if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] - l] = 25;
                         }
+                        P1Schiffe[10][l - 1]++;
                         input = false;
                         break;
                     case "right":                                       //Um das Schiff nach "rechts" zu platzieren wird die x-Koordinate um 1 addiert
@@ -515,6 +524,7 @@ namespace SVgerman
                             if (position[0] - 1 > 0) P1board[position[0] - 1, position[1] + l] = 25;
                             if (position[0] + 1 < 11) P1board[position[0] + 1, position[1] + l] = 25;
                         }
+                        P1Schiffe[10][l - 1]++;
                         input = false;
                         break;
                     default:                                            //Falls keine Richtung angegeben wurde oder eine nicht existierende Richtung angegeben wurde, wird eine neue Richtung abgefragt und noch mal gecheckt
@@ -524,7 +534,6 @@ namespace SVgerman
                         position = P1checkO(position, l, sub[2]);
                         break;
                 }
-                P1Schiffe[10][l - 1]++;
             }
 
         }
@@ -699,6 +708,7 @@ namespace SVgerman
         //Diese Funktion macht den Schuss für Spieler 1
         public void P1shoot()
         {
+            bool found = false;
             int[] target = Shootget();                      //Die Position, wohin der Spieler schießen möchte wird abgegriffen
             while (P2boardHidden[target[0], target[1]] == 1 || P2boardHidden[target[0], target[1]] == 2)       //Es wird auf dem Board des Spielers 2, welches Spieler 1 sieht gecheckt, ob die Koordinate entweder die ID für einen Treffer oder ein Miss beinhaltet
             {
@@ -709,6 +719,21 @@ namespace SVgerman
             {
                 P2boardHidden[target[0], target[1]] = 1;    //Wenn ja, dann wird beim Board des Gegners das Schiff als zerstört geändert und bei dem eigenen wird ein Schiff angezeigt
                 P2board[target[0], target[1]] = 2;
+                while (found == false) 
+                {
+                    for (int i = 0; i < P2Schiffe.Length - 1; i++)
+                    {
+                        for (int o = 0; o < P2Schiffe[i].Length ; o = o + 2)
+                        {
+                            if (P2Schiffe[i][o] == target[0] && P2Schiffe[i][o + 1] == target[1])
+                            {
+                                found = true;
+                                P2Schiffe[i][o] = null;
+                                P2Schiffe[i][o + 1] = null;
+                            }
+                        }
+                    }
+                }
             }
             else                                            //Ansonsten wird bei beiden Boards ein Miss markiert
             {
@@ -720,7 +745,42 @@ namespace SVgerman
 
         void checkS()
         {
-
+            int temp = 0;
+            if (P2Schiffe[0][0] != null && P2Schiffe[0][1] != null) 
+            {
+                if (P2Schiffe[11][0] == 0)
+                {
+                    P2Schiffe[11][0] = 1;
+                }
+                temp++;
+            }
+            if (P2Schiffe[1][0] != null && P2Schiffe[1][1] != null)
+            {
+                if (P2Schiffe[11][1] == 0)
+                {
+                    P2Schiffe[11][1] = 1;
+                }
+                temp++;
+            }
+            if (P2Schiffe[2][0] != null && P2Schiffe[2][1] != null)
+            {
+                if (P2Schiffe[11][2] == 0)
+                {
+                    P2Schiffe[11][2] = 1;
+                }
+                temp++;
+            }
+            if (P2Schiffe[3][0] != null && P2Schiffe[3][1] != null)
+            {
+                if (P2Schiffe[11][3] == 0)
+                {
+                    P2Schiffe[11][3] = 1;
+                }
+                temp++;
+            }
+            P2Schiffe[10][0] = temp;
+            temp = 0;
+            if (P2Schiffe[4][0] != null && P2Schiffe[4][1] != null && P2Schiffe[4][2] != null) temp++;
         }
 
         int[] target = new int[2];                          //Speichert die Koordinaten des Ziels als int[]
@@ -864,6 +924,7 @@ namespace SVgerman
                             if (position[1] - 1 > 0) P2board[position[0] - l, position[1] - 1] = 25;
                             if (position[1] + 1 < 11) P2board[position[0] - l, position[1] + 1] = 25;
                         }
+                        P2Schiffe[10][l - 1]++;
                         input = false;
                         break;
                     case "down":                                        //Um das Schiff nach "unten" zu platzieren wird die y-Koordinate um 1 addiert
@@ -888,6 +949,7 @@ namespace SVgerman
                             if (position[1] - 1 > 0) P2board[position[0] + l, position[1] - 1] = 25;
                             if (position[1] + 1 < 11) P2board[position[0] + l, position[1] + 1] = 25;
                         }
+                        P2Schiffe[10][l - 1]++;
                         input = false;
                         break;
                     case "left":                                        //Um das Schiff nach "links" zu platzieren wird die x-Koordinate um 1 subtrahiert
@@ -912,6 +974,7 @@ namespace SVgerman
                             if (position[0] - 1 > 0) P2board[position[0] - 1, position[1] - l] = 25;
                             if (position[0] + 1 < 11) P2board[position[0] + 1, position[1] - l] = 25;
                         }
+                        P2Schiffe[10][l - 1]++;
                         input = false;
                         break;
                     case "right":                                       //Um das Schiff nach "rechts" zu platzieren wird die x-Koordinate um 1 addiert
@@ -930,6 +993,7 @@ namespace SVgerman
                             P2Schiffe[r][temp + 1] = position[1] + i;
                             temp = temp + 2;
                         }
+                        P2Schiffe[10][l - 1]++;
                         input = false;
                         break;
                     default:                                            //Falls keine Richtung angegeben wurde oder eine nicht existierende Richtung angegeben wurde, wird eine neue Richtung abgefragt und noch mal gecheckt
@@ -939,7 +1003,6 @@ namespace SVgerman
                         position = P2checkO(position, l, sub[2]);
                         break;
                 }
-                P2Schiffe[10][l - 1]++;
             }
         }
 
@@ -1055,7 +1118,7 @@ namespace SVgerman
                     {
                         P2board[positions[0] - i, positions[1]] = 1;
                         P2Schiffe[r][temp] = positions[0] - i;
-                        P2Schiffe[r][temp++] = positions[1];
+                        P2Schiffe[r][temp + 1] = positions[1];
                         temp = temp + 2;
                     }
                     break;
@@ -1064,7 +1127,7 @@ namespace SVgerman
                     {
                         P2board[positions[0] + i, positions[1]] = 1;
                         P2Schiffe[r][temp] = positions[0] + i;
-                        P2Schiffe[r][temp++] = positions[1];
+                        P2Schiffe[r][temp + 1] = positions[1];
                         temp = temp + 2;
                     }
                     break;
@@ -1073,7 +1136,7 @@ namespace SVgerman
                     {
                         P2board[positions[0], positions[1] - i] = 1;
                         P2Schiffe[r][temp] = positions[0];
-                        P2Schiffe[r][temp++] = positions[1] - i;
+                        P2Schiffe[r][temp + 1] = positions[1] - i;
                         temp = temp + 2;
                     }
                     break;
@@ -1082,11 +1145,12 @@ namespace SVgerman
                     {
                         P2board[positions[0], positions[1] + i] = 1;
                         P2Schiffe[r][temp] = positions[0];
-                        P2Schiffe[r][temp++] = positions[1] + i;
+                        P2Schiffe[r][temp + 1] = positions[1] + i;
                         temp = temp + 2;
                     }
                     break;
             }
+            P2Schiffe[10][l - 1]++;
         }
 
 

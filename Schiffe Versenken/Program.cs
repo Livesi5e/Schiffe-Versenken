@@ -18,6 +18,8 @@ class UI
             lang = Console.ReadLine();
             Gamestate.lang = lang;
             reset();
+            Gamestate.Player2outhP1out();
+            Gamestate.Player1outhP2out();
             Console.WriteLine(d.text(0, lang));
             Console.WriteLine(d.text(1, lang));
             end = Console.ReadLine();                                                       //Hier entscheidet der User, ob das Spiel beendet wird
@@ -170,6 +172,7 @@ class UI
                 "\t- Cleaned up a lot of spaghetticode and optimized the game a bit\n" +
                 "\t- Added an icon for the game (still WIP tho)\n" +
                 "\t- Added the beginning for multiple Language support (English may be supportet in future versions)\n" +
+                "\t- You can now see the ammount of ships present on the board beneath it\n" +
                 "\n\tBugfixes:\n" +
                 "\t- Fixed a bug, which crashed the game when trying to place a ship in I,8 or lower\n" +
                 "----------------\n" +

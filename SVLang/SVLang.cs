@@ -37,10 +37,10 @@
             /*id = 30*/"Hier has du schon hingeschossen. Wähle lieber ne Position, wo du noch nicht hingeschossen hast",
             /*id = 31*/"Das liegt nicht im Spielfeld, bitte wähle eine andere Position",
             /*id = 32*/"Das liegt nicht im Spielfeld, bitte wähle eine andere Zahl",
-            /*id = 33*/"X-Schiffe\n",
-            /*id = 34*/"XX-Schiffe\n",
-            /*id = 35*/"XXX-Schiffe\n",
-            /*id = 36*/"XXXX-Schiffe\n"
+            /*id = 33*/"X-Schiffe",
+            /*id = 34*/"XX-Schiffe",
+            /*id = 35*/"XXX-Schiffe",
+            /*id = 36*/"XXXX-Schiffe"
         };
         static int?[] color = { 0, 1, 2, null, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 5, 5 };
         static char[] letters = { 'O', 'X', 'K', ' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', '1', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'M', 'O' };
