@@ -3680,6 +3680,11 @@ namespace SVgerman
             return temp;        //Die Zahl wird returnt
         }
 
+        public int[,] P2get()
+        {
+            return P2board;
+        }
+
         //Diese Funktion ist ist eine public get() Funktion für das Board von Spieler 1, welches Spieler 2 sieht
         public int[,] P1hget()
         {
@@ -4009,6 +4014,32 @@ namespace SVgerman
         public void setP2Board(int[,] i)
         {
             P2board = i;
+        }
+
+        public int[,] P1hgetS()
+        {
+            int[,] temp = {
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+            };
+
+            for (int i = 0; i < 10; i++)
+            {
+                for (int o = 0; o < 10; o++)
+                {
+                    temp[i, o] = P1boardHidden[i + 1, o + 1];
+                }
+            }
+
+            return temp;
         }
     }
 }

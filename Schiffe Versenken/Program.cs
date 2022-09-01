@@ -12,9 +12,9 @@ class UI
         Console.WriteLine("---------------------------------");
         while (end == "n")                                                                  //Beendet sich, sobald das Spiel beendet wurde
         {
-            Board Gamestate = new Board();                                                  //Initialisiert ein neues Board
-            dict d = new dict();                                                            //Initialisiert ein neues Language Dictionary
-            Console.WriteLine("Please Select your Language:\n\nDeutsch\n");
+            var Gamestate = new Board();                                                  //Initialisiert ein neues Board
+            var d = new dict();                                                            //Initialisiert ein neues Language Dictionary
+            Console.WriteLine("Please Select your Language:\n\nDeutsch\t English\n");
             lang = Console.ReadLine();
             Gamestate.lang = lang;
             reset();
@@ -30,7 +30,7 @@ class UI
             reset();                                                                        //Der zweite Spieler beim Multiplayer spielt noch nach alten Platzierungsregeln
             if (temp == "1 Spieler")
             {
-                AIEasy enemy = new AIEasy();                                                //Initialisiert eine Einfache AI
+                var enemy = new AIEasy();                                                //Initialisiert eine Einfache AI
                 bool gameEnd = false;                                                       //Beinhaltet, ob die momentane Runde beendet wurde
                 bool won = false;                                                           //Beinhaltet, wer gewonnen hat. true = Spieler 1, false = Spieler 2
                 Gamestate.Player1out();                                                     //Printed das Board von Spieler 1
@@ -165,6 +165,8 @@ class UI
             Console.WriteLine
             (
                 "Changelog:\n" +
+                "v.1.4:\n" +
+                "\t- Implemented english translation\n" +
                 "v.1.3:\n" + 
                 "\tMajor Update!\n" +
                 "\t- Rewrote the gamerules\n" +
@@ -173,6 +175,7 @@ class UI
                 "\t- Added the beginning for multiple Language support (English may be supportet in future versions)\n" +
                 "\t- You can now see the ammount of ships present on the board beneath it\n" +
                 "\t- After destroying a ship all surrounding Squares will be marked as missed\n" +
+                "\t- Reduced the filesize from 66 MB to 10 MB" +
                 "\n\tBugfixes:\n" +
                 "\t- Fixed a bug, which crashed the game when trying to place a ship in I,8 or lower\n" +
                 "----------------\n" +

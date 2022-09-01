@@ -42,6 +42,46 @@
             /*id = 35*/"XXX-Schiffe",
             /*id = 36*/"XXXX-Schiffe"
         };
+        static string[] englishStrings =
+        {
+            /*id = 0*/"Type \"n\" and press \"Enter\" for a new round",
+            /*id = 1*/"To quit the program press \"Enter\"",
+            /*id = 2*/"Play against an AI or against a friend",
+            /*id = 3*/"1 Player                2 Player",
+            /*id = 4*/"\nAt first place the 4 X-Ships, afterwards the 3 XX-Ships, then the 2 XXX-Ships and finally the XXXX-Ship",
+            /*id = 5*/"Please provide the origin of the ship and the direction it is facing. The syntax is \"A,2,right\". possible directions are \"up\",\"down\",\"left\",\"right\"",
+            /*id = 6*/"At first we place the first X-Ship\n",
+            /*id = 7*/"\nNow we place the second X-Ship",
+            /*id = 8*/"\nNow we place the third X-Ship",
+            /*id = 9*/"\nNow we place the last X-Ship",
+            /*id = 10*/"\nNow we place the first XX-Ship",
+            /*id = 11*/"\nNow we place the second XX-Ship",
+            /*id = 12*/"\nNow we place the last XX-Ship",
+            /*id = 13*/"\nNow we place the first XXX-Ship",
+            /*id = 14*/"\nNow we place the last XXX-Ship",
+            /*id = 15*/"\nNow we place the final XXXX-Ship",
+            /*id = 16*/"\nPlease provide the position you want to shoot at. The syntax is \"A,1\"\n",
+            /*id = 17*/"Congratulations Player 1! You have won!\n",
+            /*id = 18*/"Congratulations Player 2! You have won!\n",
+            /*id = 19*/"Player 1 can now place their ships.\nAs soon as player 2 can not see the screen anymore press \"Enter\"",
+            /*id = 20*/"These are your Ships. To continue, press \"Enter\"",
+            /*id = 21*/"Player 2 can now place their ships.\nAs soon as player 1 can not see the screen anymore press \"Enter\"",
+            /*id = 22*/"Player 1 can now shoot.\nAs soon as player 2 can not see the screen anymore press \"Enter\"",
+            /*id = 23*/"\nTo continue, press \"Enter\"",
+            /*id = 24*/"Player 2 can now shoot\nAs soon as player 2 can not see the screen anymore press \"Enter\"",
+            /*id = 25*/"Your board:\n",
+            /*id = 26*/"Enemy board:",
+            /*id = 27*/"Please provide an existing direction",
+            /*id = 28*/"This wont fit there :/ Please enter a position where the ship will fit",
+            /*id = 29*/"You have already a ship here. Please enter a position where is no ship present",
+            /*id = 30*/"You have already shot here. It would be better to shoot at a position you have not shot yet",
+            /*id = 31*/"This isnt on the board. Please choose another target",
+            /*id = 32*/"This number isnt on the board. Please provide a valid number",
+            /*id = 33*/"X-Ships",
+            /*id = 34*/"XX-Ships",
+            /*id = 35*/"XXX-Ships",
+            /*id = 36*/"XXXX-Ships"
+        };
         static int?[] color = { 0, 1, 2, null, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 5, 5 };
         static char[] letters = { /*0*/'O', /*1*/'X', /*2*/'K', /*3*/' ', /*4*/'1', /*5*/'2', /*6*/'3', /*7*/'4', /*8*/'5', /*9*/'6', /*10*/'7', /*11*/'8', /*12*/'9', /*13*/'1', /*14*/'A', /*15*/'B', /*16*/'C', /*17*/'D', /*18*/'E', /*19*/'F', /*20*/'G', /*21*/'H', /*22*/'I', /*23*/'J', /*24*/'M', /*25*/'O' };
 
@@ -58,6 +98,10 @@
                     return germanStrings[p];
                 case "deutsch":
                     return germanStrings[p];
+                case "English":
+                    return englishStrings[p];
+                case "english":
+                    return englishStrings[p];
                 default:
                     return null;
             }
